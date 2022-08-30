@@ -1,0 +1,22 @@
+/* 전체 */
+#item_box {width: 100%; height: auto; margin-top: 50px;}
+#item_listwrap {width: 1200px; height: auto; margin: 0 auto;}
+/* 검색 */
+#search_box {width: 1200px; height: 50px; display: flex;}
+#search {width: 600px; height: 30px;}
+#sort_box {display: flex; width: 700px; height: 39px;}
+#sort_box p {width: 100px; height: 40px; text-align: center; margin: 0;}
+/* 상품 표시란 */
+#item_list_box {width: 1200px; height: auto; margin-top: 50px}
+.item_kind a {display: inline-block; width: 100px; height: 30px; line-height: 30px; text-align: center; margin-right: 20px; text-decoration: none; color: black;}
+.item_kind a:hover {color: rgb(255, 0, 55);}
+.item_wrap {display: flex; width: 1200px; height: 500px; margin-bottom: 20px;}
+.item {width: 379px; height: 500px; padding: 0 10px 0 10px;}
+.item_img {width: 379px; height: 390px;}
+.item_img img {max-width: 379px;}
+.item_money, .item_title, .item_content {width: 379px; text-align: center; margin-bottom: 5px;}
+.item_money {font-size: 20px; font-weight: 800;}
+/* 지금처럼 요소가 밀릴 땐 .item의 바깥쪽에 .item_wrap보다 작은 div를 덧씌운다. */
+.item:hover {border: 1px solid #cc2f51;}
+.item:hover .item_money {text-decoration: underline;}
+.item:hover .item_title {font-weight: 600;}

@@ -1,0 +1,7 @@
+#view_box {width: 100%; height: auto; margin-top: 100px;}
+#view_wrap {width: 600px; height: auto; background: #8fb8a7; margin: 0 auto;}
+#title {font-size: 20px; margin-bottom: 6px;}
+#image {width: 100%; height: auto; margin-bottom: 10px;}
+#image #image_view {width: 600px;}
+#bt {width: 300px; padding-bottom: 10px; padding-left: 6px; display: flex;}
+#bt a {width: 80px; height: 28px; margin-right: 20px; line-height: 28px; display: block; text-align: center; text-decoration: none; background: black; color: white; border-radius: 2px;}

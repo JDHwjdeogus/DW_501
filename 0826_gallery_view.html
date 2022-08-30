@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="css/0826_gallery_view.css">
+</head>
+<body>
+    <div id="view_box">
+        <div id="view_wrap">
+            <div id="title">
+                제목: <b id="title_view"></b>
+            </div>
+            <div id="image">
+                <img id="image_view">
+            </div>
+            <div id="bt">
+                <a href="0826_image_board.html">목록</a>
+                <a href="">수정</a>
+                <a href="">삭제</a>
+            </div>
+        </div>
+    </div>
+</body>
+<script type="text/javascript">
+    console.log(location.href);
+    
+    var url = location.href;
+    var params = url.split('?')[1]
+    params = params.split('&');
+    // alert(params[0]); 
+    //params[0]: name || params[1]: type || params[2]: title
+
+    var img_name = params[0].split('=')[1]; //vaporwave_1
+    var img_type = params[1].split('=')[1]; //jpg
+    var img_title = params[2].split('=')[1]; //vaporwave
+    img_title = decodeURI(img_title); //한글 문자 디코딩
+    // alert(img_name); alert(img_type); alert(img_title);
+
+    // document: html 문서 전체
+    // getElementById: html태그에서부터 차례대로 타고 내려와서 id를 찾는 방식(계단식)
+    // querySelector: 문서 내 모든 태그를 리스트 형식으로 나열한 뒤 그 안에서 찾는 방식(리스트)
+    
+    // document.getElementById("title_view");
+    
+</script>
+</html>
+<script>
+    /* 
+    html은 순차적으로 코드를 읽는 언어이기 때문에 
+    id로 태그를 검색하는 작업을 하고 싶다면 html이 만들어진 상태에서 실행해야 하므로 
+    html태그 밖에, html보다 아래쪽에 스크립트 코드를 작성해야 한다.
+    */
+
+    // b 태그 안쪽의 텍스트(제목)을 검색해야 하므로 innerHTML을 사용
+    // img 태그는 안쪽이라는 개념이 없으므로 설정된 속성값을 이용해 검색한다.
+    // src, id, href, value, name, ... : 속성(attribute)
+    var tview = document.querySelector("#title_view");
+    tview.innerHTML = img_title;
+    var img =  document.querySelector("#image_view");
+    img.setAttribute("src",  "./img/"+ img_name + "."+ img_type);
+</script>

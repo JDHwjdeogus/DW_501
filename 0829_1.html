@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    // for문: 조건이 충족되기 전까지 코드를 반복실행.
+    // 자바스크립트는 var로 데이터 타입이 통일되어있음. 
+    
+    /*
+    var x = 10;
+    for(var i = 0; i < 6; i++){ // for문 시박
+        console.log(i);
+    } // for문 끝
+    */
+    // 1. var i = 0; >> 초기문
+    // 2. i < 3; >> 조건식
+    // 3. console.log(i) >> 반복문
+    // 4. i++ >> 반복 후 작업
+
+    // var i = 2;
+    // if (i % 2 == 0){
+    //     console.log("짝수");
+    // }
+
+    // for (var i = 1; i <= 10; i++){
+    //     if (i % 2 == 0){
+    //         console.log(i);
+    //     } 
+    // }
+
+    // for(var i = 1; i <= 5; i++){
+    //     if (i == 4){
+    //         console.log("i는 " + i + "입니다.")
+    //     }
+    // }
+
+    // for(var i = 0; i <= 5; i++){
+    //     if (i == 2 || i == 4){
+    //         console.log(i);
+    //     } 
+        
+    // }
+    
+    //1
+    var index = 0;
+    for(var i = 1; i <= 10; i++){
+        if (i % 2 == 0){
+            index++;
+        }
+    }
+    console.log("1부터 10까지의 짝수 개수는 " + index + "개...");
+    //2
+    var sum = 0;
+    for(var i = 1; i <= 10; i++){
+        sum += i;
+    }
+    console.log("1부터 10까지의 합은 " + sum);
+</script>
+</html>
