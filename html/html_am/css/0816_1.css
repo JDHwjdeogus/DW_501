@@ -1,0 +1,32 @@
+#one td {width: 100px; height: 50px; border: 2px solid black;}
+#two td {width: 200px; height: 80px; border:3px solid #6c5394;}
+#three td {/*width: 200px;*/ height: 30px; border: 2px solid #306b30;}
+/* (태그명/네임/클래스/아이디):hover >> 해당 태그에 마우스가 올라갈 때 */
+#one:hover td {border: 2px solid #a6c456;}
+#two:hover {background: #422358;}
+
+.color {width: 50px; height: 50px; border: 2px solid rgb(214, 214, 188); text-align: center;}
+.black {background: black; color: white;}
+.blue {background: #0c1f88; color: #ff9900;}
+.red {background: #8a1414; color: #54c470;}
+.green {background: #257c29; color: #ee9fe1;}
+.yellow {background: #d6c636; color: #58145a;}
+
+.black:hover {color: black; background: white;}
+.blue:hover {color: #0c1f88; background: #ff9900;}
+.red:hover {color: #8a1414; background: #54c470;}
+.green:hover {color: #257c29; background: #ee9fe1;}
+.yellow:hover {color: #d6c636; background: #58145a;}
+
+.color_box td {width: 66px; height: 33px; border: 3px solid rgb(158, 127, 107); color: #2c1616; font-weight: 600; text-align: center;}
+.color_box td:hover {color: bisque;}
+.color_box #mint:hover {background: #5fcaaf;}
+.color_box #lavender:hover {background: #c29be2;}
+.color_box #coral:hover {background: #d37575;}
+.color_box #orange:hover {background: #d37a3f;}
+.color_box #sky:hover {background: #61b6f0;}
+.color_box #cobalt:hover {background: #0028d8;}
+.color_box #blue:hover {background: #0f1586;}
+.color_box #navy:hover {background: #0e0d31;}
+/* .black:hover .color_box {background: white;} 
+    css는 할 수 없지만 javascript로는 가능*/

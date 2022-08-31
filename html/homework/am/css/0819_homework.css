@@ -1,0 +1,56 @@
+body {margin: 0 auto; padding: 0; background: #191c24; color: #a5aebd;}
+
+#wrap {width: 1200px; height: 1600px; margin: 0 auto;}
+
+hgroup {width: 100%; height: 13%; display: flex; margin-top: 12px; border-bottom: 2px solid #a5aebd;}
+.logo{flex-basis: 22%; margin-top: 16px; margin-right: 20px;}
+.profile {flex-basis: 14%; margin: 20px 0; padding-left: 20px;}
+.select {flex-basis: 20%;}
+.colpa {flex-basis: 28%;}
+
+.logo img {width: 320px; height: 180px;}
+.profile img {width: 150px; height: 150px;}
+
+#H_and_D {width: 100%; height:66%; margin: 30px 26px 0 0 ; background: transparent; color: #e6e0ac; text-align: left; font-size: 62pt; border: none; border-radius: 10px; font-family: serif;}
+#H_and_D:hover {cursor: pointer;}
+
+.cp_back{background: #ffffff; width: 330px; height: 175px; padding: 10px 2px 0 18px; margin: 3px 0 0 60px;}
+.cp_back font {color: #444444; font-size: 14pt;}
+.cp_row {display: flex; width: 90%; height: 124px; background: #3765e2; margin: 8px 0 0 10px;}
+.cp {width: 20%; height: 100%;}
+.c1 {background: #ffef5f;}
+.c2 {background: #49d3c0;}
+.c3 {background: #9182e7;}
+.c4 {background: #2c39ad;}
+.c5 {background: #000000;}
+
+content {display: flex; height: 80%;}
+#my_menu {height: 99.6%; background: #0b0d11;}
+nav {width: 20%; height: 100%; border-right: 2px solid #a5aebd;}
+nav ul {list-style-type: none; font-size: 30pt; padding-left: 0; text-align: center; margin-top: 0; font-family: 'Times New Roman', Times, serif;}
+nav ul li {width: 100%; height: 80px; margin-top: 5px; padding-top: 5px; color: #a5aebd; line-height: 70px;}
+/* ul:nth-child(1) {margin-top: 0;} */
+nav ul li:hover {background: #4c2472; color: #eaaaf0; transition: 0.6s;}
+nav div ul a {text-decoration: none;}
+
+section {width: 72%; height: 100%; display: flex; flex-direction: column;}
+.deco {flex-basis: 47%; display: flex;}
+.amumal {flex-basis: 13%; background: linear-gradient(#22e4eb, #28dda7,  #c59f22, #c77b24, #e0631a, #f54a4a);}
+.jujeob {flex-basis: 40%;}
+
+#room {flex-basis: 70%; position: relative;}
+#room img {width: 588px; height: 602px; position: absolute;}
+#avatar {flex-basis: 30%; background: #dbe2e9;}
+#avatar img {width: 270px; height: 390px;}
+#avatar #button {background: #49d3c0; border-radius: 5px; width: 90%; height: 32%; margin-left: 4%; margin-bottom: 5%; border: 3px solid #666666;}
+#avatar #button input {border: 2px solid #666666; border-radius: 5px; width: 100px; height: 35px; cursor: pointer; margin: 8% 0 0 5%; font-weight: 600;}
+#avatar #button input:hover {background: #056e69; color: #dbe2e9; border: 2px solid #dbe2e9;}
+#avatar #button div .save {width: 200px; height: 60px; border-radius: 15px; margin: 15% 0 0 8%; font-weight: 600; font-size: 15pt; background: #056e69; border: 2px solid #0b0d11;}
+#avatar #button div .save:hover {color: #dbe2e9; border:2px solid #dbe2e9}
+
+.amumal p {font-weight: 800; font-size: 20pt; text-align: center; color: #a14146; font-family: "굴림"; line-height: 40px;}
+
+aside {width: 8%; height: 100%; border-left: 2px solid #a5aebd;}
+
+footer {width: 100%; height: 7%; background: #000000c5; border-top: 2px solid #a5aebd;}
+#copyright {margin: 30px; font-size: 18px; text-align: center;}

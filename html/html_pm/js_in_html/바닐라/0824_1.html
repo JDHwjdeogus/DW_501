@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" id="name">
+    <button onclick="doClick()">점심메뉴</button>
+
+    <h2>메뉴</h2>
+    <select id="menu">
+        <option value="null">메뉴선택</option>
+        <option value="디카페인 아메리카노">디카페인 아메리카노</option>
+        <option value="블랙밀크티">블랙밀크티</option>
+        <option value="카페모카">카페모카</option>
+    </select>
+    <input type="number" id="count" placeholder="수량을 입력해주세요.">
+    <br>
+    ICED: <input type="radio" name="type" value="iced" checked>
+    HOT: <input type="radio" name="type" value="hot">
+    <br>
+    <button onclick="doOrder()">주문</button>
+</body>
+<script>
+    var x = 10;
+    if (x == 10){
+        console.log("x는 10");
+    }
+    if ( x > 5 ){
+        console.log("if 실행");
+    }
+    
+
+    var word = '샌드위치';
+    if (word == '샌드위치') {
+        console.log("오늘의 점심은 샌드위치");
+    }
+    
+
+    var word2 = '파이';
+    if (word2 == '치아바타'){
+        console.log("오늘 파이를 구매");
+    } else {
+        console.log("오늘 치아바타를 구매")
+    }
+
+    function doClick(){
+        var name = document.getElementById('name').value;
+        console.log(name);
+        if(name == '파이'){
+            console.log('오늘 파이를 먹엇워요');
+        }
+    }
+
+    function doOrder(){
+        var selectedMenu = document.getElementById('menu').value;
+        
+        console.log(selectedMenu);
+        if (selectedMenu == '디카페인 아메리카노'){
+            console.log("죄송합니다 디카페인 아아는 재고가 모두 소진되었습니다.");
+        }
+
+        if (selectedMenu == 'null'){
+            console.log("메뉴를 선택해주세요")
+        }
+
+        var count = document.getElementById('count').value;
+        console.log(count);
+        if (count > 10) {
+            console.log("1인 당 최대 10잔까지 주문 가능합니다.")
+        }
+
+        var type = document.querySelector('input[name=type]:checked').value;
+        console.log(type);
+        
+    }
+</script>
+</html>

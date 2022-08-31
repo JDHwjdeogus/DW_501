@@ -1,0 +1,6 @@
+/* .image {float: left;} */
+/* float: left >> 브라우저의 크기에 따라 줄이 바뀜 */
+/* display: flex >> 브라우저를 줄여도 가로로 나열됨. width가 고정되어도 가로로 배치됨 */
+/* flex-wrap: wrap >> 지정된 width의 크기에 따라 줄바꿈 배치 */
+
+#box {display: flex; width: 600px; flex-wrap: wrap;}

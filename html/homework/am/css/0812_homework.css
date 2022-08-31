@@ -1,0 +1,12 @@
+h2 {margin-left: 390px;}
+table tr td {border: 1px solid black;}
+
+#subtitle tr td {width: 240px; height: 22px; border-left: none; border-top: none; border-left: none;}
+#subtitle tr .fr {border-top: 1px solid black;}
+#subtitle th {font-weight: 500; width: 180px; border: 1px solid black; border-right: 2px solid black; background: #d1ade9;}
+
+#detail tr td {width: 150px; height: 20px; border-top: none; border-left: none;}
+#detail #Dhead th {font-weight: 500; background: #d1ade9; border-bottom: 2px solid black; border-top: 2px solid black;}
+#detail tr .fc {border-left: 1px solid black;}
+/* #detail tr #frh1 {border-left: 1px solid black;}
+#detail tr #frh2 {border-right: 1px solid black;} */

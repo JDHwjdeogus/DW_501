@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/0824_board_write.css">
+</head>
+<body>
+    <div id="write_box">
+        <div id="write_wrap">
+
+            <div class="write_form">
+                <!-- <form method="get" action="0824_board_save.html"> -->
+                    <div class="box">
+                        <div class="wdate">
+                            <div class="box_title">작성일</div>
+                            <div class="box_input">
+                                <input type="text" name="date" id="date">
+                            </div>
+                        </div>
+                        
+                        <div class="view_count">
+                            <div class="box_title">조회수</div>
+                            <div class="box_input">
+                                <input type="number" name="lookup" id="lookup">
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="box">
+                        <div class="box_title">작성자</div>
+                        <div class="box_input">
+                            <input type="text" name="writer" id="writer">
+                        </div>
+                    </div>
+
+                    <div class="box">
+                        <div class="box_title">제목</div>
+                        <div class="box_input">
+                            <input type="text" name="title" id="title">
+                        </div>
+                    </div>
+
+                    <div class="box content_box">
+                        <div class="box_title">내용</div>
+                        <div class="box_input">
+                            <textarea name="" id="content" cols="30" rows="10"></textarea>
+                        </div>
+                    </div>
+
+                    <div class="bt correct">
+                        <div><button type="button" id="list">목록</button></div>
+                        <div class="mod"><button type="button" id="change">수정</button></div>
+                        <div class="del"><button type="button" id="delete">삭제</button></div>
+                    </div>
+                <!-- </form> -->
+            </div>
+        </div>
+    </div>
+</body>
+</html>

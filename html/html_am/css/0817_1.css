@@ -1,0 +1,14 @@
+#div1 {margin-top: 50px; margin-left: 100px; border: 1px solid black; width:140px; height: 40px;}
+#div2 {margin: 30px 0 0 50px; border: 1px solid black; width:140px; height: 40px;}
+#div3 {margin-top: 10px; border: 1px solid black; padding: 50px 0 0 100px; width: 140px; height: 40px;}
+#div4 {margin: 45px 0 45px 80px; border: 1px solid black; width: 180px; height: 40px;}
+#div5 {margin: 45px 0 45px 80px; border: 1px solid black; width: 220px; height: 40px;}
+#div6 {border: 1px solid black; width: 440px; height: 360px;}
+.d {height: 30px; border: 1px solid black;}
+/* 
+높이값을 줘버리면 div안의 글자 및 이미지가 영역 밖으로 나가버린다. 
+이 때 auto로 지정해주면 해당 이미지나 글귀에 맞게 자동조정이 된다.
+*/
+.d1 {background-color: #7a60da; margin-top: 20px;}
+.d2 {height: auto; background-color: #59643a; padding: 25px 0 25px 0;}
+.d3 {background-color: #e7cc55; margin: 15px 10px 0 10px;}

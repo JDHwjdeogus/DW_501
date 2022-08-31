@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table, th, td {border: 1px solid black; }
+        #mail_f {width: 130px; height: 15px;}
+        #mail_b {width: 170px; height: 22px;}
+    </style>
+</head>
+<body style="background-color: #999999;">
+    <h1>로그인 화면</h1>
+    id: <input type="text" placeholder="아이디"><br>
+    pw: <input type="password" placeholder="비밀번호">
+    <!-- 버튼을 만드는 방법 1 -->
+    <input type="button" value="로그인">
+    <!-- 버튼을 만드는 방법 2 -->
+    <button>회원가입</button>
+    비밀번호를 잊으셨나요?
+    <!-- a: 다른 페이지로 이동 시 사용 -->
+    <a href="https://www.google.com/">비밀번호 찾기</a> 
+
+    <h2>input tag 종류 알아보기</h2>
+    <!-- 달력 -->
+    <input type="month">
+    <input type="date">
+    <input type="week">
+    <input type="time">
+    <!-- 첨부파일 -->
+    <input type="file">
+    <!-- 체크박스 -->
+    <input type="checkbox">
+    <input type="number">
+    <br>
+
+    <h2>select tag 알아보기</h2>
+    <select>
+        <option>아이스 아메리카노 M</option>
+        <option>아이스 아메리카노 L</option>
+        <option>믹스 커피</option>
+    </select>
+
+    <h2>table tag 알아보기</h2>
+    <!-- table 태그는 크게 body head로 구분 -->
+    <table>
+        <thead>
+            <!-- tr은 table row. 행. -->
+            <tr>
+                <!-- th는 table head. 열. -->
+                <th>출장비 내역</th>
+                <th>금액</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <!-- td는 table data. 열. -->
+                <td>교통비</td>
+                <td>32,000</td>
+            </tr>
+            <tr>
+                <td>숙박비</td>
+                <td>100,000</td>
+            </tr>
+            <tr>
+                <td>식비</td>
+                <td>50,000</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h2>테이블 문제 풀어보기</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>요일</th>
+                <th>수업</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>월요일</td>
+                <td>요가</td>
+            </tr>
+            <tr>
+                <td>화요일</td>
+                <td>태권도</td>
+            </tr>
+            <tr>
+                <td>수요일</td>
+                <td>필라테스</td>
+            </tr>
+        </tbody>
+    </table>
+    <br>
+
+    <input type="text" id="mail_f"> @ 
+    <select id="mail_b">
+        <option>메일을 선택하세요</option>
+        <option>gmail.com</option>
+        <option>naver.com</option>
+        <option>hanmail.net</option>
+        <option>nate.com</option>
+        <option>kakao.com</option>
+    </select>
+
+</body>
+</html>

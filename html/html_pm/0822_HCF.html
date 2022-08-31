@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {margin: 0; padding: 0;}
+        .wrap {margin: 0 auto; width: 1000px; height: 800px; display: flex; flex-direction: column;}
+        .header {background: #4151e2; flex-basis: 22%;}
+        .center {background: #aa6ea0; flex-basis: 40%; display: flex; justify-content: space-between;}
+        .footer {background: #be3c3c; flex-basis: 20%;}
+
+        .nav {flex-basis: 15%; border: 1px solid #000000;}
+        .section {flex-basis: 55%; border: 1px solid #000000; display: flex; flex-direction: column; justify-content: space-evenly; padding-left: 7%;}
+        .aside {flex-basis: 15%; border: 1px solid #000000;}
+
+        .article {flex-basis: 22%; width: 85%; border: 1px solid #000000;}
+
+    </style>
+</head>
+<body>
+    <div class="wrap">
+        <div class="header"></div>
+        <div class="center">
+            <div class="nav">navigation</div>
+
+            <div class="section">section
+                <div class="article">article</div>
+                <div class="article">article</div>
+            </div>
+
+            <div class="aside">side</div>
+        </div>
+        <div class="footer"></div>
+    </div>
+</body>
+</html>

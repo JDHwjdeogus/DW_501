@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button onclick="Scrrr()">주의</button>
+</body>
+<script>
+function Scrrr(){
+    // 자바스크립트는 변수 이름 중복을 허용함.
+    var x = 10;
+    // var x = '10';
+    var y = '10';
+    // 데이터 타입이 var로 통일되어있다. 문자'3'과 숫자 3을 같은 값의 데이터로 인식한다.
+    // 솔루션: === 사용(데이터의 내용과 타입을 전부 체크)
+    if(x == y){
+        alert('we are same');
+    }
+
+    if(x !== y){
+        alert('no, we are different');
+    }
+}
+</script>
+</html>

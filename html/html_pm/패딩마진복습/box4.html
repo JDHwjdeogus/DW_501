@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {margin:0; padding:0;}
+        #wrap {background: #ccc; margin: 100px auto; width: 400px; height: 510px;}
+        #title {padding: 30px 0 0 0;}
+        #title h2{text-align: center;}
+        #menu select {width: 100%; height: 30px;}
+        #menu, #radio {padding: 5px 9%;}
+        #amount, #textarea, #button {padding: 9px 0;}
+        #amount input {height: 33px;}
+        #button input {height: 40px; font-size: 13pt; font-weight: 600; border: 1px solid #aaa; border-radius: 3px;}
+        #button input:hover {background: #333; color: white; border: none; transition: 0.5s;}
+        #amount input, #button input {width: 100%;}
+    </style>
+</head>
+<body>
+    <div id="wrap">
+        <div id="title">
+            <h2>茶사모 메뉴</h2>
+        </div>
+        <div id="menu">
+            <select placeholder="메뉴를 선택해주세요.">
+                <option>디카페인 아메리카노</option>
+                <option>홍차</option>
+                <option>레몬차</option>
+                <option>녹차</option>
+                <option>페퍼민트</option>
+                <option>캐모마일</option>
+            <select>
+        </div>
+        <div id="radio">
+            <font>ICED: </font><input type="radio" name="radio_t" id="ice">
+            <font>HOT: </font><input type="radio" name="radio_t" id="hot">
+            <br>
+            <font>L size: </font><input type="radio" name="radio_s" id="L">
+            <font>M size: </font><input type="radio" name="radio_s" id="M">
+        <div id="amount">
+            <input type="text" placeholder="수량을 입력해주세요.">
+        </div>
+        <div id="textarea">
+            <textarea id="txt" cols="44" rows="10" placeholder="추가 사항이 있으면 적어주세요."></textarea>
+        </div>
+        <div id="button">
+            <input type="button" value="주문 완료">
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" placeholder="아이디입력" id="userId">
+    <input type="password" id="userPW" type="password" placeholder="비밀번호 입력">
+    <input type="password" id="userRePW" type="password" placeholder="비밀번호 재입력">
+    <input type="text" id="userEmail" type="text" placeholder="이메일 입력">
+    <button onclick="doJoin()">회원가입</button>
+</body>
+<script>
+    function doJoin(){
+        var userId = document.getElementById('userId').value;
+        if(userId == ''){ //빈칸 체크
+            alert("준혁학생~~! 아이디 빠졌어요~~~~!!");
+            document.getElementById('userId').focus();
+            return false;
+        }
+
+        var userPW = document.getElementById('userPW').value;
+        if(userPW == ''){ //빈칸 체크
+            alert("준혁학생~~! 비번 빠졌어요~~~~!!");
+            document.getElementById('userPW').focus();
+            return false;
+        }
+
+        var userEmail = document.getElementById('userEmail').value;
+        if(userEmail == ''){
+            alert("준혁학생~~! 이메일 빠졌어요~~~~!!");
+            document.getElementById('userEmail').focus();
+            return false;
+        }
+        
+        var userRePW = document.getElementById('userRePW').value;
+        if(userRePW == ''){
+            alert("준혁학생~~! 재입력 빠졌어요~~~~!!");
+            document.getElementById('userRePW').focus();
+            return false;
+        }else if(userRePW != userPW){
+            alert("준혁학생~~~~~ 이거 비번 아니래요~~~~~~");
+            return false;
+        }
+
+        alert("준혁학생 팬티 찾았어요~~~~~~");
+    }
+</script>
+</html>

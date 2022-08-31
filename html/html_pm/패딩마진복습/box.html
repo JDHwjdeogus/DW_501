@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 패딩과 마진은 경계선(border) 기준으로 안과 밖의 여백을 의미 */
+        /* 브라우저마다 기본 설정된 마진과 패딩값이 존재하므로 바디 태그의 마진과 패딩을 0으로 설정해준다. */
+        /* margin: 상하방향 좌우방향; */
+        /* padding은 auto가 없다. */
+        body {margin: 0; padding: 0;}
+        input {padding-left: 10px; padding-top: 20px; margin-right: 66px;}
+        .box1 {width: 100px; height: 150px; background-color: #6f701b; margin: 100px auto;}
+        .test-box {margin-bottom: 22px;}
+
+        #batang {width: 600px; height: 390px; background-color: black; margin: auto;}
+        #batang div {width:auto; height: 18%; background-color: #840a0a; margin-bottom: 30px;}
+    </style>
+</head>
+<body style="background-color: #999999;">
+    <input type="text" value="안녕하세요">
+    <input type="text" value="안녕하세요...!">
+    
+    <h3>div 태그로 margin 알아보기</h3>
+    <div class="box1">
+        <div class="test-box">검은콩두유</div> <!-- div.test-box -->
+        <div class="test-box">아몬드유</div>
+    </div>
+
+    <div id="batang">
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body style="background: #ccc;">
+    <input type="text" id="memo">
+    <input type="text" id="name">
+    <input type="text" id="fruit">
+    <button onclick="test1()">확인</button>
+    <br><br><br>
+
+    <h3>숫자 입력 받기</h3>
+    <input type="text" id="num">
+    <button onclick="test2()">확인</button>
+    <br><br><br>
+
+    <h3>주문수량</h3>
+    <input type="text" id="count">
+    <button onclick="order()">주문</button>
+    <br><br><br>
+
+    <h3>메뉴선택</h3>
+    <select id="menu">
+        <option value="디카페인 아메리카노">디카페인 아메리카노</option>
+        <option value="디카페인 카페모카">디카페인 카페모카</option>
+        <option value="블랙 밀크티">블랙 밀크티</option>
+        <option value="로얄 밀크티">로얄 밀크티</option>
+    </select>
+    <button onclick="test3()">선택완료</button>
+</body>
+<script>
+    // function: 함수(메소드) || var: 데이터 타입 || document: html || get: 얻다 || Element: 태그 || ById: Id로 ~~ || value: 값 || 
+    // HTML5, CSS5, JS(Java Script)5 || 수업에서 사용하는 버전: 5 || 최근 버전: 9~10 || 기업에서의 그나마 최근: 6~7
+    function test1(){
+        var memo = document.getElementById("memo").value;
+        var name = document.getElementById("name").value;
+        var fruit = document.getElementById("fruit").value;
+        alert (memo + ", " + name);
+        alert ("제일 좋아하는 건 " + fruit + "이다. 안타깝게도.");
+    }
+    //조건문 if
+    function test2(){
+        var num = document.getElementById("num").value;
+        if(num >= 10){ // if시작
+            alert("10을 넘는");
+        } // if끝
+        else{ // if 반대인 else
+            alert("10을 못넘는");
+        }
+    }
+
+    function order(){
+        var count = document.getElementById("count").value;
+        if(count >= 20){
+            alert("죄송합니다, 1인 당 20개 미만으로 주문 가능합니다.");
+        }else{
+            alert("주문하신 수량이 " + count + " 개 맞으십니까?");
+        }
+    }
+
+    function test3(){
+        var menu = document.getElementById("menu").value;
+        if(menu == '디카페인 아메리카노'){
+            alert("탁월한 선택: " + menu);
+        }else if(menu == '디카페인 카페모카'){
+            alert("선택하신 메뉴는 품절되었습니다.")
+        }else{
+            alert("당신은 본투비 차사모 인간이다 : 선택한 건 " + menu);
+        }
+    }
+</script>
+</html>

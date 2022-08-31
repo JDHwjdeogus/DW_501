@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* style 태그 주석 */
+        /* 
+            선택자: css는 html에 효과를 적용하기 위한 언어.
+                    html에 여러 개의 태그가 사용되므로, 
+                    특정 태그만 선택해 효과를 적용하려면,
+                    선택자를 사용해야 한다.
+            선택자의 종류: 태그 이름, id(#id명), class(.class명), name
+            id: 현재 열린 html에서 고유한 이름이어야 함 (중복 불가).
+            class: id와는 달리 중복 가능. 
+                   같은 class명으로 여러 태그에 적용 가능.
+        */
+
+        /* 
+            #cafe {color:darkgoldenrod;}
+            .drink {font-size: 15pt;} 
+        */
+
+        #cafe {background: #6C608A; list-style-type: none;}
+        .drink ul {opacity: 0; height:0;}
+        .drink:hover ul {opacity: 1; height:240px;} 
+        /* 
+            hover: 마우스가 태그로 지정된 영역에 올라가면 효과 발동
+            .drink ul: drink class 밑의 ul 포함 모든 태그(하위선택자)
+            .drink > ul: drink class 바로 밑의 ul과 li만(자식 선택자)
+            :이 경로의 ul > li 안에 다른 리스트가 생성된다면 그 리스트엔 적용되지 않음.
+        */
+        
+    </style>
+</head>
+<body style="background-color: #999999;">
+<!-- 
+    <ul style="list-style-type: circle;">
+        <li>Coffee</li>
+        <li>Tea</li>
+        <li>Milk</li>
+    </ul>
+    <ul style="list-style-type: armenian;">
+        <li>Coffee</li>
+        <li>Tea</li>
+        <li>Milk</li>
+    </ul>
+    <ul style="list-style-type: square;">
+        <li>Coffee</li>
+        <li>Tea</li>
+        <li>Milk</li>
+    </ul> 
+-->
+    <ul id="cafe">
+        <li class="drink">Coffee
+            <ul>
+                <li>아메리카노</li>
+                <li>카페모카</li>
+                <li>카페라떼</li>
+                <li>카라멜 마끼야또</li>
+                <li>에스프레소</li>
+            </ul>
+        </li>
+        <li class="drink">Tea
+            <ul>
+                <li>청귤차</li>
+                <li>유자차</li>
+                <li>레몬차</li>
+                <li>녹차</li>
+                <li>홍차
+                    <br>&nbsp;( 블랙 | 아쌈 | 잉블퍼 | 레블퍼 )</li>
+                <li>캐모마일</li>
+                <li>자스민</li>
+                <li>라벤더</li>
+                <li>페퍼민트</li>
+                <li>로즈마리</li>
+            </ul>
+        </li>
+        <li class="drink">Milk
+            <ul>
+                <li>로얄밀크티</li>
+                <li>타로밀크티</li>
+                <li>아쌈밀크티</li>
+                <li>말차라떼</li>
+                <li>곡물라떼</li>
+                <li>흑임자라떼</li>
+                <li>Latte is horse</li>
+        </ul>
+        </li>
+    </ul>
+</body>
+</html>

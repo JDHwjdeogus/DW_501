@@ -1,0 +1,27 @@
+body {margin: 0; padding: 0;}
+#wrap {margin: 0 auto; width: 700px; height: auto;}
+
+/* 도입부분 제목 및 실시요령 정렬 */
+.intro {font-size: 10pt; font-weight: 800; font-family: "돋움"; margin: 3%;}
+h2 {text-align: center;}
+font {font-size: 12pt;}
+.intro p {margin-top: 0; line-height: 20px; padding-top: 8px;}
+
+/* 테이블 */
+.tbl {font-family: "바탕"; border-collapse: collapse; margin: 0 3%;}
+.color {background: #d2e9f0;}
+th {height: 32px;}
+th, td {border: 1px solid #6ec5c1; font-size: 10pt; margin: 1%;}
+th:nth-child(2), th:nth-child(4) {font-size: 13pt;}
+th:first-child, td:first-child {border-left: none; text-align: center;}
+th:last-child, td:last-child {border-right: none;}
+td p {margin: 0; padding: 0;}
+.tbl tr td input {width: 13px; height: 13px; text-align: center;}
+.tbl tr .text {width: 45%;}
+
+/* 합계 */
+.tbl tr .total {text-align: left; margin-left: 3px;}
+.yuhyeong {height: 30px; text-align: left; font-size: 13pt; font-weight: 600; display: flex; padding-top: 6px;}
+.mbti {margin-left: 1%;}
+.mbti input {width: 18px; height: 18px; text-align: center;}
+#wtf {width: 94%; height: 40px; background: #cccccc; margin: 0 auto;}

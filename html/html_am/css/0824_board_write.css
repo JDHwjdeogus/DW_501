@@ -1,0 +1,30 @@
+/* 게시글 작성 부분 외곽 스타일 */
+#write_box {width: 100%; height: auto; margin-top: 100px;}
+#write_wrap {width: 800px; height: auto; margin: 0 auto;}
+/* 목록 이동 글씨 스타일 */
+.move_list {width: 100px; height: 40px;}
+/* 게시글 작성 폼 */
+.write_form {width: 800px; height: 600px; margin-top: 50px;}
+.box {display: flex; width: 800px; height: 40px; line-height: 40px; margin-bottom: 20px;}
+.box_title {width: 150px; padding-right: 15px; text-align: right; font-size: 20pt;}
+.box_input input {width: 300px; height: 20px;}
+.box_input textarea {width: 600px; height: 400px; resize: none;}
+/* resize: none; 크기 재설정 방지(고정) */
+.content_box {height: auto;}
+.bt {width: 155px; height: 50px; margin: 0 auto; margin-top: 30px; margin-bottom: 50px; display: flex;}
+#save_bt{width: 150px; height: 40px; background: black; border-radius: 15px; color: white; font-size: 15pt; font-weight: 800;}
+
+/* 수정화면 */
+/* 작성일 조회수 */
+.wdate, .view_count {display: flex; width: 400px;}
+.wdate input, .view_count input {width: 150px;}
+.view_count {text-align: right; margin-left: 10%;}
+.correct {position: relative; width: 660px; height: 49px; margin-left: 166px; margin-top: 30px; margin-bottom: 49px; display: flex;}
+.bt button {width: 150px; height: 40px; background: black; border-radius: 15px; color: white; font-size: 15pt; font-weight: 800;}
+.bt div {width: 33.3%;}
+.mod button {position: absolute; left: 50%; transform: translateX(-50%);}
+.del button {position: absolute; left: 75%;}
+/* 
+    absolute: 위치 고정(기준) 
+        해당 태그를 이용해 특정 div를 위치 선정의 기준으로 잡아서 다른 태그들의 위치(left, translateX 등)나 포지션(relative 등)을 잡아줌.
+*/

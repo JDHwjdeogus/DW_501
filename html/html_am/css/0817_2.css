@@ -1,0 +1,12 @@
+/* 위치: position */
+/* absolute: 고정좌표(0,0) (0,0) (0,0) || relative:(0,0) (0,1) (0,2)  */
+/* 
+    position: fixed 
+    >> 현재 화면 기준으로 고정되는 요소이므로 스크롤 내려도 따라오는 것처럼 보이게 된다. 
+*/
+.box {position: absolute; width: 50px; height: 50px; }
+.d1 {background-color: #882222;}
+.d2, .d3 {width: 150px;}
+.d2 {background-color: #abad37; left: 25px; top: 25px; z-index: 100; position: fixed;}
+.d3 {height: 2500px; background-color: #1e521e; left: 50px; top: 10px;}
+body {margin: 0; padding: 0;}

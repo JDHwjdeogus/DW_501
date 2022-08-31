@@ -1,0 +1,7 @@
+hr {border: 1px solid black; width: 620px; margin-left: 0%;}
+/* margin: 태그의 외부여백 | margin: 태그의 내부여백 */
+p {font-size: 20pt; font-weight: 600; text-shadow: 5px 5px 5px #555555;} 
+/*text-shadow: x축(가로 이동) y축(세로 이동) z축(바닥과의 높이 이동);*/
+table tr td {border: 1px solid black; width: 200px; height: 300px;}
+.animal img {width: 200px; height: auto;}
+.animal p {font-size: 12pt; text-shadow: none; font-weight: 500;}
