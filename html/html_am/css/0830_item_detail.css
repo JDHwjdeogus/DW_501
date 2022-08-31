@@ -15,10 +15,41 @@
 .item_name {line-height: 30px;}
 .item_money {line-height: 20px;}
 .delivery_info {width: 360px; height: 100px; line-height: 24px;}
-/* 오른쪽 사이드바(결제정보) */
-#item_pay_top {width: 182px; height: 199px; margin: 3.5px; padding: 3px; border: 1px solid #dddddd;}
+/* 오른쪽 사이드바(결제정보) 상단*/
+#item_pay_top {width: 184px; height: 199px; margin: 3.5px; padding: 3px; border: 1px solid #dddddd;}
 .item_pay_name {font-weight: 700;}
 .item_among {display: flex;}
 .item_among button {width: 30px; height: 35px; margin: 0; background: white; border: 1px solid #bdbdbd;}
 #am {width: 40px; height: 30px; font-size: 15px; margin: 0; border: 1px solid #bdbdbd;}
 #am::-webkit-inner-spin-button, #am::-webkit-outer-spin-button {-webkit-appearance: none; margin: 0;}
+/* 결제정보 하단 */
+#item_pay_money {margin-top: 136px; width: 100%;}
+#item_pay_money span {display: inline-block;}
+.total_money {width: 184px; height: 28px; margin: 0 auto; color: darkred;}
+.total {width: 60px; line-height: 30px;}
+.pay_money {width: 116px; line-height: 28px; text-align: center; font-weight: 700;}
+.line_deco {width: 184px; margin: 0 auto; margin-top: 10px; margin-bottom: 5px;}
+.coupon {width: 184px; margin: 0 auto; margin-bottom: 10px; font-size: 10px;}
+.coupon_change {width: 64px;}
+.coupon_change button {width: 48px; height: 26px; font-size: 10px; padding: 0; margin-left: 14px; background: white; border: 1px solid darkred; color: darkred; position: relative; top: -6px}
+.cart_buy {width: 184px; margin: 0 auto; margin-top: 10px;}
+.cart_buy a {text-decoration: none; display: inline-block; border: 1px solid darkred;}
+#cart {height: 50px; line-height: 50px; color: darkred;}
+#buy {color: white; height: 50px; line-height: 50px; background: darkred;}
+#gift {width: 36px; text-align: center; color: white; height: 50px; line-height: 50px; background: darkred;}
+/* 작은 이미지(.small img) 기준 하단 영역 전반 서식 */
+#detail_view {width: 800px; height: auto; margin-top: 50px;}
+.item_img {width: 800px; height: 300px;}
+.item_img img {max-width: 800px; height: 300px;}
+.item_detail_img {width: 800px; height: 600px;}
+.delivery_img {width: 100%; height: 200px;}
+.exchange_return {width: 100%; height: 400px;}
+/* 상품정보게시 표 */
+.item_info_post {width: 100%; height: 500px;}
+.info_post tr td {border: 1px solid #aaaaaa;}
+.info_post tr:nth-child(1) td {border-top: 2px solid #666666;}
+.info_post tr:nth-child(8) td {border-bottom: 2px solid #666666;}
+.title {width: 250px; padding-left: 1px; padding-right: 10px; font-size: 13px; background: #cccccc;}
+.content {width: 500px; height: 40px; padding-left: 10px; font-size: 15px;}
+
+
