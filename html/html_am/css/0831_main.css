@@ -8,7 +8,44 @@ body, div, ul {margin: 0; padding: 0;}
 .city {color: yellow;}
 .site01 {color: greenyellow;}
 /* 로고메뉴 */
-#logo_menu_wrap {width: 100%; height: 80px; background: #223cff;}
+#logo_menu_wrap {width: 100%; height: 80px; background: #223c6f;}
 #logo_menu {width: 1000px; height: 80px; margin: 0 auto; display: flex;}
-#logo {width: 200px;}
+#logo {width: 200px; height: 60px; font-size: 18px; color: white; font-weight: 800; padding-top: 20px; display: flex;}
+#logo img {max-width: 40px; max-height: 40px;}
+#logo p {margin-top: 8px; margin-left: 6px;}
+/* 헤더의 서브메뉴 */
 #menu {width: 800px;}
+#menu_list {width: 800px; height: 80px; margin: 0; padding: 0; list-style: none; color: white; font-size: 16px; font-weight: 800;}
+#menu_list li {width: 130px; height: 80px; line-height: 80px; float: left; text-align: center; position: relative;}
+#menu_list li ul {width: 0; height: 0; margin: 0; padding: 0; list-style: none; position: relative; opacity: 0;}
+#menu_list li ul li {width: 0; height: 0; line-height: 0; position: absolute; top: -10px;}
+#menu_list li:hover ul {width: 130px; position: relative; opacity: 1; background: #223c6f; top: 0px; z-index: 100; font-size: 13.5px;}
+#menu_list li:hover ul li {width: 130px; height: 30px; line-height: 30px; position: relative; text-align: center; background: #223ccf;}
+/* 메인 이미지 */
+#main_img {width: 100%; height: 350px; background: #abdde0;}
+.m_img {width: 1000px; height: 350px; margin: 0 auto;}
+.m_img img {max-width: 1000px; height: 350px;}
+/* 메인이미지 밑의 콘텐츠 영역 */
+/* 동물공고 */
+#post_wrap {width: 1000px; height: 800px; margin: 0 auto;}
+#contents {position: relative; width: 100%; height: 310px;}
+#contents h2 {font-weight: 600; margin-bottom: 10px;}
+.f_small {font-size: 12px;}
+.r_small {font-size: 12px; float: right;}
+.animal_list {list-style: none; margin: 0; padding: 0; width: 100%; display: inline-block;}
+.img_li {width: 230px; padding: 0 10px; float: left; display: block;}
+.img_li img {max-width: 230px;}
+.img_li ul {list-style: none; width: 204px;}
+.img_li ul li {padding-left: 7px;}
+.img_li ul li span {font-weight: 700; }
+#mid {margin: 0 auto; margin-top:  30px; width: 1000px; height: 175px;}
+.m_left {width: 66%; float: left; margin-right: 4%;}
+.m_top {padding-top: 10px;}
+.notice {float: left; width: 46%;}
+.m_top .notice:first-child {margin-right: 8%;}
+.notice ul {padding-left: 20px;}
+.notice ul li {height: 25px; font-size: 13.5px;}
+.m_right {width: 30%;}
+
+
+
