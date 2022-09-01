@@ -19,7 +19,8 @@
         .time {display: flex;}
         .time div {flex-basis: 100px;}
         .time div p {font-size: 60px; margin-bottom: -12px; margin-right: 30px;}
-        .time div:first-child span {margin-left: 2px;}
+        .time div:first-child span {margin-left: 3px;}
+        .time div:nth-child(2) span {margin-left: -2px;}
         .time div:last-child span {margin-left: -2px;}
         .time div span {margin-left: -2px;}
         .rocket {position: absolute; right: 10%; bottom: 0; animation: rocket 4s linear infinite;}
@@ -29,7 +30,7 @@
             (top, left, right, bottom)
         */
         /* @: 어노테이션 */
-        @keyframes rocket{0%{bottom: 0; opacity: 1;} 100%{bottom: 105%; opacity: 0;}}
+        @keyframes rocket{ 0%{bottom: 0; opacity: 1;} 100%{bottom: 105%; opacity: 0;}}
         
     </style>
 </head>
