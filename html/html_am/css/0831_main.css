@@ -45,7 +45,28 @@ body, div, ul {margin: 0; padding: 0;}
 .m_top .notice:first-child {margin-right: 8%;}
 .notice ul {padding-left: 20px;}
 .notice ul li {height: 25px; font-size: 13.5px;}
-.m_right {width: 30%;}
+.m_right {width: 30%; float: left;}
+.conbanner {border: 1PX solid #dadee1; box-sizing: border-box; padding: 10px 15px; height: 88px;}
+.conbanner h2 {margin: 0; margin-bottom: 5px; font-size: 15px;}
+.conbanner p {font-size: 88%; line-height: 18px;}
+/* 하단부 운영시간, 입양 프로세스 */
+#bottom {height: 152px; border: 1px solid#e7e7e7; margin-bottom: 0; margin-top: 40px;}
+.time {width: 322px; height: 112px; float: left; padding: 20px 0 20px 20px; background: #efefed url(../img/bg_tel.jpg) no-repeat right 0;}
+.time h2 {font-size: 15px; margin-top: 0;}
+.time dl {font-size: 12px; line-height: 18px;}
+.time dl dt {float: left; font-weight: 600; padding-right: 8px;}
+.proce img {width: 656px; height: 152px;}
+/* foot */
+#footwrap {background: #3d3d3d; width: 100%; margin-top: 30px; position: relative;}
+#foot {width: 1000px; margin: 0 auto; padding: 24px; position: relative;}
+#foot ul {margin: 0; margin-bottom: 5px; list-style: none; padding: 0; list-style: none; overflow: hidden;}
+#foot ul li {float: left; padding-right: 13px; margin-right: 13px; font-size: 14px; border-right: 1px solid #6d6d6d; color: #f1f1f1;}
+#foot ul li:last-child {border-right: none;}
+#foot address {margin: 3px 20px 2px 0px; color: #f1f1f1; line-height: 20px; font-size: 13px; display: inline-block; font-style: normal;}
+.foot_logo {position: absolute; top: 20px; right: 30px;}
+
+
+
 
 
 
