@@ -1,0 +1,26 @@
+/* body 기준으로 위치를 잡은 뒤 top: 50px. 기준으로 잡을 태그를 정하지 않으면 설정할 수 없음*/
+#box {border: 1px solid #8a2424; width: 800px; height: 400px; top: 50px; left: 100px; margin-top: 50px;}
+
+#box1 {width: 200px; height: 200px; background: #373773; position: absolute; top: 80px; left: 200px;}
+
+#box2 {width: 300px; height: 150px; background: #b0b9b0; position: relative; left: 100px;}
+
+#box3 {width: 100px; height: 100px; background: #969644;}
+
+#box4 {width: 100px; height: 100px; background: #267226; position: absolute; top: 10px;}
+
+
+/* 
+    position 종류: static, relative, absolute, fixed, sticky
+
+    좌표 지정(top, left, right, ...)
+        가능: relative, absolute, fixed, ...
+        불가능: static, sticky, ...
+
+    position 태그 설명 (좌표 지정 가능 태그)
+    absolute: relative가 주어진 태그의 하위 태그에 주어지는 태그로,
+            상위태그(relative) 기준으로 절대적 위치 지정(좌표 미지정 시 0,0)
+    relative: 상위태그의 위치 기준으로 상대적 위치 지정
+    fixed: 브라우저 창 전체 width에서 위치 지정.
+            브라우저 스크롤 시에도 윈도우(창) 상에서 보이도록 함. 
+*/

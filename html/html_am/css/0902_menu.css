@@ -1,0 +1,9 @@
+#menu {width: 1000px; height: 80px; position: relative;}
+#menu ul {list-style: none; margin: 0; padding: 0; position: relative;}
+#main_menu {width: 1000px; height: 80px; position: relative;}
+#main_menu > li {width: 200px; height: 80px; float: left; line-height: 80px; text-align: center; background: #e7a1a1;}
+/* #main_menu .sub li {width: 0; height: 0; line-height: 0; position: absolute; top: -20px;}
+#main_menu .sub {opacity: 0;} */
+#main_menu .sub {display: none;}
+#main_menu .sub li {}
+#main_menu:hover .sub {display: block; background: #e6e7a1; height: 320px;}
