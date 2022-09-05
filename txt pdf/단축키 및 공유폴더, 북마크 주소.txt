@@ -1,0 +1,62 @@
+자동정렬
+- vs code: ctrl k f
+- 이클립스: ctrl shift f
+- 브라켓: ctrl shift l
+자동완성
+- vs code: tab
+- 이클립스: ctrl space
+- 브라켓: tab
+주석 
+ - 이클립스
+Ctrl + Shift + / : 블록을 주석으로 처리 (/* */)
+Ctrl + Shift + \ : 블록 주석을 해제
+Ctrl + / : 한줄 or 블록 주석 처리 / 해제 (//)
+
+
+
+ctrl e : 파일탐색기
+ctrl 방향키 : 창 분할(좌우)
+alt tab : 창 전환
+ctrl shift z : redo
+
+m10 > {margin : 10px}
+html:xt, ! +tab >  html 기본 서식 자동완성
+lorem + tab > 임시 글자 무작위 생성
+
+div.container>div:
+<div class="container">
+  <div></div>
+</div>
+
+ div#header>p.title*3:
+<div id="header">
+  <p class="title"></p>
+  <p class="title"></p>
+  <p class="title"></p>
+</div></div>
+
+
+
+오후시간 공유폴더 주소
+\\192.168.0.66\Users\Public\현상원
+
+수업 별 open perspective 설정
+오전: java ee, 오후: java
+
+이클립스 콘솔 ui 요소(창) 모두 보기
+> Window > Show View
+
+
+
+크롬 북마크 목록
+https://getbootstrap.kr/docs/5.1/getting-started/introduction/
+https://kenwheeler.github.io/slick/
+https://jquery.com/download/
+http://www.tcpschool.com/
+https://developer.mozilla.org/ko/
+https://stackoverflow.com/
+http://paletton.com/#uid=1000u0kllllaFw0g0qFqFg0w0aF
+https://www.inflearn.com/questions/205288
+https://summernote.org/getting-started/#include-jscss
+https://hanamon.kr/nodejs-%EA%B0%9C%EB%85%90-%EC%9D%B4%ED%95%B4%ED%95%98%EA%B8%B0/
+https://jaehoney.tistory.com/167
