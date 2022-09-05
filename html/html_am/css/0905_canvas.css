@@ -1,5 +1,10 @@
 #gallery {border: 10px solid #111111; height: 300px; width: 450px; margin-left: auto; margin-right: auto; overflow: visible; background: #272228; box-shadow: #272228 2px 2px 2px;}
-.small {width: 120px; height: 88px;}
+.small {width: 120px; height: 118px;}
 #gallery ul {list-style: none; margin-left: 30px; padding: 0;}
 #gallery ul li {display: inline-table; padding: 5px;}
 .pic {opacity: 0; visibility: hidden; position: absolute; margin-top: 10px; margin-left: -20px; border: 1px solid black; box-shadow: #272228 2px 2px 2px;}
+#gallery ul li .small:hover {cursor: pointer;}
+#gallery ul li:hover .pic {max-width: 320px; opacity: 1; visibility: visible; float: right;}
+
+.bi-apple {font-size: 66px; color: #894999; text-shadow: 4px 4px 4px #494119;}
+.bi-android2 {width: 66px; height: 66px; background: green;}
