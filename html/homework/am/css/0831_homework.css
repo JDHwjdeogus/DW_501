@@ -1,0 +1,33 @@
+body {margin: 0; padding: 0;}
+#wrap {width: 100%;}
+header {width: 100%; height: auto; border-bottom: 2px solid #dddddd;}
+
+header #head_align {width: 1240px; margin: 0 auto;}
+header #login {width: 100%; height: auto;}
+header #login ul {list-style: none; display: inline-block; float: right; margin: 10px 0 0 0;}
+header #login ul li {float: left; margin-left: 28px;}
+
+#logoANDmenu {width: 100%; display: flex;}
+#logo {width: 240px;}
+#logo img {max-width: 200px;}
+#main_menu {width: 800px;}
+#main_menu ul {width: 100%; list-style: none; margin-top: 30px;}
+#main_menu ul li {width: 25%; text-align: center; float: left; font-weight: 800; font-size: 19pt;}
+
+#img_banner {width: 100%; height: auto; background: #e6ffed; border-bottom: 2px solid #dddddd;}
+#banner_align {width: 1240px; height: auto; margin: 0 auto; display: flex;}
+#main_left {width: 1000px; height: 500px;}
+#main_left img {width: 95%; height: 91%; margin-top: 2.4%; margin-left: 4%;}
+#main_right {width: 200px; text-align: center; padding-top: 2%;}
+#main_right .circle {width: 120px; height: 120px; border-radius: 60px; margin: 0 auto; margin-top: 18%;}
+#main_right h1 {font-weight: 1000; margin-top: 10px;}
+#main_right .yellow {background: #ebdb4a;}
+#main_right .yellow img {max-width: 66px; margin-top: 10%;}
+#main_right .coral {background: #ec9b50; border-radius: 60px;}
+#main_right .coral img {max-width: 84px; margin-top: 12%;}
+
+#insurance {width: 1240px; height: auto; margin: 0 auto;}
+#insurance ul {list-style: none; display: flex; justify-content: space-between; padding: 0;}
+#insurance ul li p {text-align: center; font-size: 16pt; font-weight: 800;}
+#insurance ul li .category {background: #4c75a5; border-radius: 60px; width: 120px; height: 120px; margin: auto;}
+.category i {text-align: center; font-size: 50pt; color: #ffffff; margin: 23% 0 0 17%;}

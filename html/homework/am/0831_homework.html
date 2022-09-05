@@ -4,21 +4,114 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="css/0831_homework.css">
+    <script src="https://kit.fontawesome.com/8c601cce34.js" crossorigin="anonymous"></script>
     <title>Document</title>
 </head>
 <body>
     <div id="wrap">
-        <div id="header">
-            <div id="login"></div>
-            <div id="main_menu"></div>
-        </div>
-        <div id="main_con">
-            <div id="main_img"></div>
-            <div id="main_right"></div>
-        </div>
-        <div id="category">
-            <ul></ul>
-        </div>
+        <header>
+            <div id="head_align">
+                <div id="login">
+                    <ul>
+                        <li class="head">로그인</li>
+                        <li class="head">회원가입</li>
+                    </ul>
+                </div>
+                <div id="logoANDmenu">
+                    <div id="logo">
+                        <img src="img/logo.png" 
+                        alt="붉은 동그라미가 중앙에 있고, 바로 밑에 오른쪽으로 갈수록 얇아지는 약간 휜 녹색 가로막대기, 그 밑에 왼쪽 막대기가 짧고 위로 휘어져 n자같은 모습인 녹색 곡선의 모습을 한 하나은행 로고 옆에 하나케어 라고 쓰여있다.">
+                    </div>
+                    <div id="main_menu">
+                        <ul>
+                            <li class="mainmenu">보험상품</li>
+                            <li class="mainmenu">헬스케어</li>
+                            <li class="mainmenu">미션기록</li>
+                            <li class="mainmenu">마이페이지</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <content>
+            <section id="img_banner">
+                <div id="banner_align">
+                    <div id="main_left">
+                        <img src="img/main_img.jpg" 
+                        alt="하나손해보험 카카오톡 선물하기 진출! 미니보험 3종 open! 
+                            1. 하나 슬기로운 자녀생활(유아생활)
+                            2. 하나 슬기로운 자녀생활(학교생활)
+                            3. 하나 원데이 전동킥보드(PM) 보험">
+                    </div>
+                    <div id="main_right">
+                        <div class="circle yellow">
+                            <img src="img/my_care.png" alt="">
+                        </div>
+                        <h1>My 헬스케어</h1>
+                        <div class="circle coral">
+                            <img src="img/record.png" alt="">
+                        </div>
+                        <h1>미션기록</h1>
+                    </div>
+                </div>
+            </section>
+
+            <section id="insurance">
+                <h1>보험 카테고리</h1>
+                <ul>
+                    <li>
+                        <div class="category">
+                            <i class="fa-solid fa-car-side"></i>
+                        </div>
+                        <p>자동차보험</p>
+                    </li>
+                    <li>
+                        <div class="category">
+                            <i class="fa-sharp fa-solid fa-stethoscope"></i>
+                        </div>
+                        <p>실손의료보험</p>
+                    </li>
+                    <li>
+                        <div class="category">
+                            <i class="fa-solid fa-person-walking-luggage"></i>
+                        </div>
+                        <p>여행자보험</p>
+                    </li>
+                    <li>
+                        <div class="category">
+                            <i class="fa-solid fa-person-pregnant"></i>
+                        </div>
+                        <p>어린이 태아보험</p>
+                    </li>
+                    <li>
+                        <div class="category">
+                            <i class="fa-solid fa-hospital"></i>
+                        </div>
+                        <p>암보험</p>
+                    </li>
+                    <li>
+                        <div class="category">
+                            <i class="fa-solid fa-file-invoice-dollar"></i>
+                        </div>
+                        <p>연금보험</p>
+                    </li>
+                    <li>
+                        <div class="category">
+                            <i class="fa-solid fa-paste"></i>
+                        </div>
+                        <p>보장성보험</p>
+                    </li>
+                    <li>
+                        <div class="category">
+                            <i class="fa-solid fa-piggy-bank"></i>
+                        </div>
+                        <p>저축성보험</p>
+                    </li>
+                </ul>
+            </section>
+        </content>
     </div>
 </body>
 </html>
