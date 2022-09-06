@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    var x = 20; // x의 존재를 선언(변수 생성)
+    x = 20; // 선언된 x를 재활용
+    var x = 20; // 자바스크립트 단점: 원래 변수 이름을 중복 선언할 수 없음.
+
+    let y1 = 10;
+    let y2 = 10; // let은 변수이름 중복을 허용하지 않아 오류가 남
+
+    for(var i = 1; i <= 30; i++){
+        console.log(i);
+    }
+    
+    console.log("문제 1");
+    var array = [5, 10, 7, 20];
+    sum = array[0] + array[1];
+    console.log(sum);
+
+    console.log("문제 2");
+    var arrayEvenNum = [2, 4, 9, 10];
+    for(var i = 0; i < arrayEvenNum.length; i++){
+        if(arrayEvenNum[i] % 2 == 0){
+            console.log(arrayEvenNum[i]);
+        }
+    }
+    
+</script>
+</html>
