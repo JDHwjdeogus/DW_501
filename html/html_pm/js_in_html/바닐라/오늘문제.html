@@ -21,7 +21,7 @@
     for(var i = 0; i < array.length; i++){
         sum += array[i];
     }
-    answer0 = sum / array.length
+    answer0 = sum / array.length;
     console.log("1번 정답은 => " + answer0);
 
     /*
@@ -29,13 +29,13 @@
     길이가 n이고, "안녕안녕안녕...."와 같은 패턴을 유지하는 문자열을 출력할 수 있게 로직을 완성하세요. 
     예를들어 n이 4이면 "안녕안녕"을 출력하고 3이라면 "안녕안"를 리턴하면 됩니다.
     */
-    var n = 18;
+    var n = 4;
     var answer1 = "";
     var an = "안";
     var nyeong = "녕";
     //여기서 풀기
     for(var i = 1; i <= n; i++){
-        if(i % 2 > 0){
+        if(i % 2 != 0){
             document.write(an);
             answer1 += an;
         }
@@ -45,6 +45,10 @@
         }
     }
     console.log("2번 정답은 => " + answer1);
+
+    var vanilla = "바닐라";
+    var icecream = "아이스크림";
+    console.log(vanilla + icecream);
         
     /*
     문제 3) 없는 숫자 더하기
@@ -54,21 +58,23 @@
     var numbers = [1,2,3,4,6,7,8,0]; //5, 9가 numbers에 없으므로, 5 + 9 = 14가 정답입니다.
     var answer2 = 0;
     //여기서 풀기
+    /*
     var missingNum = 0;
     for(var i = 0; i < numbers.length; i++){
-        // if(numbers[i] == 0){
-        //     break;
-        // }
-
         missingNum++;
         if(missingNum != numbers[i]){
             answer2 += missingNum;
             missingNum++;
         }
     }
+    */
+    var sumFind = 0;
+    var sumNums = 45;
+    for(var i = 0; i < numbers.length; i++){
+        sumFind += numbers[i];
+    }
+    answer2 = sumNums - sumFind;
     console.log("3번 정답은 => " + answer2);
-
-
 
 </script>
 </html>
