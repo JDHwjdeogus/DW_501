@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script type="text/javascript">
+        var num1 = 10;
+        var num2 = 30;
+        var num3 = num1 + num2;
+        document.write(num3 + "<br>");
+        // alert(13 % 5);
+
+        var a = 10;
+        a--;
+        document.write(a + "<br>");
+        document.write(a++ + "<br>");
+        document.write(a + "<br>");
+        document.write(++a + "<br>");
+        var b = 0;
+        b = a;
+        a = a + 1;
+        // >> b = a++;
+        // 연산자 우선순위: () [] .     >>     ++a - * / %   ...  a++
+        // 대입 연산자: =
+        // 산술 연산자: + - * / %
+        // 증감 연산자: ++ --
+        // 비교 연산자: > >= < <= == === !=
+        // 논리 연산자: &&(and) ||(or) !(not)
+        // 조건연산자(삼항): 조건식 ? >> 참일 경우의 실행내용 : 거짓일 경우의 실행내용
+
+        var num4 = 10;
+        var num5 = 15;
+        var num6 = 20;
+        document.write("<br>"+ (num4 + num5) +"<br>");
+        document.write((num4 < num5 < num6) +"<br>"); 
+        // 복수의 비교연산을 한번에 표현하기 보단 하나의 비교연산 사이에 논리 연산자 사용을 권장
+
+        var tall = 180;
+        document.write("<br>"+ (tall >= 150 && tall <= 190) +"<br>");
+
+        var num7 = parseInt(prompt("숫자를 입력"));
+        var num8 = parseInt(prompt("앞서 입력한 숫자와 비교할 숫자를 입력"));
+        var num9 = parseInt(prompt("입력한 숫자들과 비교할 숫자를 입력"));
+        if(num7 > num8 && num7 > num9) {document.write("<br>" + num7 + "<br>");}
+        if(num8 > num7 && num8 > num9) {document.write("<br>" + num8 + "<br>");}
+        if(num9 > num7 && num9 > num8) {document.write("<br>" + num9 + "<br>");}
+        // 과제 16일까지
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
