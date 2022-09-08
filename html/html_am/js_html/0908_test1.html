@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script type="text/javascript">
+        /*
+        var num1 = 10;
+        var num2 = 20;
+        var num3 = 0;
+        num3 = num2 % num1;
+        document.write (num3 = num2 > num1);
+        document.write("<br>");
+        
+        document.write("<br>");
+        num2 = 15; num1 = 28;
+        document.write (num3 = num2 >= num1);
+        document.write("<br>");
+
+        document.write("<br>");
+        num2 = 10; num1 = 12;
+        document.write(num3 = num2 != num1);
+        document.write("<br>");
+        document.write(num3 = num2 == num1);
+        document.write("<br>");
+
+        document.write("<br>");
+        var result;
+        num1 = 21; num2 = 26; num3 = 24;
+        result = num2 > num1 && num2 > num3;
+        document.write(result);
+        document.write("<br>");
+        result = num1 > num2 || num2 > num3;
+        document.write(result);
+        document.write("<br>");
+        result = (num1 > 10 || num2 < 40) && (num3 > 100 && num2 < 10);
+        document.write(result);
+        */
+
+        // 조건연산자(?) 사용법
+        // 조건식 ? 참의 경우의 내용 : 거짓의 경우의 내용;
+        // 내용은 변수든 산술연산식(의 결과)든 조건식이든 함수든 상관없지만, 조건연산식의 결과를 저장할 변수(여기선 result)를 정해줘야 한다.
+        // 단, 내용에 대입연산자는 넣지 않는다.
+        /*
+        var num1 = parseInt(prompt('정수 입력'));
+        var num2 = parseInt(prompt('정수 입력'));
+        var result = num1 < num2 ? "작은 수: " + num1 : "작은 수: " + num2;
+        document.write(result);
+        */
+
+        /*
+        var tall = parseInt(prompt("Insert your height"));
+        var enterBoolean = tall >= 130 && tall <= 190 ? "You can Enter here." : "You can not Enter here."
+        document.write(enterBoolean);
+        */
+        
+        /*
+        var num1 = parseInt(prompt("비교할 세 개의 숫자를 입력: 처음 숫자"));
+        var num2 = parseInt(prompt("비교할 세 개의 숫자를 입력: 두번째 숫자"));
+        var num3 = parseInt(prompt("비교할 세 개의 숫자를 입력: 마지막 숫자"));
+        var max = (num1 > num2) && (num1 > num3) ? num1 : (num2 > num3 ? num2 : num3);
+        
+        // var max = num > num2 ? (num1 > num3 ?  num1 : num3) : (num2 > num3 ? num2 : num3);
+        
+        // var max = 0;
+        // max = num1 > num2 ? num1 : num2;
+        // max = max > num3 ? max : num3;
+        
+        // var max = 0;
+        // max = num1 > num2 && num1 > num3 ? num1 : max;
+        // max = num2 > num1 && num2 > num3 ? num2 : max;
+        // max = num3 > num1 && num3 > num2 ? num3 : max;
+        document.write(max);
+        */
+
+        /*
+        var multifle4 = parseInt(prompt("4의 배수 여부 판독을 위한 정수를 입력"));
+        var multifle4 = multifle4 % 4 == 0 && multifle4 != 0 ? multifle4 + "은/는 4의 배수이다." : multifle4 + "은/는 4의 배수가 아니다.";
+        document.write(multifle4);
+        */
+
+        var parkingTime = parseInt(prompt("주차시간(분단위) 입력"));
+        // var parkingFee = parkingTime < 40 ? 1000 : 1000 + (((parkingTime - 30) / 10) * 100) - (((parkingTime - 30) % 10) * 10);
+        var parkingFee = parkingTime < 40 ? 1000 : 1000 + (parseInt((parkingTime - 30) / 10) * 100);
+        // parkingFee = 1500 + (((parkingTime - 120) / 10) * 100) - (((parkingTime - 120) % 10) * 10);
+        parkingFee = parkingTime >= 120 && parkingTime < 130 ? 1500 : 1500 + (parseInt((parkingTime - 120) / 10) * 100);
+        document.write("|| 주차시간: " + parkingTime + "분" + " || 주차요금: " + parkingFee + "원 ||");
+
+        // var time = parseInt(prompt("주차시간: "));
+        // var cost = 1000;
+        // cost = time >= 120 ? 1500 : cost;
+        // var ptime = time >= 120 ? time - 120 : time - 30;
+        // var price = parseInt(ptime / 10) * 100 + cost;
+        // price = time <= 39 ? cost : price;
+        // document.write("주차시간: " + time + "분 || 주차요금: " + price +"원");
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
