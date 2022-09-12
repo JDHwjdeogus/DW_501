@@ -1,0 +1,101 @@
+body{margin: 0; padding: 0;}
+.mask {width: 100%; height: 100%; background: linear-gradient(#0a070f, #1f0c3d,  #3b1f7e, #7026ad, #a617b3, #d3b69f, #3a2c2b, #110f10, #000000); }
+.wrap {background: url(background.jpg); background-position: center; background-size: cover; background-attachment: fixed;}
+.wrap {width: 1200px; height: auto; margin: 0 auto; position: relative;}
+
+header {width: auto; height: 120px; display: flex; padding-top: 0.2%;}
+.logo {flex-basis: 25%; position: relative;}
+.logo img {max-height: 120px; position: absolute; right: 22%;}
+.headImg {flex-basis: 75%; background: #000000cb; border-left: 1px solid #dddddd;}
+.headImg img {max-width: 100%;}
+/* 나중에 메모장 모양 아이콘 글씨를 이미지 말고 진짜 글씨로 바꿔보기 */
+
+main {display: flex; height: 1000px;}
+aside {background: #000000cb; width: 300px; height: 1000px;}
+aside section {width: 93%; margin: 0 auto;}
+aside nav {width: 93%;}
+fieldset {border: none;}
+fieldset legend {display: none;}
+.login form fieldset {padding: 15px 10px 5px 10px;}
+
+.loginBox {display: flex; line-height: 30px; width: 100%;}
+.loginBox .loginSpan {width: 26%; font-size: 16px; font-weight: 600; color: wheat;}
+.loginBox .loginInput {width: 70%; margin-left: 6px;}
+.loginBox .loginInput input {width: 100%; height: 20px; border-radius: 3px; border: 1px solid #dddddd;}
+.loginButton input {width: 100%; height: 28px; margin-top: 8px; font-size: 16px; border-radius: 5px; border: 1px solid #dddddd; background: #dddddd;}
+.loginButton input:hover {cursor: pointer; background: #b885c5; color: #dddddd; transition: 0.3s;}
+
+.login form fieldset:nth-child(2) {padding-top: 2px; padding-bottom: 12px;}
+.join_find {display: flex; font-size: 13px;}
+.join_find div a {text-decoration: none; color: #dddddd;}
+.find {margin-left: 26%;}
+
+nav {margin: 0 auto; width: 100%; padding-top: 20px;}
+nav ul {width: 100%; height: 220px; list-style: none; display: flex; flex-direction: column; justify-content: space-around; margin: 0 auto; padding-left: 5%;}
+nav ul li {flex-basis: 25%;}
+nav ul li .menu {width: 91%; height: 50px; background: #1c9c81; font-size: 30px; font-family: 'Times New Roman', Times, serif; border-radius: 8px; line-height: 50px; position: relative;}
+nav ul li .menu a {text-decoration: none; position: absolute; left: 30px; color: black;}
+nav ul li .menu:hover a {color: #dddddd; transition: 0.3s; cursor: pointer;}
+
+.contents {width: 900px; height: 100%; background: #000000cb;border-left: 1.5px solid #dddddd;}
+.contents section {position: relative;}
+/* 슬라이더 창 */
+.contents section .mainImg {padding-top: 10px; width: 800px; height: 280px; position: absolute; top: 20px; left: 50px;}
+.sliderBox {margin: 0 auto; overflow: hidden; width: 760px; height: 240px; background: #abaed1; margin: 0 auto; border-radius: 4px; border: 2px solid #dddddd; position: relative;}
+/* 슬라이더 내용물 */
+.innerSlidesWrap {width: 3040px; height: 100%; display: flex; z-index: 10; position: absolute;}
+.slideImgs {float: left; width: 760px;}
+.slide_1{background: #999999;}
+.slide_2{background: #666666;}
+.slide_3{background: #444444;}
+.slide_4{background: #000000;}
+/* input:radio와 .slideControl label을 연결해 라벨 투명도에 변화 */
+#slide_1:checked ~ .slideControl label:nth-child(1),
+#slide_2:checked ~ .slideControl label:nth-child(2),
+#slide_3:checked ~ .slideControl label:nth-child(3),
+#slide_4:checked ~ .slideControl label:nth-child(4) {background: #a481f8; border: 1px solid #dddddd;}
+#slide_1:checked ~ .mainImg .innerSlidesWrap {left: 0%; transition: ease-out 0.6s;}
+#slide_2:checked ~ .mainImg .innerSlidesWrap {left: -100%; transition: ease-out 0.6s;}
+#slide_3:checked ~ .mainImg .innerSlidesWrap {left: -200%; transition: ease-out 0.6s;}
+#slide_4:checked ~ .mainImg .innerSlidesWrap {left: -300%; transition: ease-out 0.6s;}
+/* 슬라이더 버튼 */
+.slideControl {margin: 0 auto; width: 120px; height: auto; margin-top: 10px;}
+.slideControl label {width: 15px; height: 5px; margin-left: 5px; border-radius: 5px; background: #fdf4c3; display: inline-block; cursor: pointer; opacity: 0.8;}
+section > input {display: none;}
+
+footer {background: #000000; width: 100%; height: 100px; margin-top: 10px; position: relative;}
+.copyright {color: #dddddd; position: absolute; top: 30px; left: 37%;}
+
+/* 0907_homework_join.html */
+.joinFormWrap {width: 100%; height: 1000px; background: #000000cb;}
+.JoinFormBox {width: 600px; height: auto; margin: 0 auto;}
+.join_form {margin: 0 auto;}
+.join_form fieldset {width: 600px; height: auto; padding-top: 8%;}
+
+.insertInfo {width: 100%; height: 50px; position: relative;}
+.joinSpan {width: 30%; text-align: right; font-size: 18pt; color: #dddddd; display: inline-block; position: absolute;}
+.joinInput {width: 50%; display: inline-block; position: absolute; right: 80px;}
+.joinInput input {width: 100%; height: 30px; border: 1px solid #dddddd; border-radius: 3px;}
+
+.buttonJoin {width: 600px; height: auto; text-align: center; margin-top: 14%;}
+.buttonJoin button {width: 306px; height: 42px; border-radius: 5px; border: 1px solid #dddddd; font-size: 24px; background: #dddddd;}
+.buttonJoin button:hover {cursor: pointer; background: #ad4667; color: #dddddd; transition: 0.4s;}
+
+/* 0907_homework_gallery.html */
+.galleryAside {padding-top: 15px; height: 1000px;}
+.galleryCon {height: 1125px; background: transparent; position: absolute; top: 12px; right: -1px;}
+
+.galleryAside section .login {background: #1c9c81; width: 90%; height: 126px; margin: 0 auto; border-radius: 20px; margin-bottom: 3px;}
+.galleryAside section .login div {font-size: 22pt; text-align: center; margin-top: 3px;}
+.galleryAside section .login div a {text-decoration: none;  color: black;}
+.galleryAside section .login div a:hover {color: #dddddd;}
+
+.imgListTitle {width: 799px; height: 50px; margin: 45px 0 0 50px; color: #dddddd; font-family: 'Times New Roman', Times, serif; text-align: center;}
+.TitleGallery {max-width: 120px; height: 50px; border-bottom: 2px solid #999999; font-size: 28pt; margin: 0 auto;}
+.imgListFlex {width: 750px; height: 350px; margin: 35px 0 0 75px; display: flex; justify-content: space-around;}
+.galleryCell {flex-basis: 30%; background: #dddddd;}
+.CellImg {width: 90%; height: 80%; margin: 0 auto; margin-top: 10px; background: #1c9c81; overflow: hidden;}
+.CellImg img {transition: 0.6s; max-width: 202px;}
+.CellImg img:hover {transform: scale(1.4);}
+.CellTxt {width: 160px; height: auto; line-height: 30px; margin: 8px 0 0 12px; padding-left: 10px; font-weight: 600; color: #dddddd; background: #000000cc;}
+

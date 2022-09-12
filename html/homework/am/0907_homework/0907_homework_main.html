@@ -8,26 +8,84 @@
     <link rel="stylesheet" type="text/css" href="0907_homework.css">
 </head>
 <body>
-    <div class="wrap">
-        <header>
-            <div class="logo"></div>
-            <div class="headImg"></div>
-        </header>
+    <div class="mask">
+        <div class="wrap">
+            <header>
+                <div class="logo"><a href="0907_homework_main.html"><img src="logoImg.png" alt=""></a></div>
+                <div class="headImg"><img src="header_img.png" alt=""></div>
+            </header>
 
-        <aside>
-            <div class="login"></div>
-            <nav>
-                <div class="menu"></div>
-                <div class="menu"></div>
-                <div class="menu"></div>
-                <div class="menu"></div>
-            </nav>
-        </aside>
+            <main>
+                <aside>
+                    <section>
+                        <div class="login">
+                            <form action="" method="" class="login_form">
+                                <fieldset>
+                                    <legend>로그인정보 입력</legend>
+                                    <div class="loginBox">
+                                        <div class="loginSpan">아이디</div>
+                                        <div class="loginInput"><input type="text" name="" id=""></div>
+                                    </div>
+                                    <div class="loginBox">
+                                        <div class="loginSpan">비밀번호</div>
+                                        <div class="loginInput"><input type="password" name="" id=""></div>
+                                    </div>
+                                    <div class="loginButton">
+                                        <input type="submit" value="로그인"></input>
+                                    </div>
+                                </fieldset>
+                                <fieldset>
+                                    <legend>로그인정보 찾기</legend>
+                                    <div class="join_find">
+                                        <div class="join"><a href="0907_homework_join.html">회원가입</a></div>
+                                        <div class="find"><a href="#">아이디 / 비밀번호 찾기</a></div>
+                                    </div>
+                                </fieldset>
+                            </form>
+                        </div>
+                    </section>
+                    <nav>
+                        <ul>
+                            <li><div class="menu"><a href="0907_homework_gallery.html">gallery</a></div></li>
+                            <li><div class="menu"><a href="0907_homework_gallery.html">gallery</a></div></li>
+                            <li><div class="menu"><a href="0907_homework_gallery.html">gallery</a></div></li>
+                            <li><div class="menu"><a href="0907_homework_gallery.html">gallery</a></div></li>
+                        </ul>
+                    </nav>
+                </aside>
 
-        <main>
-            <div class="mainImg"></div>
-        </main>
-        <footer></footer>
+                <div class="contents">
+                    <section>
+                        <input type="radio" name="slide" id="slide_1" checked="checked">
+                        <input type="radio" name="slide" id="slide_2">
+                        <input type="radio" name="slide" id="slide_3">
+                        <input type="radio" name="slide" id="slide_4">
+                        <div class="mainImg">
+                            <div class="sliderBox">
+                                <div class="innerSlidesWrap">
+                                    <div class="slideImgs slide_1"><img src="https://placeimg.com/760/240/animals"></div>
+                                    <div class="slideImgs slide_2"><img src="https://placeimg.com/760/240/arch"></div>
+                                    <div class="slideImgs slide_3"><img src="https://placeimg.com/760/240/tech"></div>
+                                    <div class="slideImgs slide_4"><img src="https://placeimg.com/760/240/nature"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="slideControl">
+                            <label for="slide_1"></label>
+                            <label for="slide_2"></label>
+                            <label for="slide_3"></label>
+                            <label for="slide_4"></label>
+                        </div>
+                    </section>
+                </div>
+            </main>
+
+            <footer>
+                <div class="copyright">
+                    <span>Copyright 2022. idden all rights reserved.</span>
+                </div>
+            </footer>
+        </div>
     </div>
 </body>
 </html>
