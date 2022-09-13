@@ -51,15 +51,19 @@
         document.write("나의 주사위: &nbsp"+ userDice_1 + " + " + userDice_2 + " = <b>" + userSum + "</b><br>");
         if(cpuDice_1 == cpuDice_2){
             if(userDice_1 == userDice_2){
-                if(cpuSum > userSum){document.write("<b> Winner: cpu </b>");}
-                else if(cpuSum == userSum){document.write("<b> Draw </b>");}
-                else{document.write("<b> Winner: user </b>");}
+                if(cpuSum > userSum){
+                    document.write("<b> Winner: cpu </b>");
+                }else if(cpuSum == userSum){
+                    document.write("<b> Draw </b>");
+                }else{
+                    document.write("<b> Winner: user </b>");
+                }
             }else{
                 document.write("<b> Winner: cpu </b>");
             }
         }else if(userDice_1 == userDice_2){
             document.write("<b> Winner: user </b>");
-        }else {
+        }else{
             if(cpuSum > userSum) document.write("<b> Winner: cpu </b>");
             else if(cpuSum == userSum) document.write("<b> Draw </b>");
             else document.write("<b> Winner: user </b>");
