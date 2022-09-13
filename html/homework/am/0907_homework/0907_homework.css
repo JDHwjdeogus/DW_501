@@ -82,8 +82,8 @@ footer {background: #000000; width: 100%; height: 100px; margin-top: 10px; posit
 .buttonJoin button:hover {cursor: pointer; background: #ad4667; color: #dddddd; transition: 0.4s;}
 
 /* 0907_homework_gallery.html */
-.galleryAside {padding-top: 15px; height: 1000px;}
-.galleryCon {height: 1125px; background: transparent; position: absolute; top: 12px; right: -1px;}
+.galleryAside {padding-top: 15px; height: 1000px; width: 299px;}
+.galleryCon {height: 1135.4px; background: transparent; position: absolute; top: 2px; right: -1px;}
 
 .galleryAside section .login {background: #1c9c81; width: 90%; height: 126px; margin: 0 auto; border-radius: 20px; margin-bottom: 3px;}
 .galleryAside section .login div {font-size: 22pt; text-align: center; margin-top: 3px;}
@@ -95,7 +95,7 @@ footer {background: #000000; width: 100%; height: 100px; margin-top: 10px; posit
 .imgListFlex {width: 750px; height: 350px; margin: 35px 0 0 75px; display: flex; justify-content: space-around;}
 .galleryCell {flex-basis: 30%; background: #dddddd;}
 .CellImg {width: 90%; height: 80%; margin: 0 auto; margin-top: 10px; background: #1c9c81; overflow: hidden;}
-.CellImg img {transition: 0.6s; max-width: 202px;}
+.CellImg img {transition: 0.6s; max-width: 204px;}
 .CellImg img:hover {transform: scale(1.4);}
 .CellTxt {width: 160px; height: auto; line-height: 30px; margin: 8px 0 0 12px; padding-left: 10px; font-weight: 600; color: #dddddd; background: #000000cc;}
 

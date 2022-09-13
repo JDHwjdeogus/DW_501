@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script type="text/javascript">
+        // 제어문: if, switch, for, while, do ~ while
+        // 조건문: if, switch
+        // 반복문: for, while, do ~ while
+
+        // num > 5 ? alert("5보다 크다.") : alert("5보다 작다.");
+        
+        // var num = 10;
+        // if(num > 5) alert("5보다 크다.");
+        // else alert("5보다 작다.");
+        // var result = num + 10;
+        
+        // if 내용으로 참이거나 거짓일 경우에 실행될 내용만 작성
+        // 관련없는 내용을 작성해도 무방하나 코드가 복잡해지므로 필요한 내용만 작성.
+
+        // var numInt_1 = parseInt(prompt("비교할 두 정수 중 하나를 입력."));
+        // var numInt_2 = parseInt(prompt("비교할 두 정수 중 나머지 하나를 입력."));
+        // if(numInt_1 > numInt_2) document.write("큰 수: " + numInt_1);
+        // else document.write("작은 수: " + numInt_2);
+
+        // var r = Math.floor(Math.random() * 10);
+        // document.write(r);
+        // 랜덤함수 범위 (1 ~ 10): Math.floor(Math.random() * 10) + 1
+        // 랜덤함수 범위 (1 ~ 3): Math.floor(Math.random() * 3) + 1
+        // 랜덤함수 범위 (11 ~ 30): Math.floor(Math.random() * 20) + 11
+        // 랜덤함수 범위 (23 ~ 102): Math.floor(Math.random() * 80) + 23
+
+        // 동전던지기
+        // var user_coinGamble = parseInt(prompt("동전던지기 게임! 어느 쪽이 나올까? \n(동전 앞면: 1, 동전 뒷면: 2)"))
+        // var coin = Math.floor(Math.random() * 2) + 1
+        // if (user_coinGamble == coin && coin == 1) alert("나온 쪽은 앞면! 맞췄다!");
+        // if (user_coinGamble != coin && coin == 1) alert("나온 쪽은 앞면! 맞추지 못했다!");
+        // if (user_coinGamble == coin && coin == 2) alert("나온 쪽은 뒷면! 맞췄다!");
+        // if (user_coinGamble != coin && coin == 2) alert("나온 쪽은 뒷면! 맞추지 못했다!");
+
+        // 주사위
+        var cpuDice_1 = Math.floor(Math.random() * 6) + 1;
+        var cpuDice_2 = Math.floor(Math.random() * 6) + 1;
+        var userDice_1 = Math.floor(Math.random() * 6) + 1;
+        var userDice_2 = Math.floor(Math.random() * 6) + 1;
+        var cpuSum = cpuDice_1 + cpuDice_2;
+        var userSum = userDice_1 + userDice_2;
+        document.write("컴퓨터의 주사위: &nbsp"+ cpuDice_1 + " + " + cpuDice_2 + " = <b>" + cpuSum + "</b><br>");
+        document.write("나의 주사위: &nbsp"+ userDice_1 + " + " + userDice_2 + " = <b>" + userSum + "</b><br>");
+        if(cpuDice_1 == cpuDice_2){
+            if(userDice_1 == userDice_2){
+                if(cpuSum > userSum){document.write("<b> Winner: cpu </b>");}
+                else if(cpuSum == userSum){document.write("<b> Draw </b>");}
+                else{document.write("<b> Winner: user </b>");}
+            }else{
+                document.write("<b> Winner: cpu </b>");
+            }
+        }else if(userDice_1 == userDice_2){
+            document.write("<b> Winner: user </b>");
+        }else {
+            if(cpuSum > userSum) document.write("<b> Winner: cpu </b>");
+            else if(cpuSum == userSum) document.write("<b> Draw </b>");
+            else document.write("<b> Winner: user </b>");
+        }
+    </script>
+</head>
+<body style="background: #688d66;">
+    
+</body>
+</html>
