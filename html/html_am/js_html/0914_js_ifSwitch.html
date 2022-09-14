@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script type="text/javascript">
+        // 랜덤함수 Math.floor(Math.random())
+        // Math.floor: 소수점 자리 제거. Math.floor(3.14, 1) >> 3.1
+        // Math.random(): 랜덤함수. 0.000... ~ 0.999...
+
+        // 가위바위보
+        // var user = parseInt(prompt("컴퓨터와 가위바위보를 하자...!\n무엇을 낼까? \n>> (1. 가위, 2. 바위, 3.보)"));
+        // var cpu = Math.floor(Math.random() * 3) + 1;
+        // if(user != cpu){
+        //     if( (user == 1 && cpu == 3) || (user == 2 && cpu == 1) || (user == 3 && cpu == 2) ){
+        //         document.write("WIN");
+        //     }else if( (user == 1 && cpu == 2) || (user == 2 && cpu == 3) || (user == 3 && cpu == 1) ){
+        //         document.write("LOSE");
+        //     }else{
+        //         document.write("나랑 가위바위보 하기 싫어?");
+        //     }
+        // }else{
+        //     document.write("DRAW");
+        // }
+
+        // 주차요금
+        // var time = parseInt(prompt("주차시간(분단위): "));
+        // var cost = 1000;
+        // var hour = parseInt(time / 60);
+        // var min = time % 60;
+        // if(time >= 40 && time < 120){
+        //     cost = 1000 + parseInt((time - 30) / 10) * 100;
+        //     document.write("주차시간: " + hour + "시간 " + min + "분 || 주차요금: " + cost +"원");
+        // }
+        // else if(time >= 120 && time < 240){
+        //     cost = 1700 + parseInt((time - 120) / 10) * 100
+        //     document.write("주차시간: " + hour + "시간 " + min + "분 || 주차요금: " + cost +"원");
+        // }
+        // else if(time >= 240 && time < 480){
+        //     cost = 2700 + parseInt((time - 240) / 10) * 100
+        //     document.write("주차시간: " + hour + "시간 " + min + "분 || 주차요금: " + cost +"원");
+        // } 
+        // else if(time >= 480){
+        //     cost = 5000;
+        //     document.write("주차시간: " + hour + "시간 " + min + "분 || 주차요금: " + cost +"원");
+        // }
+        // else{
+        //     document.write("주차시간: " + hour + "시간 " + min + "분 || 주차요금: " + cost +"원");
+        // }
+
+        var phone = '01012341234';
+        if(phone.indexOf('-') != -1){
+            alert("-는 빼고 입력해주세요.");
+        }
+    </script>
+</head>
+<body style="background: #688d66;">
+    
+</body>
+</html>

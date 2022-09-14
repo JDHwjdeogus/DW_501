@@ -85,10 +85,13 @@ footer {background: #000000; width: 100%; height: 100px; margin-top: 10px; posit
 .galleryAside {padding-top: 15px; height: 1000px; width: 299.63px;}
 .galleryCon {height: 1135.4px; background: transparent; position: absolute; top: 2px; right: -1px;}
 
-.galleryAside section .login {background: #dddddd; width: 90%; height: 124px; margin: 0 auto; border-radius: 70px; border: 4px outset #2ecaa8;}
-.galleryAside section .login div {font-size: 15pt; text-align: center; padding-top: 10px;}
-.galleryAside section .login div a {text-decoration: none;  color: black;}
-.galleryAside section .login div a:hover {color: #8e5dff;}
+.galleryAside section .login {background: #dddddd44; width: 90%; height: 109px; margin: 0 auto; margin-top: 5px; margin-bottom: 16px; border-radius: 6px; border: 2px solid #dddddd; color: #dddddd;}
+.galleryAside section .login div {text-align: center;}
+.galleryAside section .login .id_logined {padding-bottom: 5px; padding-top: 18px; font-size: 20px;}
+.galleryAside section .login .alink {display: flex; margin-top: 5px; padding-top: 10px;}
+.alink div {flex-basis: 100%;}
+.galleryAside section .login div a {text-decoration: none;  color: #dddddd; font-size: 14px;}
+.galleryAside section .login div a:hover {color: #00ffc8; font-weight: 600;}
 
 .imgListTitle {width: 799px; height: 50px; margin: 45px 0 0 50px; color: #dddddd; font-family: 'Times New Roman', Times, serif; text-align: center;}
 .TitleGallery {max-width: 120px; height: 50px; border-bottom: 2px solid #999999; font-size: 28pt; margin: 0 auto;}
@@ -97,5 +100,5 @@ footer {background: #000000; width: 100%; height: 100px; margin-top: 10px; posit
 .CellImg {width: 90%; height: 80%; margin: 0 auto; margin-top: 10px; background: #1c9c81; overflow: hidden;}
 .CellImg img {transition: 0.6s; max-width: 204px;}
 .CellImg img:hover {transform: scale(1.4);}
-.CellTxt {width: 160px; height: auto; line-height: 30px; margin: 8px 0 0 12px; padding-left: 10px; font-weight: 600; color: #dddddd; background: #000000cc;}
+.CellTxt {width: 160px; height: auto; line-height: 30px; margin: 8px 0 0 12px; padding-left: 10px; font-weight: 600; color: #dddddd; background: #000000cc; font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;}
 
