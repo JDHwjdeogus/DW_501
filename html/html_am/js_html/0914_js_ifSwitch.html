@@ -77,18 +77,62 @@
         //         document.write("그런 건 없다, 로빈.");
         // }
 
-        var select = prompt("1. 데이터저장 2. 데이터삭제 3. 데이터추가 4. 데이터수정 5. 종료 ||");
-        switch(select){
-            case "데이터 저장":
+        // var select = prompt("1. 데이터저장 2. 데이터삭제 3. 데이터추가 4. 데이터수정 5. 종료 ||");
+        // switch(select){
+        //     case "데이터 저장":
+        //         break;
+        //     case "데이터 삭제":
+        //         break;
+        //     case 3:
+        //         break;
+        //     case 4:
+        //         break;
+        //     case 5:
+        //         break;
+        // } 
+        // // 문법에 맞지 않음. switch는 조건이 문자열인 경우와 숫자인 경우를 동시에 사용할 수 없어 데이터 타입을 한가지로 통일해야 한다.
+
+        // 가위바위보(switch)
+        // var user = parseInt(prompt("컴퓨터와 가위바위보를 하자...!\n무엇을 낼까? \n>> (1. 가위, 2. 바위, 3.보)"));
+        // var cpu = Math.floor(Math.random() * 3) + 1;
+        // document.write("나: " + user + "<br>" + "컴퓨터: " + cpu + "<br>");
+        // switch(user - cpu){
+        //     case -2:
+        //     case 1:
+        //         document.write("나의 승리"); 
+        //         break;
+        //     case 2:
+        //     case -1:
+        //         document.write("컴퓨터의 승리");
+        //         break;
+        //     case 0:
+        //         document.write("DRAW");
+        //         break;
+        // }
+
+        var grade = parseInt(prompt("점수를 입력."));
+        switch(parseInt(grade/10)){
+            case 10:
+            case 9:
+                document.write("A");
                 break;
-            case "데이터 저장":
+            case 8:
+                document.write("B");
                 break;
-            case "데이터 저장":
+            case 7:
+                document.write("C");
                 break;
-            case "데이터 저장":
+            case 6:
+            case 5:
+            case 4:
+            case 3:
+            case 2:
+            case 1:
+            case 0:
+                document.write("F");
                 break;
-            case "데이터 저장":
-                break;
+            default :
+                document.write("새로고침 후 점수를 숫자로 입력(0 ~ 100).");
         }
     </script>
 </head>

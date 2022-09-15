@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script type="text/javascript">
+        document.getElementById("id명");             // id: id는 유일하므로 getElement
+        document.getElementsByClassName("class명"); // class: class는 복수를 허용하므로 getElements. 오타에 유의하기.
+        document.getElementsByName("name명")        // name: name역시 중복이 허용된다.
+        document.querySelector("#num");             // id명 앞에 #을 붙인다. class인 경우 .을 붙인다. css의 id, class 선택자와 같다.
+        document.querySelector(".클래스명");        // 하나의 class만 선택할 경우.
+        document.querySelectorAll(".클래스명");     // 해당 클래스명을 가진 모든 class를 선택할 경우.
+        document.querySelectorAll("태그명");        // 태그나 이름을 전부 가져오는 것도 가능.
+        document.querySelectorAll("[name명]");
+        // window (브라우저 창의 구성요소들)
+        //    | document 
+        //         | html 
+        //         | head & body
+        //                    | input, button, hr, div, ...
+        //    | location(도메인 주소 창) 
+        //    | history(방문기록, 앞으로가기 & 뒤로가기) 
+        //    | screen(모니터 화면 내에서 어떤 위치에 얼마의 크기로 표현되는가에 대한 정보를 담음) 
+        //    | navigator(브라우저 정보, 브라우저를 이용중인 기기 정보)
+        
+        // getElementById: document 태그에서부터 지정된 id값을 태그 하나하나의 id값을 비교해 찾아가는 방식.(너비 우선 탐색 방식)
+        // querySelector: 깊이 우선 탐색 방식
+        // getElementById와 querySelector의 차이: 
+        // getElementById로 태그를 가져온 경우, 클래스 명의 변경이 일어났을 때 html내 인덱스는 바뀌지만 스크립트 내 인덱스는 바뀌지 않는다. (정적으로 태그를 가져옴, 변경사항 발생 시 실시간 반영되지 않음.)
+        // querySelector로 태그를 가져오게 되면, 양 쪽의 인덱스가 전부 바뀐다. (동적으로 태그를 가져옴, 변경사항 발생 시 실시간 반영. 단, 계속 0번 인덱스로 바꿔줘야 한다.)
+        // 태그 하나하나를 자바스크립트에서 객체라고 한다.
+
+        // 문서 내에서 발생한 이벤트에 따른 동작(코드);
+        function valueAlert(){
+            var number = document.getElementById("num"); // input 태그만 가져온 상태
+            var v = parseInt(number.value);              // input 태그에 입력한 값까지 가져온 상태
+            var res = document.getElementById("result"); 
+            if(v % 2 == 0) res.innerHTML = (v + "는(은) 짝수.");
+            else  res.innerHTML = (v + "는(은) 홀수.");
+            // res.innerHTML = v;
+        }
+    </script>
+</head>
+<body style="background: #688d66;">
+    <p>정수를 입력.</p>
+    <input type="text" name="num" id="num"/> 
+    <button type="button" onclick="valueAlert()">입력</button> 
+    <!-- onclick: 태그를 클릭했을 때의 이벤트에 따라 발생하는 동작(함수) 설정 -->
+    <hr/>
+    <div id="result"></div>
+</body>
+</html>
