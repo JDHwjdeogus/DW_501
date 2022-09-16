@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {padding: 0; margin: 0; box-sizing: border-box;}
+        .section {width: 80%; height: auto; margin: 50px auto; background: #f3c878;}
+        .gallery_title {text-align: center;}
+        .gallery_title h1 {font-size: 36px; font-weight: 700;}
+        .gallery_title p {color: #777777; font-size: 16px; font-weight: 600;}
+        .row {display: flex; justify-content: space-between; margin-top: 15px;}
+        .gallery_col {position: relative;}
+        .gallery_col img {border-radius: 10px; object-fit: cover; width: 100%; height: 98%;}
+        .layer {position: absolute; top: 0; left: 0; width: 100%; height: 98%;}
+        .layer h3 {font-size: 20px; color: rgba(46, 49, 49, 1); position: absolute; opacity: 0; bottom: 0; left: 50%; transition: 0.6s; transform: translateX(-50%);}
+        .layer:hover {cursor: pointer; background-color: rgba(232, 232, 232, 0.7); border-radius: 10px;}
+        .layer:hover h3 {opacity: 1; bottom: 50%;}
+    </style>
+</head>
+<body>
+    <div class="section gallery">
+        <div class="gallery_title">
+            <h1>수리남</h1>
+            <p>수리남은 넷플릭스에서 2022년 9월부터 방영된 대한민국의 스릴러 범죄 드라마이다.</p>
+        </div>
+
+        <!-- 내용 -->
+        <!-- div.gallery_col : 사진 -->
+        <div class="row">
+            <div class="gallery_col">
+                <img src="img/하정우.PNG" alt="">
+                <div class="layer">
+                    <h3>강인구 역</h3>
+                </div>
+            </div>
+            <div class="gallery_col">
+                <img src="img/황정민.PNG" alt="">
+                <div class="layer">
+                    <h3>전요환 역</h3>
+                </div>
+            </div>
+            <div class="gallery_col">
+                <img src="img/유연석.PNG" alt="">
+                <div class="layer">
+                    <h3>데이빗 박 역</h3>
+                </div>
+            </div>
+            <div class="gallery_col">
+                <img src="img/박해수.PNG" alt="">
+                <div class="layer">
+                    <h3>최창호 역</h3>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <!-- 줄거리 -->
+    <div class="section contents">
+        <div class="gallery_title">
+            <h1>줄거리</h1>
+            <p>수리남은 넷플릭스에서 2022년 9월부터 방영된 대한민국의 스릴러 범죄 드라마이다.</p>
+        </div>
+    </div>
+</body>
+</html>
