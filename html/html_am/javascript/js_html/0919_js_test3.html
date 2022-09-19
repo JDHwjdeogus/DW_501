@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .imgFix {width: auto; height: 200px;}
+    </style>
+</head>
+<body style="background: #688d66";>
+    <div class="imgFix">
+        <img src="../../img/1.jpg" id="mimg">
+    </div>
+    <div>
+        <button onclick="start()">시작</button>
+        <button onclick="end()">종료</button>
+        <button onclick="previous()">이전</button>
+        <button onclick="next()">다음</button>
+    </div>
+</body>
+<script type="text/javascript">
+    var index = 1;
+    function next(){
+        index++;
+        if(index == 5) index = 1;
+        var img = document.getElementById("mimg");
+        img.src = '../../img/' + index + '.jpg';
+    }
+    function previous(){
+        index--;
+        if(index == 0) index = 4;
+        var img = document.getElementById("mimg");
+        img.src = '../../img/' + index + '.jpg';
+    }
+
+    var set = '';
+    function start(){
+        set = setInterval(function(){
+                index++;
+                if(index == 5) index = 1;
+                var img = document.getElementById("mimg");
+                img.src = '../../img/' + index + '.jpg';
+        }, 1000);
+        
+    }
+    function end(){
+        clearInterval(set);
+    }
+</script>
+</html>
