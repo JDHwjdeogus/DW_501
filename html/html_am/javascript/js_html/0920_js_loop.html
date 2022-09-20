@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #multiflication_frame {border: 3px dashed #e6ffb8; width: 300px; height: auto;}
+        #multiflication_table, .input, .text {margin-top: 10px; margin-left: 15px;}
+        .input {padding-left: 5px;}
+        #input_number {border: none; padding-left: 5px; height: 18px; margin-top: 0px;}
+        .btn {border: none; background: wheat; border-radius: 2px;}
+        .btn:hover {background: rgb(236, 202, 136); cursor: pointer;}
+        #multiflication_table {margin-bottom: 10px; padding-left: 30px;}
+    </style>
+</head>
+<body style="background: #688d66;">
+    <div id="multiflication_frame">
+        <p class="text">보고싶은 구구단의 단을 입력하세요<br>(ex. 2단, 3단, 6단, ...)</p>
+        <div class="input">
+            <input type="text" id="input_number">
+            <button onclick="multiflication()" class="btn">n단 출력</button>
+        </div>
+        <div id="multiflication_table"></div>
+    </div>
+</body>
+<script type="text/javascript">
+    // 루프문(반복문)
+    // for, while, do~while
+    // while - for
+
+    // 초기값, 조건식, 증감식
+    // 시작숫자, 마지막숫자, 시작숫자부터 마지막숫자까지 얼마나 증가하거나 감소하는가
+
+    // ex) 4번 반복한다고 할 때, 4에서부터 2씩 증가한다고 하면, 마지막 숫자는 10 (4일 때 한번 실행된다.)
+    var i = 4;
+    while(i <= 10){
+        document.write(i + "<br>");
+        i = i + 2;
+    }
+    document.write("<br>");
+    
+    var j = 1;
+    while(j <= 10){
+        document.write(j + "<br>");
+        ++j;
+    }
+    document.write("<br>");
+
+    // 누적시키기 위한 변수 sum
+    var sum = 0;
+    var k = 1;
+    while(k <= 10){
+        sum += k;
+        ++k;
+    }
+    document.write(sum + "<br>");
+    document.write("<br>");
+
+    var l = 1;
+    while(l <= 10){
+        document.write("2 * " + l + " = " + (2 * l) + "<br>")
+        ++l
+    }    
+    document.write("<br>");
+    
+    function multiflication(){
+        var nm = document.getElementById("input_number");
+        var rs = document.getElementById("multiflication_table");
+
+        var out = '';
+        var a = 1;
+        while(a < 10){
+            out += nm.value + " * " + a + " = " + (nm.value * a) + "<br>";
+            ++a;
+        }
+        rs.innerHTML = out;
+    }
+
+</script>
+</html>

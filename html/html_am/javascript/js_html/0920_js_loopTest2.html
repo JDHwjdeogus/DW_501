@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body style="background: #688d66;">
+    <!-- 
+    <input type="button" value="front" onclick="select_coin('front')" />
+    <input type="button" value="back" onclick="select_coin('back')" />
+    <hr />
+    <div id="result_1" style="margin-bottom: 60px;"></div> 
+    -->
+
+    <input type="number" id="row" placeholder="row" />
+    <input type="number" id="col" placeholder="column" />
+    <button onclick="make()">make table</button>
+    <hr />
+    <div id="result_2"></div>
+
+</body>
+<script type="text/javascript">
+    function select_coin( it ){
+        var rslt_1 = document.querySelector("#result_1");
+        
+        // if((coin % 2 == 0) && (it == "front")) rslt.innerHTML = "Front, WIN";
+        // else if((coin % 2 == 1) && (it == "back")) rslt.innerHTML = "Back, WIN";
+        // else rslt.innerHTML = "LOSE";
+        
+        var out = "";
+        var i = 1;
+        var count = 0;
+        while (i <= 10){
+            var coin = Math.floor((Math.random() * 10) + 1);
+            switch(coin % 2){
+                case 0:
+                    {
+                        switch(it){
+                            case "front":
+                                out += "Front, WIN <br>";
+                                count++;
+                                break;
+                            case "back":
+                                out += "LOSE <br>";
+                                break;
+                        }
+                    }
+                    break;
+                case 1:
+                    {
+                        switch(it){
+                            case "front":
+                                out += "LOSE <br>";
+                                break;
+                            case "back":
+                                out += "Back, WIN <br>";
+                                count++;
+                                break;
+                        }
+                    }
+                    break;
+                default: 
+                    out += "something's wrong... <br>";
+                    count++;
+                    break;
+            }
+            ++i;
+        }
+        out += "<br> Winning Percentage: " + count * 10 + "%";
+        rslt_1.innerHTML = out;
+    }
+
+
+    // 무한루프: 끝없이 반복하는 것
+// while(true){
+//     var num = parseInt(prompt());
+//     document.write(num + "<br>");
+//     if(num == 0) break;
+// }
+
+    function make(){
+        var rslt_2 =  document.getElementById("result_2");
+        var row = document.getElementById("row");
+        var col = document.getElementById("col");
+        var j = 1;
+        var out_table = "";
+        out_table += "<table>";
+        while(j <= row.value) {
+            out_table += "<tr>";
+            var k = 1;
+            while(k <= col.value){
+                out_table += "<td>lemon</td>";
+                ++k;
+            }
+            out_table += "</tr>";
+            ++j;
+        }
+        out_table += "</table>";
+        rslt_2.innerHTML = out_table;
+    }
+</script>
+<style type="text/css">
+    table {border-collapse: collapse;}
+    td {width: 66px; height: 66px; color: #f3e66e; border: 1px solid #f3e66e; text-align: center; background: #887b0899;}
+</style>
+</html>
