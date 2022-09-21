@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body style="background: #688d66;">
+    
+</body>
+<script type="text/javascript">
+    // for문 및 while문 동작 순서
+    // 초기값 > 조건식 비교 > 참일 경우 > 반복할 내용 > 증감식 > 조건식 비교 > 참일 경우 > 반복할 내용 > 증감식 > 조건식 비교 > 거짓일 경우 > 반복문 종료
+    var i = 1;      // 초기값
+    while(i <= 10){ // 조건식        // 중괄호 생략 불가
+        document.write(i + "&nbsp");
+        i++;        // 증감식
+    }
+        // 초기값; 조건식; 증감식
+        // ; 조건식; 증감식          >> 무한루프
+        // ; ;                       >> 무한루프
+    for(var k = 1; k <= 10; k++){    //코드가 한 줄인 경우 중괄호 생략 가능
+
+    }
+    // 반복 횟수가 정해져있으면 for문.
+    // 따로 정해진 경우가 아니라면 while문. (ex. 무한루프 등)
+    // 개발자 사이에서 암묵적으로 정해진 것이므로 로직만 잘 세울 자신이 있다면 어떤 걸 써도 상관없음. 
+    // 그러나 파이썬의 경우 반복횟수에 따른 반복문의 종류가 명시되어있다.
+
+    document.write("<br>");
+    // while문과 for문 차이: 이중 반복문 구현 시
+    var a = 1;
+    var b = 1;
+    while(a <= 3){  // (a <= 3) 이 거짓이 될 때까지... 로 이해해야 로직을 세우기 좋다.
+        b = 1;      // a의 while문 안에서 b를 초기화시키지 않으면 a의 2번째 루트에서 b는 이미 5가 되어 거짓이 된다. 
+                    // 따라서 b while문이 실행되지 않아 5번만 반복된다..
+        while (b <= 4){
+            document.write("while <br>");
+            b++;
+        }
+        a++;
+    }
+
+    document.write("<br>");
+    for (var c = 1; c <= 3; c++){
+        for (var d = 1; d <= 4; d++) document.write("for <br>")
+    }
+</script>
+</html>
