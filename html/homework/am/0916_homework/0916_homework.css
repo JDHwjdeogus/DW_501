@@ -1,0 +1,12 @@
+body {margin: 0; padding: 0; box-sizing: border-box;}
+.wrap {margin: 0 auto; width: 1200px; height: auto;}
+header, main, footer {width: 100%; height: auto;}
+.title {text-align: center; margin: 50px 0 0; background: #48f7bc; font-size: 30px;}
+
+.cpu {background: #cccccc;}
+.cpuDiceWrap, .userDiceWrap {width: auto; height: auto; margin: 90px 99px;}
+.cpuDice, .userDice {width: 250px; height: 250px; background: #48f7bc; display: inline-block; margin: 0 40px;}
+
+.user {background: #999999;}
+
+.W_or_L {background: #000000; color: #999999; text-align: center; font-size: 60px;}
