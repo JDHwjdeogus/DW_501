@@ -1,11 +1,11 @@
 body {margin: 0; padding: 0; box-sizing: border-box;}
-.wrap {margin: 0 auto; width: 1200px; height: auto;}
+.wrap {margin: 0 auto; width: 950px; height: auto;}
 header, main, footer {width: 100%; height: auto;}
-.title {text-align: center; margin: 50px 0 0; background: #48f7bc; font-size: 30px;}
+.title {text-align: center; background: #48f7bc; font-size: 30px;}
 
 .cpu {background: #cccccc;}
-.cpuDiceWrap, .userDiceWrap {width: auto; height: auto; margin: 90px 99px;}
-.cpuDice, .userDice {width: 250px; height: 250px; background: #48f7bc; display: inline-block; margin: 0 40px;}
+.cpuDiceWrap, .userDiceWrap {width: auto; height: auto; margin: 20px 60px;}
+.cpuDice, .userDice {width: 250px; height: 250px; background: #48f7bc; display: inline-block; margin: 0 10px;}
 
 .user {background: #999999;}
 
