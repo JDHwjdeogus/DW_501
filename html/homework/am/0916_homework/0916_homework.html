@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Dice Roullet</title>
     <link rel="stylesheet" href="0916_homework.css">
 </head>
 <body>
@@ -16,26 +16,55 @@
         </header>
 
         <main>
-            <div class="cpu">
-                <div class="cpuDiceWrap">
-                    <div class="cpuDice"></div>
-                    <div class="cpuDice"></div>
-                    <div class="cpuDice"></div>
+            <section>
+                <div class="cpu">
+                    <div class="name">
+                        <span>컴퓨터</span>
+                    </div>
+                    <div class="cpuDiceWrap">
+                        <div class="cpuDice">
+                            <!-- <img src="1.png"> -->
+                        </div>
+                        <div class="cpuDice">
+                            <!-- <img src="2.png"> -->
+                        </div>
+                        <div class="cpuDice">
+                            <!-- <img src="3.png"> -->
+                        </div>
+                    </div>
+                    <div class="cpuButtonWrap"></div>
                 </div>
-                <div class="cpuButtonWrap"></div>
-            </div>
-            
-            <div class="user">
-                <div class="userDiceWrap">
-                    <div class="userDice"></div>
-                    <div class="userDice"></div>
-                    <div class="userDice"></div>
+
+                <hr>
+                
+                <div class="user">
+                    <div class="name">
+                        <span>나</span>
+                    </div>
+                    <div class="userDiceWrap">
+                        <div class="userDice">
+                            <!-- <img src="4.png"> -->
+                        </div>
+                        <div class="userDice">
+                            <!-- <img src="5.png"> -->
+                        </div>
+                        <div class="userDice">
+                            <!-- <img src="6.png"> -->
+                        </div>
+                    </div>
+                    <div class="userButtonWrap">
+                        <button onclick="stopUserDice()">주사위 던지기</button>
+                    </div>
                 </div>
-                <div class="userButtonWrap"></div>
-            </div>
+            </section>
             
             <div class="W_or_L">
-                win
+                <span id="Win_Lose">
+                    win
+                </span>
+                <p>
+
+                </p>
             </div>
         </main>
 
@@ -43,6 +72,8 @@
     </div>
 </body>
 <script type="text/javascript">
-
+    function stopUserDice(){
+        
+    }
 </script>
 </html>
