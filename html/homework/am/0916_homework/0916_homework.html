@@ -22,14 +22,14 @@
                         <span>컴퓨터</span>
                     </div>
                     <div class="cpuDiceWrap">
-                        <div class="cpuDice">
-                            <!-- <img src="1.png"> -->
+                        <div class="cpuDice cpuDice_1">
+                            <img src="1.png" id="diceImgC_1">
                         </div>
-                        <div class="cpuDice">
-                            <!-- <img src="2.png"> -->
+                        <div class="cpuDice cpuDice_2">
+                            <img src="1.png" id="diceImgC_2">
                         </div>
-                        <div class="cpuDice">
-                            <!-- <img src="3.png"> -->
+                        <div class="cpuDice cpuDice_3">
+                            <img src="1.png" id="diceImgC_3">
                         </div>
                     </div>
                     <div class="cpuButtonWrap"></div>
@@ -42,29 +42,34 @@
                         <span>나</span>
                     </div>
                     <div class="userDiceWrap">
-                        <div class="userDice">
-                            <!-- <img src="4.png"> -->
+                        <div class="userDice userDice_1">
+                            <img src="1.png" id="diceImgU_1">
                         </div>
-                        <div class="userDice">
-                            <!-- <img src="5.png"> -->
+                        <div class="userDice userDice_2">
+                            <img src="1.png" id="diceImgU_2">
                         </div>
-                        <div class="userDice">
-                            <!-- <img src="6.png"> -->
+                        <div class="userDice userDice_3">
+                            <img src="1.png" id="diceImgU_3">
                         </div>
                     </div>
                     <div class="userButtonWrap">
-                        <button onclick="stopUserDice()">주사위 던지기</button>
+                        <button onclick="rollingDice()">주사위 굴리기</button>
+                        <!-- <button onclick="stopDice()">주사위 던지기</button> -->
                     </div>
                 </div>
             </section>
             
             <div class="W_or_L">
                 <span id="Win_Lose">
-                    win
                 </span>
-                <p>
-                    
-                </p>
+                <div>
+                    <p>
+                        주사위 게임 승리 조건<br>
+                        1) 합이 크면 승리<br>
+                        2) 1,1,1 이 나오면 어떤 주사위 값보다 가장큰값<br>
+                        3) 3,3,3  두번째로 가장 큰값<br>
+                    </p>
+                </div>
             </div>
         </main>
 
@@ -72,8 +77,203 @@
     </div>
 </body>
 <script type="text/javascript">
-    function stopUserDice(){
+    // var set = "";
+    
+    function stopDice(c1, c2, c3, u1, u2, u3){
+        // clearInterval(set);
+
+        var max = 0;
+        var cSum = c1 + c2 + c3;
+        var uSum = u1 + u2 + u3;
+
+        if(c1==c2 && c2==c3 && c1==1) max = cSum;
+        else if(u1==u2 && u2==u3 && u1==1) max = uSum;
+        else {
+            if(c1==c2 && c2==c3 && c1==3) {
+                max = cSum;
+            }else if(u1==u2 && u2==u3 && u1==3) {
+                max = uSum;
+            }else {
+                if(cSum > uSum) max = cSum;
+                else max = uSum;
+            }
+        }
+
+        console.log(c1); console.log(c2); console.log(c3); 
+        console.log(u1); console.log(u2); console.log(u3);
+        console.log(cSum); console.log(uSum);
+
+        var Win_Lose = document.getElementById("Win_Lose");
+        if(max == cSum){
+            Win_Lose.innerHTML = "컴퓨터의 승리!";
+        }else if(max == uSum){
+            Win_Lose.innerHTML = "나의 승리!";
+        }
+    }
+
+    function rollingDice(){
+
+        // set = setInterval(function(){
+            // 주사위 div 변수(랜덤값 부여)
+            var userDice_1 = document.querySelector(".userDice_1");
+            var cpuDice_1 = document.querySelector(".cpuDice_1");
+            
+            var userDice_2 = document.querySelector(".userDice_2");
+            var cpuDice_2 = document.querySelector(".cpuDice_2");
+            
+            var userDice_3 = document.querySelector(".userDice_3");
+            var cpuDice_3 = document.querySelector(".cpuDice_3");
+            
+            // 1번 주사위
+            cpuDice_1.value = Math.floor(Math.random()*6) + 1;
+            userDice_1.value = Math.floor(Math.random()*6) + 1;
+            // 2번 주사위
+            cpuDice_2.value = Math.floor(Math.random()*6) + 1;
+            userDice_2.value = Math.floor(Math.random()*6) + 1;
+            // 3번 주사위
+            cpuDice_3.value = Math.floor(Math.random()*6) + 1;
+            userDice_3.value = Math.floor(Math.random()*6) + 1;
+            
+            // 이미지 변수
+            var diceImgC_1 = document.getElementById("diceImgC_1");
+            var diceImgU_1 = document.getElementById("diceImgU_1");
+
+            var diceImgC_2 = document.getElementById("diceImgC_2");
+            var diceImgU_2 = document.getElementById("diceImgU_2");
+
+            var diceImgC_3 = document.getElementById("diceImgC_3");
+            var diceImgU_3 = document.getElementById("diceImgU_3");
+
+            // 부여된 랜덤값에 따른 이미지 변화(cpu)
+            switch(cpuDice_1.value){
+                case 1:
+                    diceImgC_1.src = "1.png"; 
+                    break;
+                case 2:
+                    diceImgC_1.src = "2.png";
+                    break;
+                case 3:
+                    diceImgC_1.src = "3.png";
+                    break;
+                case 4:
+                    diceImgC_1.src = "4.png";
+                    break;
+                case 5:
+                    diceImgC_1.src = "5.png";
+                    break;
+                case 6:
+                    diceImgC_1.src = "6.png";
+                    break;
+            } 
+
+            switch(cpuDice_2.value){
+                case 1:
+                    diceImgC_2.src = "1.png"; 
+                    break;
+                case 2:
+                    diceImgC_2.src = "2.png";
+                    break;
+                case 3:
+                    diceImgC_2.src = "3.png";
+                    break;
+                case 4:
+                    diceImgC_2.src = "4.png";
+                    break;
+                case 5:
+                    diceImgC_2.src = "5.png";
+                    break;
+                case 6:
+                    diceImgC_2.src = "6.png";
+                    break;
+            } 
+            
+            switch(cpuDice_3.value){
+                case 1:
+                    diceImgC_3.src = "1.png"; 
+                    break;
+                case 2:
+                    diceImgC_3.src = "2.png";
+                    break;
+                case 3:
+                    diceImgC_3.src = "3.png";
+                    break;
+                case 4:
+                    diceImgC_3.src = "4.png";
+                    break;
+                case 5:
+                    diceImgC_3.src = "5.png";
+                    break;
+                case 6:
+                    diceImgC_3.src = "6.png";
+                    break;
+            } 
+
+            switch(userDice_1.value){
+                case 1:
+                    diceImgU_1.src = "1.png"; 
+                    break;
+                case 2:
+                    diceImgU_1.src = "2.png";
+                    break;
+                case 3:
+                    diceImgU_1.src = "3.png";
+                    break;
+                case 4:
+                    diceImgU_1.src = "4.png";
+                    break;
+                case 5:
+                    diceImgU_1.src = "5.png";
+                    break;
+                case 6:
+                    diceImgU_1.src = "6.png";
+                    break;
+            }
+            
+            switch(userDice_2.value){
+                case 1:
+                    diceImgU_2.src = "1.png"; 
+                    break;
+                case 2:
+                    diceImgU_2.src = "2.png";
+                    break;
+                case 3:
+                    diceImgU_2.src = "3.png";
+                    break;
+                case 4:
+                    diceImgU_2.src = "4.png";
+                    break;
+                case 5:
+                    diceImgU_2.src = "5.png";
+                    break;
+                case 6:
+                    diceImgU_2.src = "6.png";
+                    break;
+            }
+
+            switch(userDice_3.value){
+                case 1:
+                    diceImgU_3.src = "1.png"; 
+                    break;
+                case 2:
+                    diceImgU_3.src = "2.png";
+                    break;
+                case 3:
+                    diceImgU_3.src = "3.png";
+                    break;
+                case 4:
+                    diceImgU_3.src = "4.png";
+                    break;
+                case 5:
+                    diceImgU_3.src = "5.png";
+                    break;
+                case 6:
+                    diceImgU_3.src = "6.png";
+                    break;
+            }
+        // }, 300);
         
+
+        stopDice(cpuDice_1.value, cpuDice_2.value, cpuDice_3.value, userDice_1.value, userDice_2.value, userDice_3.value);
     }
 </script>
 </html>
