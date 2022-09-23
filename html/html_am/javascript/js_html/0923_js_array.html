@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body style="background: #688d66;">
+    
+</body>
+<script type="text/javascript">
+    // 변수: 단일값을 저장하기 위한 메모리 공간.
+    // 배열: n개의 데이터를 저장하기 위한 메모리공간.
+    // java에서는 하나의 배열 안에 동일한 타입의 데이터들만 넣을 수 있으나,
+    // javascript에서는 하나의 배열 안에 다양한 타입의 데이터들을 넣을 수 있다.
+    // 배열 안에 저장되는 건 실제적인 데이터가 아닌 해당 데이터가 있는 주소값이다.
+    // 즉, arr[1]이라는 건 arr이 알고 있는 위치인 arr[0]에서 한번 이동한 공간이라는 뜻이다.
+
+    var arr = new Array(); // arr: 참조 변수 arr, Array()를 배열로 쓸 것이다.
+    var arr2 = [];
+    var arr3 = [1, 10, 32, 54];
+    
+    arr.push(10);   // arr에 10을 넣는다.
+    arr.push(30);
+    arr.push(2323);
+    
+    alert(arr[2]);
+    // 배열 사용 시, 배열은 인덱스로 표현하며 인덱스는 0부터 시작하는 것에 유의할 것.
+
+    var num = 10;
+    alert(num);
+    num = "문자열";
+    alert(num);
+</script>
+</html>
