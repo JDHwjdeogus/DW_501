@@ -16,9 +16,14 @@ git
 4. git에 저장한 내용을 업로드(깃 서버에 업로드 요청) > push
 5. git에서 수정된 사항을 연동된 폴더에 반영 > pull
 
+
 github 팀프로젝트 절차
 repository Setting > Collaborators > Manage access > Add people(녹색 버튼)
+
 
 커밋 시간차로 pull 실행 중 오류 발생 시 등장하는 텍스트에 대한 설명
 >>>>>>>>> 본인이 작성한 코드(혹은 변경 수정 사항)
 <<<<<<<<< 타인이 작성한 코드 (혹은 변경 수정 사항)
+
+
+github에서 팀으로 공동작업 할 경우의 편의성을 위해 organization이라는 기능을 만들었다.
