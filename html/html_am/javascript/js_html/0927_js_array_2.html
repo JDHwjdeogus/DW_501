@@ -9,9 +9,9 @@
         // onload는 브라우저에 출력된 이후를 뜻함. 
         // window.onload는 브라우저에 모든 html이 출력된 이후를 의미한다.
         window.onload = function (){
-            document.getElementById("docread").addEventListener('change', readFile);
+            document.getElementById("docread").addEventListener("change", readFile);
         };
-        async function readFile(e){
+        async function readFile(e) {
             // input 태그에서 선택한 파일 객체
             var file = e.target.files[0];
             // 파일객체 존재유무 판별 조건식: 존재하지 않으면 종료.
@@ -20,11 +20,20 @@
             }
             
             var text = await file.text();
+            // 방법 3
+            list = text.split("\n");
+
+
+            // 방법 2
             // alert(text);
-            text = text.spilt("\n");
-            document.write(text[0] + "<br>");
-            document.write(text[1] + "<br>");
-    
+            // text = text.split("\n");
+            // 문자열을 분할해 배열로 변환
+            // for(var i = 0; i < text.length; i++){
+            //     document.write(text[i] + "<br>");
+            // }
+
+
+            // 방법 1
             // 파일을 불러오기 위한 reader 객체 생성
             /*
                 var reader = new FileReader();
@@ -34,13 +43,70 @@
                 };
                 // 리더기를 통해 file에 담긴 내용 가져오기.
                 alert(reader.readAsText(file, 'utf-8'));
-            */
+                */
         }
+
+        var list = new Array();
+
+        function out_list(){
+            var out = "";
+            for(let i in list){
+                out += list[i] + "<br>";
+            }
+            document.querySelector("#list").innerHTML = out;
+        }
+
+        // 내용(텍스트) 검색 함수
+        function search(){
+            var word = document.getElementById("word");
+            var name = word.value; // 검색어
+            
+
+            // 검색 단어와 list 배열 내 텍스트(파일 불러와서 div#list에 띄운 내용)를 비교하기 위한 반복문
+            for(let i in list){ 
+                // 방법 1
+                // let temp = list[i].split(" ");
+                // if(temp[0] == name){
+                //     document.querySelector("#list").innerHTML = list[i];
+                //     return; // 함수 종료
+                // }
+
+                // 방법 2
+                if(list[i].indexOf(name) != -1){
+                    alert(list[i].indexOf(name));
+                    document.querySelector("#list").innerHTML = list[i];
+                    return;
+                }
+                // indexOf(찾을 문자열) 함수는 문자열 안에서 입력한 문자열과 일칳하는 위치를 찾아 인덱스를 반환
+                // ex. "abcd".indexOf("bc") >> 결과: 1
+                // -1이 결과로 나왔다는 건 존재하지 않는다는 것. 해당 함수는 배열에 대해서만 사용할 수 있다.
+            }
+
+            // 검색(위의 반복문을 실행) 결과로 일치하는 텍스트가 없을 때
+            document.querySelector("#list").innerHTML = "검색결과 일치하는 정보가 없습니다."
+        } // 함수 종료
+
     </script>
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+    <style type="text/css">
+        .srh_wrap {display: flex; margin: 10px 0 0; border: 1px solid black; width: 220px; padding: 4px 10px 4px 6px;}
+        .srh_wrap input {border: 0; background: transparent; outline: none; width: 200px; margin: 0 4px;} 
+        .srh_wrap span {cursor: pointer;}
+        #list {padding: 10px 0;}
+    </style>
 </head>
 <body style="background: #688d66;">
     <div>
         <input type="file" id="docread" />
     </div>
+    <div>
+        <input type="button" onclick="out_list()" value="전체리스트" />
+        <div class = "srh_wrap">
+            <input type="search" id="word">
+            <span onclick="search()"> <i class="bi bi-search"></i> </span>
+        </div>
+    </div>
+    <div id="list"></div>
 </body>
 </html>
