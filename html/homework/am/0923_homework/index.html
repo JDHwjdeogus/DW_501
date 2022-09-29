@@ -7,14 +7,69 @@
     <title>미로를 만들어볼 것이다</title>
     <style type="text/css">
         * {margin: 0; padding: 0; box-sizing: border-box;}
-        body {background: #30303b;}
-        #maze {width: 800px; height: 800px; background: #b2a5c5; margin: 0 auto; margin-top: 50px;}
+        body {background: #131d18;}
+        #location {width: 600px; height: 60px; margin: 20px auto; background: #9ae0c5; text-align: center;}
+        #maze {width: 600px; height: 600px; background: #e8ecbf; margin: 0 auto; position: relative;}
+        #maze .userDiv {width: 30px; height: 30px; background: #42306b; display: block; z-index: 10; cursor: pointer; position: absolute;}
+        table {width: 100%; border-collapse: collapse;}
+        table tr td {border: 1px solid #000; width: 40px; height: 40px;}
+        tr:first-child, tr:last-child, td:first-child, td:last-child {background: #b69d4c;}
+        #start, #end {background: #ddd; text-align: center; font-weight: 600; font-size: 13px; color: darkslateblue;}
     </style>
 </head>
 <body>
-    <div id="maze"></div>
+    <div id="location"></div>
+    <div id="maze">
+        <div class="userDiv"></div>
+    </div>
 </body>
-<script type="text/javascript">
 
+<script type="text/javascript">
+    // 미로 배열
+    var mazeBoard = new Array(225);
+    mazeBoard.fill(0);
+    // 행 열 변수
+    var row = 0;
+    var col = 0;
+
+    // 벽 설정
+    function wall(){
+        for(var j = 0; j < 225; j++){
+            if(j >= 0 && j <= 14) {
+                mazeBoard[j] = 1;
+            }
+            else if(j % 14 == 0) {
+                mazeBoard[j] = 1;
+            }
+            else if(j > 210 && j < 225) {
+                if(j == 223) mazeBoard[j] = 0;
+                else mazeBoard[j] = 1;
+            }
+            else mazeBoard[j] = 0;
+        }
+
+        for (var i = 29; i < 210; i = i + 14){
+            mazeBoard[j] = 1;
+        }
+
+        // 경로 외 공간은 랜덤하게 벽 세우기 (mazeBoard[j] = 1;)
+        // 상하: -14, +14, 좌우: -1, +1
+        // 경로를 랜덤으로 생성할 배열 하나 만들기
+    }
+
+    //맵 ui
+    window.onload = function(){
+        var table = "<table>";
+        for(var i = 0; i < 15; i++){
+            table += "<tr>"
+            for(var j = 0; j < 15; j++){
+                if(i == 1 && j == 0) table += "<td id = 'start'>start</td>";
+                else if(i == 14 && j == 13) table += "<td id = 'end'>end</td>";
+                else table += '<td></td>';
+            }
+            table += "</tr>";
+        }
+        document.getElementById("maze").innerHTML = table;
+    };
 </script>
 </html>
