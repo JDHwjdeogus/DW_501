@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {margin: 0; padding: 0; box-sizing: border-box;}
+        body {background: #688d66;}
+        .inputWrap {margin: 10px; padding: 0;}
+        #quan {height: 30px; padding: 0 0 0 6px;}
+        .inputWrap button {width: 66px; height: 30px;}
+        #result {margin: 0 0 30px; padding: 0 10px; color: #f6ff67; font-weight: 600;}
+    </style>
+</head>
+<body>
+    <div class="inputWrap">
+        <input type="text" id="quan" placeholder="고구마 수량 입력">
+        <button onclick="enroll()">입력</button>
+    </div>
+    <div id="result"></div>
+</body>
+<script type="text/javascript">
+    // 사과박스
+    var apple_box = new Array();
+    apple_box.push(68);
+    apple_box.push(63);
+    apple_box.push(61);
+    apple_box.push(69);
+    apple_box.push(66);
+
+    var total_apple = 0;
+    for(var i = 0; i < apple_box.length; i++){
+        total_apple += apple_box[i];
+        document.write(apple_box[i] + "&nbsp");
+    }
+    var avg_appleBox = parseInt(total_apple / apple_box.length);
+    document.write("<br>사과상자의 평균 갯수: " + avg_appleBox + "<br>");
+
+    for(var i = 0; i < apple_box.length; i++){
+        document.write("<br>" + (i + 1) + "번 사과상자: " + (apple_box[i] - avg_appleBox) + "개");
+    }
+
+    // 고구마박스 (나)
+    // function enroll(){
+    //     // 태그 불러오기
+    //     var quan = document.getElementById("quan");
+    //     var result = document.getElementById("result");
+    //     // 고구마 박스 배열 및 수량(입력값) 정의
+    //     var SweetPotato_box_1 = new Array();
+    //     var SweetPotato_amount = quan.value;
+    //     // 고구마상자 무게 구하기
+    //     var total_SweetPotato = 0;
+    //     for(var i = 0; i < SweetPotato_amount; i++){
+    //         SweetPotato_box_1.push(200);
+    //         total_SweetPotato += SweetPotato_box_1[i];
+    //     }
+    //     // 결과 출력
+    //     result.innerHTML ="첫번째 고구마 상자의 무게는 " + (total_SweetPotato / 1000) + "kg" + "<br>첫번째 고구마 상자의 가격은 " + (1000 * SweetPotato_amount) + "원";
+    // }
+
+    // 고구마박스(선생님)
+    var sweetquan = new Array();
+    var sweet_kg = new Array();
+    function enroll(){
+        var quan = document.querySelector("#quan");
+        // 입력한 고구마 수량
+        var num = parseInt(quan.value);
+        sweetquan.push(num);
+        // 상자 당 고구마 무게
+        let kg = (num * 200) / 1000;
+        sweet_kg.push(kg);
+
+        var result = document.querySelector("#result");
+        var out = "";
+        for(var i = 0; i < sweetquan.length; i++){
+            out += (i + 1) + "번째 고구마상자 " + sweet_kg[i] + "kg (" + sweetquan[i] + "개) <br>" 
+        }
+        result.innerHTML = out;
+    }
+    
+</script>
+</html>
