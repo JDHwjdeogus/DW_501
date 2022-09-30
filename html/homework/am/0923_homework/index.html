@@ -14,7 +14,8 @@
         table {width: 100%; border-collapse: collapse;}
         table tr td {border: 1px solid #000; width: 40px; height: 40px;}
         tr:first-child, tr:last-child, td:first-child, td:last-child {background: #b69d4c;}
-        #start, #end {background: #ddd; text-align: center; font-weight: 600; font-size: 13px; color: darkslateblue;}
+        #start, #end {background: #e8ecbf; text-align: center; font-weight: 600; font-size: 13px; color: darkslateblue;}
+        .AroundStartOrEnd {background: #e8ecbf;}
     </style>
 </head>
 <body>
@@ -57,14 +58,23 @@
         // 경로를 랜덤으로 생성할 배열 하나 만들기
     }
 
+    // 경로 설정
+    function route(){
+        var correctWay = new Array();
+    }
+
     //맵 ui
     window.onload = function(){
         var table = "<table>";
         for(var i = 0; i < 15; i++){
             table += "<tr>"
             for(var j = 0; j < 15; j++){
-                if(i == 1 && j == 0) table += "<td id = 'start'>start</td>";
-                else if(i == 14 && j == 13) table += "<td id = 'end'>end</td>";
+                if(i == 0 && j == 0) table += "<td id = 'start'> start </td>";
+                else if(i == 14 && j == 14) table += "<td id = 'end'> end </td>";
+
+                else if(i == 0 && j == 1) table += "<td class = 'AroundStartOrEnd'></td>";
+                else if(i == 14 && j == 13) table += "<td class = 'AroundStartOrEnd'></td>";
+
                 else table += '<td></td>';
             }
             table += "</tr>";
