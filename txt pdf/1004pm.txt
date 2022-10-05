@@ -7,6 +7,8 @@ sal: 급여
 comm: 보너스
 deptno: 부서 번호
 
+-- sql 실행 순서: 1. FROM || 2. WHERE || 3. SELECT
+
 ==============================================================================================
 1004 sql test
 
@@ -23,7 +25,7 @@ SELECT empno, ename, sal, job FROM emp WHERE sal >= 1500
 SELECT empno, ename, sal, job FROM emp WHERE sal >= 1500 AND job = "salesman" 
 
 5. 급여가 1500 ~ 2850 사이의 범위에 속하지 않는 모든 사원의 이름, 급여 조회
-SELECT ename, sal FROM emp WHERE JOB = 'SALESMAN' AND (sal < 1500 OR sal > 2850)
+SELECT ename, sal FROM emp WHERE job = 'salesman' AND (sal < 1500 OR sal > 2850)
 
 6. 1981년 2월 20일 ~ 1981년 5월 1일에 입사한 사원의 이름, 입사일 조회
 SELECT ename, hiredate FROM emp WHERE hiredate >= "1981-02-20" AND hiredate <= "1981-05-01"
