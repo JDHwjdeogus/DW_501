@@ -12,7 +12,7 @@ window.onload = function(){
         div.appendChild(h);
 
         document.createElement("h3");
-        h.appendChild(document.createTextNode("city"));
+        h.appendChild(document.createTextNode(city));
         div.appendChild(h);
 
         document.createElement("h3");
