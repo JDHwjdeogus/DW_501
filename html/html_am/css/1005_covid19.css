@@ -1,0 +1,9 @@
+@charset "utf-8";
+* {margin: 0; padding: 0; box-sizing: border-box;}
+#wrap {width: 800px; margin: 0 auto;}
+.Input {display: flex; width: 100%; margin: 30px 0 10px;}
+.Input h2, .Input input, #add {margin-left: 10px;}
+#add {padding: 0 6px;}
+
+#population_wrap div {display: flex;}
+#population_wrap div h3 {width: 33%;}
