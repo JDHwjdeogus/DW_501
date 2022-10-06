@@ -1,0 +1,15 @@
+SELECT 컬럼 조회
+FROM 테이블 이름
+WHERE 필터링
+GROUP BY 그룹핑
+HAVING 그룹핑 관련 필터링
+ORDER BY 정렬 (디폴트값: ASC)
+
+WHERE과 HAVING 차이점: WHERE은 데이터 연산함수(단일행 함수: AVG SUM MAX MIN COUNT ...) 사용 불가능. HAVING은 사용 가능
+
+sql 실행 순서(최종): 1. FROM || 2. WHERE || 3. GROUP BY || 4. HAVING || 5. SELECT || 6. ORDER BY
+
+SELECT: 데이터 조회
+DELETE: 데이터 삭제
+UPDATE: 데이터 수정
+INSERT: 데이터 삽입
