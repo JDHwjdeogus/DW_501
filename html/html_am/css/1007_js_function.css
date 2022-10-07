@@ -1,0 +1,5 @@
+* {margin: 0; padding: 0; box-sizing: border-box;}
+#input_wrap {margin: 0 auto; width: 800px; height: 109px; padding: 50px 0 0 130px;}
+#input_wrap input {width: 150px; height: 50px; border: 1px solid #ddd; border-radius: 3px; margin-right: 5px; padding-left: 10px; font-size: 20px;}
+#input_wrap button {width: 135px; height: 40px; border: none; border-radius: 10px; cursor: pointer; background: #31b3a1;}
+#result {margin: 10px auto; width: 800px; height: auto; padding: 10px 0 10px 10px; background: #31b3a1;}
