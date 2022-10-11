@@ -85,11 +85,9 @@
 
       2번 문제: 담기를 클릭하면 총 주문 금액에 클릭한 가격 표기할 것
       단, 참다랑어 스페셜 세트는 품절이기 때문에 총 주문 금액에 포함될 수 없다.
-      #fattyTuna8  #fattyTuna2  #bestPartOfRed3  #fattyTuna5  #specialSet(품절)
 
       3번 문제: 참다랑어 스페셜 세트를 클릭하면
       "죄송합니다. 참다랑어 세트는 품절입니다." alert창 띄우기
-      #specialSet(품절)
 
       4번 문제: 결제하기 버튼을 누르면 "주문 완료" alert창 띄우고,
       총 주문 금액 0원으로 리셋하기
@@ -97,7 +95,7 @@
       9.30, 10.5, 10.6, 10.7 오전파일 참고
       */
     
-    // 1번 문제: 전체 메뉴, 오늘의 메뉴, 베스트 메뉴를 클릭하게 되면 클릭한 메뉴에 css 적용할 것 
+    // 1번 문제: 전체 메뉴, 오늘의 메뉴, 베스트 메뉴를 클릭하게 되면 클릭한 메뉴에 css 적용할 것.
     var nav_listLi = document.querySelectorAll(".nav_listLi");
     function clickMenu(){
       for(var i = 0; i < nav_listLi.length; i++){
@@ -116,47 +114,44 @@
 
     
     // 2번 문제: 담기를 클릭하면 총 주문 금액에 클릭한 가격 표기할 것. 단, 참다랑어 스페셜 세트는 품절이기 때문에 총 주문 금액에 포함될 수 없다.
+    // 3번 문제: 참다랑어 스페셜 세트를 클릭하면 "죄송합니다. 참다랑어 세트는 품절입니다." alert창 띄우기.
     var price = document.querySelectorAll(".price");
-    var clickedPrice = 0;
-    var willClickPrice = 0;
-    var priceValue = new Array();
-    //
     var totalValue = 0;
     var total = document.querySelector("#totalMoney");
-    //
-    var isTrue = false;
-
     var set = document.querySelectorAll("#fattyTuna8, #fattyTuna2, #bestPartOfRed3, #fattyTuna5, #specialSet");
+    var priceValue = new Array();
     for(var i = 0; i < price.length; i++) { // priceValue 배열에 데이터 주입
       priceValue.push(parseInt(price[i].textContent) * 1000);
     }
     priceValue[4] = 0;
 
-    for(var i = 0; i < set.length; i++) { // 합계 출력 과정 1. 변수 저장
-      willClickPrice = priceValue[i];
-      set[i].addEventListener("click", insertData(willClickPrice));
+    for(var i = 0; i < set.length; i++){
+      set[i].addEventListener("click", clickAlink);
     }
 
-    function insertData(priceValue){
-      if(isTrue){
-        clickedPrice = priceValue;
-        isTrue = false;
-
-      }
+      // set[0].addEventListener("click", totalPrice(priceValue[0]));
+      // set[1].addEventListener("click", totalPrice(priceValue[1]));
+      // set[2].addEventListener("click", totalPrice(priceValue[2]));
+      // set[3].addEventListener("click", totalPrice(priceValue[3]));
+      // set[4].addEventListener("click", totalPrice(priceValue[4]));
+    function clickAlink(event){
 
     }
 
-    function totalPrice(){
-      // total.innerHTML = "";
-      // totalValue += priceValue[i];
-      // total.innerHTML = totalValue;
+    function totalPrice(value){
+      total.innerHTML = "";
+      if(value == priceValue[4]) alert("죄송합니다. 참다랑어 세트는 품절입니다.");
+      totalValue += parseInt(value);
+      total.innerHTML = totalValue;
     }
 
-
-    // var order = document.querySelector("#order");
-    // order.addEventListener("click", orderClear);
-
-    // function orderClear(){}
+    // 4번 문제: 결제하기 버튼을 누르면 "주문 완료" alert창 띄우고, 총 주문 금액 0원으로 리셋하기.
+    var order = document.querySelector("#order");
+    order.addEventListener("click", orderClear);
+    function orderClear(){
+      alert("주문 완료");
+      total.innerHTML = 0;
+    }
     </script>
   </body>
 </html>

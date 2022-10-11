@@ -1,0 +1,33 @@
+SELECT: 조회
+SELECT 컬럼이름 FROM 테이블이름 WHERE, GROUP BY, HAVING, ...
+
+쿼리 순서: FROM, WHERE, GROUP BY, HAVING, SELECT, ORDER BY
+WHERE은 집계함수 사용 불가, HAVING은 가능
+ORDER BY 디폴드 값은 오름차순
+
+INSERT: 입력(추가)
+INSERT INTO 테이블 이름(컬럼 이름) VALUES(데이터)
+
+UPDATE: 수정
+UPDATE 테이블이름 SET 컬럼이름 = 데이터
+
+DELETE: 삭제
+DELETE FROM 테이블이름
+
+UPDATE 원리: DELETE 후 INSERT. DB에 수정이라는 개념은 없다.
+
+>> DML(Data Manage Language, 데이터 조작어) 혹은 CRUD(Read(SELECT) Create(INSERT) Update Delete)라고도 한다.
+
+
+
+고급 쿼리: inner join, self join, left join, right join, full join(MySQL엔 없는 join)
+- 부서테이블(dept table)
+deptno 부서번호
+dname 부서이름
+loc 부서위치
+
+... WHERE loc IN("dallas", "boston"): loc(부서 위치)가 "dallas" 혹은 "boston"인...
+
+오늘의 진도: inner, self
+내일의 진도: left, right, full
+내일 모레: sub query
