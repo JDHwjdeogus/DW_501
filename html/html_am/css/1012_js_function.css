@@ -1,0 +1,6 @@
+.content {width: 700px; height: 50px; margin: 20px auto;}
+#input_wrap input {width: 150px; height: 35px; border-radius: 5px; padding-left: 10px;}
+#input_wrap button {width: 79px; height: 35px; background: #000; color: #fff; border-radius: 5px; cursor: pointer; font-size: 15px;}
+#output {display: flex;}
+#output span {display: inline-block; width: 200px; height: 30px;}
+#output div {width: 160px; height: 30px; padding: 10px 6px;}
