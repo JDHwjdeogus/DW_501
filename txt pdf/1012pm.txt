@@ -1,0 +1,4 @@
+inner join
+self join: 본인 테이블을 한번 더 조인
+
+select 컬럼명 from 테이블명 as 테이블 별칭 inner join 대상 테이블(혹은 join 대상 테이블) on 테이블 별칭.테이블컬럼 = 대상 테이블.대상 테이블 컬럼
