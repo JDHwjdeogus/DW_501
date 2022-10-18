@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../javascript/1018_js_dom.js"></script>
+</head>
+<body>
+    <script>
+        function move(){
+            location.href = "https://www.google.com";
+        }
+    </script>
+    <!-- 
+        window 객체
+            location 객체: 현재(== 활성화된) 페이지의 주소(url), 페이지 당 하나씩 존재
+            document 객체: 출력화면. 브라우저 내 html 문서. 다양한 태그 존재(link: a 태그 사용 시 나타나는 객체. img: 객체의 image 자동 변환 태그)
+            history 객체: 방문내역
+            screen 객체: 브라우저와 브라우저가 표시되는 모니터 화면 전체
+            navigator 객체: 현재 브라우저 정보. window 내 최상위 객체.
+            ** mime type: 미디어 파일(혹은 객체)
+
+        window 속성
+            classes: HTML 문서에 정의된 모든 스타일시트
+            defaultStatus: 상태바에 표시될 문자열 지정
+            frame: window에 포함된 모든 프레임(분할화면) 수 반환. 여러 개 열려있을 경우 배열 형태로 표시 가능(ex. window.frames[0]: 첫번째 프레임)
+            history: window가 방문한 URL정보 
+            innerHeight(outerHeight, innerHeight): 현재 브라우저의 html문서 영역의 높이
+            location: 현재 문서의 URL 정보
+            menubar: 브라우저 상단의 북마크 등의 정보 표시 여부 결정
+            opener: open() 함수로 생성한 윈도우 이름
+            name: window 이름
+            outerHeight: 윈도우 밖 테두리 높이
+            outerWidth: 윈도우 밖 테두리 너비
+            pageXoffset: window에 표시되는 X축 상의 위치
+            pageYoffset: window에 표시되는 Y축 상의 위치
+            scrollbars: 스크롤바 표시 여부
+            
+        window 객체 메소드(window 귀속 함수)
+            alert(): message와 ok button이 있는 메세지박스
+            setInterval: 지정한 시간만큼 반복
+            setTimeout: 지정한 시간 이후에 실행
+            clearInterval, clearTimeout: setInterval, setTimeout을 해제
+            close(): window 닫기
+            confirm: 질문 다이어로그 확인 및 취소 버튼을 가진 메세지박스
+            back, forward: 뒤로 가기, 앞으로 가기
+            moveBy(x, y): 윈도우 이동(상대위치, 현재 위치 기준으로 이동할 거리를 설정)
+            moveTo(x, y): 윈도우 이동(절대위치, 절대적 위치(window상의 0,0) 기준으로 이동할 좌표점 설정)
+            resizeBy(x, y): 윈도우 크기 변경(현재 위치 기준)
+            resizeTo(x, y): 윈도우 크기 변경(절대적 위치 기준)
+            open: 새 윈도우 생성 > open(url, window_name, property);
+                > url: 새로운 창의 주소
+                > window_name: 새로운 창의 이름
+                    > window_blank: 새 창에서 열림
+                    > window_parent: 부모 프레임에서 열림
+                    > window_self: 현재 페이지 대체
+                    > window_top: 로드된 프레임셋 대체
+                > property: 새로운 창의 옵션 부여
+                    > height: 새 창의 높이 지정
+                    > width: 새 창의 너비 지정
+                    > left: 모니터 화면 왼쪽에서부터의 위치 (브라우저마다 지원 여부가 다름)
+                    > top: 모니터 화면 위쪽에서부터의 위치 (브라우저마다 지원 여부가 다름)
+
+    -->
+    <a href="https://www.naver.com">네이버</a>
+    <button onclick="move()">구글</button>
+    <button onclick="location_object()">객체 보기</button>
+
+    <script>
+        function location_object(){
+            window.moveTo(10,20);
+        }
+    </script>
+</body>
+</html>
