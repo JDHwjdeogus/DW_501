@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // 새 창(자식 윈도우)의 opener: 부모 윈도우
+        window.onload = function(){
+            var name = opener.document.getElementById("name").value; // 부모 윈도우에서 태그 찾기
+            document.getElementById("nameView").innerHTML = name;
+        }
+
+        function openWin(){
+            window.open("1018_js_dom_3.html", "_self", "");
+        }
+
+        function send(){
+            var parent = opener.document.getElementById("age");
+            var age = document.getElementById("age").value;
+            parent.value = age;
+        }
+    </script>
+</head>
+<body style="background: #90b6a7;">
+    <h1>자식 윈도우1</h1>
+    <div id="nameView"></div>
+    <input type="text" id="age">
+    <button onclick="send()">부모에 전달</button>
+    <!-- <button onclick="openWin()">새창 열기</button> -->
+    <!-- <a href="1018_js_dom_3.html" target="_blank">이동</a> -->
+    <!-- <iframe src="1018_js_dom_3.html"></iframe> -->
+</body>
+</html>
