@@ -63,3 +63,5 @@ https://jaehoney.tistory.com/167
 https://fontawesome.com/
 https://aws.amazon.com/ko/?nc2=h_lg
 https://medium.com/daangn
+https://www.w3schools.com/
+https://developer.mozilla.org/ko/

@@ -6,13 +6,34 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <script src="../javascript/1018_js_dom.js"></script>
-</head>
-<body>
     <script>
-        function move(){
-            location.href = "https://www.google.com";
+        function newWindow(){
+            // window.open("https://google.com", "ggle", "width = 700, height = 900");
+            // window.open("https://google.com", "google", "width = 700, height = 900");
+            // 처음 불러온 브라우저 창의 이름과 불러올 창의 이름이 똑같다면 열려있던 처음 불러온 창이 재로드되고 새로운 창은 생기지 않는다.
+            // alert(screen.width);
+
+            var Mwidth = screen.width;
+            var Mheignt = screen.height;
+            
+            var left = Mwidth / 2 - width / 2;
+            var top = Mheignt / 2 - height / 2;
+            
+            var width = 500, height = 700;
+
+            var url = "1018_js_dom_2.html";
+            var win_name = " ";
+            var option = "width = " + width + " height = " + height + ", left = " + left + ", top = " + top;
+            
+            var child = window.open(url, win_name, option);
+            // child 변수에 새 윈도우의 핸들값 저장
+            var name = document.getElementById("name").value;
+            child.document.getElementById("nameView").innerHTML = name;
+            // 값이 들어가지 않는 이유: 해당 스크립트가 자식 html의 body태그가 로드되기도 전에 실행되어버려서
         }
     </script>
+</head>
+<body style="background: #90b6a7;">
     <!-- 
         window 객체
             location 객체: 현재(== 활성화된) 페이지의 주소(url), 페이지 당 하나씩 존재
@@ -38,7 +59,7 @@
             pageYoffset: window에 표시되는 Y축 상의 위치
             scrollbars: 스크롤바 표시 여부
             
-        window 객체 메소드(window 귀속 함수)
+        window 객체 메소드(window 귀속 함수, window.mdn)
             alert(): message와 ok button이 있는 메세지박스
             setInterval: 지정한 시간만큼 반복
             setTimeout: 지정한 시간 이후에 실행
@@ -57,21 +78,29 @@
                     > window_parent: 부모 프레임에서 열림
                     > window_self: 현재 페이지 대체
                     > window_top: 로드된 프레임셋 대체
-                > property: 새로운 창의 옵션 부여
+                > property: 새로운 창의 옵션 부여(모든 브라우저에 적용)
                     > height: 새 창의 높이 지정
                     > width: 새 창의 너비 지정
                     > left: 모니터 화면 왼쪽에서부터의 위치 (브라우저마다 지원 여부가 다름)
                     > top: 모니터 화면 위쪽에서부터의 위치 (브라우저마다 지원 여부가 다름)
-
+        
+        일부 브라우저에서만 적용(chrome에선 전부 쓸 수 없음)
+            channelmode: 전체화면(yes, no) >> internet explorer
+            fullscreen: 전체화면(yes, no)
+            location: 주소표시줄 표시여부(yes, no) >> opera
+            menubar: 메뉴바 표시여부(yes, no) >> chrome
+            scrollbar: 스크롤바 표시여부(yes, no) >> chrome
+            status: 상태바 표시여부(yes, no)
+            resizable: window 크기 변경 가능 여부(yes, no)
+            toobat: 툴바 표시여부(yes, no)
     -->
-    <a href="https://www.naver.com">네이버</a>
-    <button onclick="move()">구글</button>
-    <button onclick="location_object()">객체 보기</button>
 
-    <script>
-        function location_object(){
-            window.moveTo(10,20);
-        }
-    </script>
+    <h1>부모 윈도우</h1>
+
+    <input type="text" name="name" id="name" placeholder="이름">
+    <button onclick="newWindow()">전송</button>
+    <input type="text" id="age">
+
+    <!-- <a href="1018_js_dom_2.html" target="_blank">이동</a> -->
 </body>
 </html>
