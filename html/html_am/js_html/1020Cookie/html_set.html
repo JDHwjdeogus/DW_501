@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form name="setHtml" method="get" action="index.html">
+        <input type="text" name="bgColor" id="bgColor" />
+        <input type="number" name="fontSize" id="fontSize" />
+        <button onclick="setIndexByCookie()">쿠키저장</button>
+    </form>
+</body>
+</html>
+<script>    
+    function setIndexByCookie(){
+        var bgColor = document.forms[0].elements[0].value;
+        var fontSize = document.forms[0].elements[1].value;
+
+        setCookie("bgColor", bgColor, "1");
+        setCookie("fontSize", fontSize, "1");
+    }
+
+    function setCookie(쿠키이름, 데이터, 유효기간){
+        const day = new Date();
+        day.setTime(day.getTime() + (유효기간*24*60*60*1000)); // *1000: ms 표현
+        let expires = "expires=" + day.toUTCString();
+        document.cookie = 쿠키이름 + "=" + 데이터 + ";" + expires + ";path=/";
+    }
+
+</script>
