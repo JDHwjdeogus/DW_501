@@ -1,0 +1,27 @@
+소유자: 주민등록번호, 주소, 이름(한), 계좌번호
+
+
+
+
+테이블 목록 및 컬럼
+
+공고동물 rescued_pet: rescued_id(PK), species, r_location, r_others, r_looks
+
+입양자정보 pet_owner: jumin_id(PK), oname, address, email, tel, bank_account
+
+입양동물 pet: ibyang_id(PK), jumin_id(FK), species_name, p_birthday, rescued_id(FK), pname, rescued_day, pothers
+
+동물등록증 pet_regist: resist_n(PK), fur_color, pname, resist_day, pbirthday
+
+입양카드 adopt_card: card_id(PK), resist_id(FK), pname, p_birthday, adopt_record, a_card_day, reissuance_yn, dgno_type(FK)
+
+진단기록 dgno_record: dgno_type(PK), hos_code(FK), dgno_code(FK), hos_name, dgno_name, dgno_cost, receipt_num
+
+진단명 dgno_name: dgno_code(PK), dgno_cost, dgno_name, insure_yn
+
+병원 hospital: hos_code(PK), hos_name, hos_tel, hos_address, city, city_num
+
+
+난수생성기: https://online-random.com/ko/
+더미데이터: https://www.mockaroo.com/
+가짜주소: https://anytexteditor.com/ko/fake-address-generator
