@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <canvas id="chart"></canvas>
+    </div>
+</body>
+</html>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+    /*
+        history 객체: 사용자의 웹사이트 사용내역
+        history.length: 히스토리 목록에 포함된 url 수
+        history.back(): 뒤로 이동
+        history.forward(): 앞으로 이동
+        history.go(2): 현재 url 위치에서 2만큼 앞으로 이동 (음수는 뒤로, 양수는 앞으로)
+
+        location 객체: 현재 윈도우의 url 주소에 대한 정보 제공 객체
+        location.host: 호스트 이름(url)과 포트번호(url로부터 분리하여 제공) >  www.naver.com:80
+        naver server port number: 80
+        location.hostname: url 주소에 대한 호스트 이름
+        location.href: 하이퍼 링크로 주소 지정
+        location. pathname: 디렉토리 위치(호스트)
+        loccation.protocol: 프로토콜 종류
+        location.reload(): 문서 다시 읽기, 다시 불러오기
+        window.location.assign(url 주소): url 이동(방문기록 저장)
+        window.location.replace(url): url 이동(방문기록 덮어쓰기)
+
+        navigator: 웹 브라우저의 특성 정보를 가지는 객체
+        navigator.appName: 현재 사용중인 브라우저의 종류
+        navigator.appCodeName: 사용중인 웹 브라우저 이름
+        navigator.appVersion: 브라우저 버전 및 os 이름
+        navigator.platform: 운영체제 환경
+        navigator.userAgent: 웹브라우저 종류 및 버전
+        navigator.plugin: 설치된 플러그인 정보
+        navigator.mimeTypes: 브라우저 지원 mime(Multipurpose Internet Mail Extensions)타입 
+            MIME 타입: text, image, audio, video, application, message, multiport
+            image: gif, jpeg, png, ...
+            video: mpeg, avi
+            applicagion: stream, script
+
+    */
+
+    // if(미로그인상태){
+    //     alert("로그인 후 이용해주세요");
+    //     location.href = "login.html"; //히스토리보다 나은 방법
+    //     //history.back(); //뒤로가기
+    // }
+    // if(로그인 시 아이디와 비번을 틀림){
+    //     var move = confirm("아이디 혹은 비밀번호가 올바르지 않습니다. 회원가입을 진행.");
+    //     if(move){
+    //         location.href = "join.html";
+    //     } else {
+    //         history.back();
+    //     }
+    //    alert("아이디 혹은 비밀번호가 올바르지 않습니다.");
+    //    history.back();
+    // }
+
+    // 모바일과 와이파이로 연동
+    // document.write("appName: " + navigator.appName + "<br>");
+    // document.write("appCodeName: " + navigator.appCodeName + "<br>");
+    // document.write("appVersion: " + navigator.appVersion + "<br>");
+    // document.write("platform: " + navigator.platform + "<br>");
+    // document.write("userAgent: " + navigator.userAgent + "<br>");
+
+    // var os = navigator.userAgent;
+    // if(os.toLowerCase().indexOf("windows") != -1){
+    //     alert("현재 접속기기는 PC입니다.");
+    // }else if(os.toLowerCase().indexOf("android") != -1){
+    //     alert("현재 접속기기는 모바일(안드로이드) 입니다.");
+    // }else if(os.toLowerCase().indexOf("iphone") != -1){ // 아이패드, 아이팟, ...
+    //     alert("현재 접속기기는 아이폰 입니다.");
+    // }
+
+    // var orient = window.orientation;
+    // if(orient != undefined){
+    //     if(orient == 0){s
+    //         alert("세로");
+    //     }else if(orient == -90 || orient == 90){
+    //         alert("가로");
+    //     }
+    // }
+
+    // canvas, chart
+    const label = ['2018', '2019', '2020', '2021', '2022']; // label: 배열 형태
+    const data = { // 객체
+        labels: label, 
+        datasets: [{
+            label: "아무 차트",
+            backgroundColor: 'rgb(100, 100, 100)',
+            borderColor: 'rgb(255, 100, 200)',
+            data: [88,77,99, 55, 66],
+        }]
+    }; 
+    const config = {type: 'bar', data: data}
+
+    const chat = new Chart(document.getElementById("chart"), config);
+</script>
+
