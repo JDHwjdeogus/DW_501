@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {background: #23272b; color: #58433a;}
+    </style>
+</head>
+<body>
+    <canvas id="canvas" width="1000" height="900"></canvas>
+</body>
+</html>
+<script>
+    var canvas = document.getElementById("canvas");
+    var ctx = canvas.getContext('2d');
+    ctx.fillStyle = "#b88a55"
+    ctx.fillRect(300, 200, 400, 200);
+
+    ctx.beginPath();
+    ctx.moveTo(280, 200);
+    ctx.lineTo(720, 200);
+    ctx.lineTo(500, 100);
+    ctx.closePath();
+    ctx.fillStyle = "#6faf6d";
+    ctx.fill();
+
+    ctx.beginPath();
+    ctx.moveTo(330, 177);
+    ctx.lineTo(390, 150);
+    ctx.lineTo(390, 120);
+    ctx.lineTo(330, 120);
+    ctx.closePath();
+    ctx.fillStyle = "#59433a";
+    ctx.fill();
+
+    ctx.beginPath();
+    ctx.arc(340, 85, 22, 0, 2 * Math.PI, true);
+
+    ctx.moveTo(307, 48);
+    ctx.arc(307, 48, 15, 0, 2 * Math.PI, true);
+
+    ctx.moveTo(275, 25);
+    ctx.arc(275, 25, 12, 0, 2 * Math.PI, true);
+    
+    ctx.closePath();
+    ctx.fillStyle = "#5b8697";
+    ctx.fill();
+</script>

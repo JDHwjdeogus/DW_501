@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #ball {border: 2px solid black;}
+    </style>
+</head>
+<body>
+    <div>
+        <canvas id="ball" width="500" height="400"></canvas>
+    </div>
+</body>
+</html>
+<script>
+    var canvas = document.getElementById("ball");
+    var ctx = canvas.getContext('2d');
+    var ball = {x:100, y:50, x_step:1, y_step:1}; // 거리와 시간을 작게 설정하면 자연스러움
+
+    var r = 10;
+    var color = {r: 100, g: 100, b: 100};
+    // setInterval(color_change)
+
+    // setInterval(move, 5); // 시간 조절
+    function move(){
+        ctx.clearRect(0, 0, 500, 400);
+
+        ctx.beginPath();
+        ctx.arc(ball.x, ball.y, 10, 0, 2*Math.PI, true);
+        ctx.closePath();
+        ctx.fill();
+
+        // 벽의 위치에 닿으면 튕겨지는 것처럼 보이게
+        if(ball.x + ball.x_step > 500 || ball.x + ball.x_step < 10){
+            ball.x_step = ball.x_step * (-1);
+        }
+        if(ball.y + ball.y_step > 400 || ball.y + ball.y_step < 10){
+            ball.y_step = ball.y_step * (-1);
+        }
+
+        ball.x += ball.x_step;
+        ball.y += ball.y_step;
+
+        requestAnimationFrame(move);
+    }
+    move();
+
+    function color_change(){
+        color.r = Math.floor(Math.random() * 256);
+        color.g = Math.floor(Math.random() * 256);
+        color.b = Math.floor(Math.random() * 256);
+
+        // requestAnimationFrame(color_change);
+    }
+    // color_change();
+</script>

@@ -43,4 +43,12 @@
 
     ctx.closePath(); // 색은 마지막에 정해준 색만 적용됨.
     ctx.stroke();
+
+    // 원
+    ctx.beginPath();
+    ctx.arc(500, 500, 50, 0, 2 * Math.PI, true);
+    ctx.closePath();
+    ctx.fillStyle = "gray";
+    ctx.fill();
+    ctx.stroke();
 </script>

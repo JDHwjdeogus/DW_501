@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        canvas {border: 1px solid black;}
+        #recorded {border: 1px solid black; margin: 4px auto; width: 600px; height: 300px;}
+    </style>
+</head>
+<body>
+    <div>
+        <canvas id="draw" width="1000" height="300"></canvas>
+    </div>
+    <button id="start">녹화시작</button>
+    <button id="stop">녹화종료</button>
+    <div>
+        <video id="recorded" controls></video>
+    </div>
+</body>
+</html>
+<script>
+    var canvas = document.getElementById("draw");
+    var start = document.getElementById("start");
+    var stop = document.getElementById("stop");
+    var video = document.getElementById("recorded");
+    var mediarecoder = null;
+    var videoData = [];
+    start.addEventListener("click", function(){
+        move();
+        // 캔버스 영역을 스트림으로 취득
+        var mediaStream = canvas.captureStream();
+        // 녹화 객체 생성
+        mediarecoder = new MediaRecorder(mediaStream);
+        mediarecoder.ondataavailable = handledata;
+        // stop 이벤트 처리
+        mediarecoder.onstop = function(){
+            const bl = new Blob(videoData);
+            // 캔버스 화면 데이터를 가리키는 임시주소 생성
+            const blurl = window.URL.createObjectURL(bl);
+            // 재생
+            video.setAttribute("src", blurl);
+            video.play();
+            // 다운로드
+            const anc = document.createElement("a");
+            document.body.appendChild(anc);
+            anc.style.display = "none";
+            anc.href = blurl;
+            anc.download = "ball.webm";
+            anc.click();
+            videoData.splice(0);
+
+        };
+        mediarecoder.start();
+    });
+    function handledata(event){
+        videoData.push(event.data)
+    }
+    
+    stop.addEventListener("click", function(){
+        mediarecoder.stop();
+    });
+
+    var ctx = canvas.getContext('2d');
+    var ball = {x:100, y:50, x_step:1, y_step:1}; 
+    function move(){
+        ctx.clearRect(0, 0, 1000, 300);
+
+        ctx.beginPath();
+        ctx.arc(ball.x, ball.y, 10, 0, 2*Math.PI, true);
+        ctx.closePath();
+        ctx.fillStyle = "olive";
+        ctx.fill();
+
+        if(ball.x + ball.x_step > 1000 || ball.x + ball.x_step < 10){
+            ball.x_step = ball.x_step * (-1);
+        }
+        if(ball.y + ball.y_step > 300 || ball.y + ball.y_step < 10){
+            ball.y_step = ball.y_step * (-1);
+        }
+
+        ball.x += ball.x_step;
+        ball.y += ball.y_step;
+
+        requestAnimationFrame(move);
+    }
+    move();
+
+    
+</script>
