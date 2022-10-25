@@ -1,0 +1,14 @@
+* {margin: 0; padding: 0; box-sizing: border-box;}
+body {background-color: #8ad8ba;}
+#wrap {width: 100%; display: flex; flex-direction: column;}
+#main-section {order: 1; width: 100%; background: #184686;}
+/* order: 1 >> 순서값. 값이 작을수록 위쪽에 위치.*/
+.page-title {display: flex; flex-direction: column; position: relative; width: 90%; padding: 5% 5%; margin: 0 auto; max-width: 1000px; color: #ffffff;}
+/* mobile */
+@media all and (min-width:780px){
+    html {font-size: 22px;}
+}
+/* pc */
+@media all and (min-width:960px){
+    html {font-size: 33px;}
+}
