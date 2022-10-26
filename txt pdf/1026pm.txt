@@ -1,0 +1,14 @@
+https://entertain.naver.com/read?oid=076&aid=0003931625
+
+oid = 076
+aid = 0003931625
+
+?(쿼리스트링): 프로그래밍 상에서 파라미터와 비슷한 역할.
+=(대입연산자)
+&(콤마)
+
+ex. http://www.omdbapi.com/?apiKey=xx&s=love&type=movie
+파라미터: apiKey, s, type
+데이터: xx, love, movie
+
+append: 추가하다
