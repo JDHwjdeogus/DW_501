@@ -3,7 +3,21 @@ body {background-color: #8ad8ba;}
 #wrap {width: 100%; display: flex; flex-direction: column;}
 #main-section {order: 1; width: 100%; background: #184686;}
 /* order: 1 >> 순서값. 값이 작을수록 위쪽에 위치.*/
-.page-title {display: flex; flex-direction: column; position: relative; width: 90%; padding: 5% 5%; margin: 0 auto; max-width: 1000px; color: #ffffff;}
+
+.page-title {display: flex; flex-direction: column; position: relative; width: calc( 100% - 100px ); padding: 5% 50px; margin: 0 auto; max-width: 1000px;}
+/* calc()함수 (계산함수) 사용 시 띄어쓰기 유의 */
+#image-section {width: 100%; align-items: center; justify-items: center; display: flex;}
+.image_wrap {max-width: 1000px; width: 100%; margin: 0 auto; display: flex;}
+/* 각각의 이미지 박스의 너비를 가변적인 수치로 바꿔줌 */
+.imgb1 {width: 36%; background: #a72b48; font-size: 5vmin;}
+.imgb2 {width: 64%; background: #cf9435; font-size: 3vh;}
+.image-box {height: 350px;}
+
+#multi-section {width: 100%;}
+#multi-section > div {width: 70%; display: inline-block; margin: 0 15%;}
+/* 이미지나 비디오가 표시되는 크기를 변경하고 싶다면 이미지 태그가 아닌 그들을 감싸는 태그에 너비 높이 변화나 마진을 준다. */
+#multi-section img, #multi-section video {width: 100%; max-width: 100%;}
+
 /* mobile */
 @media all and (min-width:780px){
     html {font-size: 22px;}

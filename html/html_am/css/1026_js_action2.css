@@ -1,0 +1,20 @@
+* {margin: 0; padding: 0; box-sizing: border-box;}
+body {background-color: #8ad8ba;}
+#wrap {max-width: 1200px; width: 90%; margin: 0 auto;}
+/* max-width: 1200px; >> 창의 너비가 1200px을 넘어가면 더이상 div의 너비가 늘어나지 않음 */
+
+.box {display: inline-block; height: 100px; padding: 0; margin: 0; width: 100%;}
+.box1 {background: #611616;}
+.box2 {background: #35195c;}
+.box3 {background: #1d3f6a;}
+.box4 {background: #66831b;}
+.box5 {background: #15591a;}
+
+@media all and (min-width: 768px) {
+    .box {width: 50%;}
+    .box5 {width: 100%;}
+}
+@media all and (min-width: 1024px) {
+    .box {width: 20%;}
+}
+

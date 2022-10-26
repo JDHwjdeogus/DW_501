@@ -10,6 +10,37 @@
 </head>
 <body>
     <div id="wrap">
+        <section id="multi-section">
+            <div>
+                <video controls>
+                    <source src="../video/bread_video.mp4" type="video/mp4">
+                </video>
+                <img src="../img/bread1.jpg" alt="">
+                <img src="../img/bread2.jpg" alt="">
+            </div>
+        </section>
+        <section id="image-section">
+            <div class="image_wrap">
+                <div class="image-box imgb1">
+                    가변길이값 구하기 <br>
+                    : (가변 길이 적용할 길이 값 / 적용할 박스를 감싸는 박스의 가로너비) * 100
+                    <!-- 반응형 사이트 css 작업 시 모바일 화면 상에서 전체적인 부분은 px로 잡아뒀다가 화면이 커질 때를 고려해 %로 바꿔주는데 이 때 계산식을 사용하면 된다. -->
+                    <!-- 
+                        가변 폰트 단위: vw, vh, vmin, vmax
+                        vw: 너비 비례 글씨 크기 변화 
+                        vh: 높이 비례 글씨 크기 변화
+                        vmax: 브라우저의 너비와 높이 중 작은 값 기준
+                        vmin: 브라우저의 너비와 높이 중 큰 값 기준
+                    -->
+                </div>
+                <div class="image-box imgb2">
+                    (640 / 1000) * 100 <br>
+                    1. 최대 너비값 정하기 <br>
+                    2. 요소 별 너비값 px로 길이값 구하기 <br>
+                    3. 가변 길이값 구하는 식으로 % 변환해 작성
+                </div>
+            </div>
+        </section>
         <section id="main-section">
             <div class="page-title">
                 <div class="title_1">
