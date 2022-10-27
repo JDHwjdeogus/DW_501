@@ -1,0 +1,14 @@
+* {margin: 0; border: 0; box-sizing: border-box;}
+body {background: #70a78a;}
+.flex {display: flex; width: 60%; height: 52px; margin: 30px auto; border: 1px solid #ffffff;}
+.flex div {width: 20%; height: 50px;}
+.flex div:nth-child(1) {background: #5d44bd;}
+.flex div:nth-child(2) {background: #da8da4;}
+.flex div:nth-child(3) {background: #000000;}
+
+#flex1 {justify-content: flex-start;}
+#flex2 {justify-content: flex-end;}
+#flex3 {justify-content: center;}
+#flex4 {justify-content: space-between;}
+#flex5 {justify-content: space-around;}
+
