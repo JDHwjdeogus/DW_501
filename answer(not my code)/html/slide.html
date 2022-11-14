@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+
+<html lang="ko">
+
+
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>bib</title>
+
+    <style>
+
+        html, body, div, span
+        , ul, ol, li 
+        {margin:0; padding:0; box-sizing:border-box;}
+        label {box-sizing:border-box;}
+        ul, ol {list-style-type:none;}
+        .clearfloat:after {content:""; display:block; clear:both;}  
+
+        /* input */
+        #input_slidebtn1, #input_slidebtn2, #input_slidebtn3, #input_slidebtn4 {display:none;}
+        #input_slidebtn1:checked~.imgslider_cont .cont_imgbox {margin-left:0;}
+        #input_slidebtn2:checked~.imgslider_cont .cont_imgbox {margin-left:-100%;}
+        #input_slidebtn3:checked~.imgslider_cont .cont_imgbox {margin-left:-200%;}
+        #input_slidebtn4:checked~.imgslider_cont .cont_imgbox {margin-left:-300%;}
+
+        /* 이미지박스 */
+        #imgslider {overflow:hidden; position:relative;}
+        #imgslider .imgslider_cont .cont_imgbox {width:400%; height:300px; transition:all 0.9s;} 
+        .imgslider_cont .cont_imgbox li {float:left; width:25%; height:300px;}      
+        .imgslider_cont .cont_imgbox li a {display:block; width:100%; height:100%;}          
+        .imgslider_cont .cont_imgbox li:nth-child(1) {background-color:#333;}
+        .imgslider_cont .cont_imgbox li:nth-child(2) {background-color:#666;}
+        .imgslider_cont .cont_imgbox li:nth-child(3) {background-color:#999;}
+        .imgslider_cont .cont_imgbox li:nth-child(4) {background-color:#ccc;}
+
+        /* left right 버튼박스 */
+        #imgslider .imgslider_cont {position:relative;}
+        .imgslider_cont .cont_label_left, .imgslider_cont .cont_label_right {position:absolute; width:50px; height:50px; top:50%; transform:translate(0, -50%);}
+        .cont_label_left_inner label, .cont_label_right_inner label {position:absolute; width:50px; height:50px; top:0;left:0; z-index:1; cursor:pointer; background-color:#00f;}
+        .imgslider_cont .cont_label_left {left:0;}
+        .imgslider_cont .cont_label_left .cont_label_left_inner {position:relative; width:50px; height:50px; z-index:2;}
+        .imgslider_cont .cont_label_right {right:0;}
+        .imgslider_cont .cont_label_right .cont_label_right_inner {position:relative; width:50px; height:50px; z-index:2;}
+
+        /* left right 버튼실행 */
+        #input_slidebtn1:checked~.imgslider_cont .cont_label_left_inner label:nth-child(4) {z-index:2;}
+        #input_slidebtn1:checked~.imgslider_cont .cont_label_right_inner label:nth-child(2) {z-index:2;}
+        #input_slidebtn2:checked~.imgslider_cont .cont_label_left_inner label:nth-child(1) {z-index:2;}
+        #input_slidebtn2:checked~.imgslider_cont .cont_label_right_inner label:nth-child(3) {z-index:2;}
+        #input_slidebtn3:checked~.imgslider_cont .cont_label_left_inner label:nth-child(2) {z-index:2;}
+        #input_slidebtn3:checked~.imgslider_cont .cont_label_right_inner label:nth-child(4) {z-index:2;}
+        #input_slidebtn4:checked~.imgslider_cont .cont_label_left_inner label:nth-child(3) {z-index:2;}
+        #input_slidebtn4:checked~.imgslider_cont .cont_label_right_inner label:nth-child(1) {z-index:2;}
+
+
+
+        /* 하단 레이블 */
+        #imgslider .imgslider_labels {position:absolute; bottom:20px;left:50%; transform:translate(-50%, 0);}
+        .imgslider_labels label {float:left; margin:0 5px 0 0; width:20px; height:20px; border:2px solid #f00; border-radius:50%; cursor:pointer;}
+        .imgslider_labels label:last-child {margin:0 0 0 0;}
+        #input_slidebtn1:checked~.imgslider_labels label:nth-child(1) {background-color:#f00;}
+        #input_slidebtn2:checked~.imgslider_labels label:nth-child(2) {background-color:#f00;}
+        #input_slidebtn3:checked~.imgslider_labels label:nth-child(3) {background-color:#f00;}
+        #input_slidebtn4:checked~.imgslider_labels label:nth-child(4) {background-color:#f00;}
+    
+
+    </style>
+
+</head>
+
+
+
+<body>
+
+    <!-- 슬라이드 보이는 ui -->
+    <!-- style="width: 500px;" -->
+    <div id="imgslider">
+    
+        <!-- 라디오: display: none; -->
+        <input type="radio" name="slidebtn" id="input_slidebtn1" checked />
+        <input type="radio" name="slidebtn" id="input_slidebtn2" />
+        <input type="radio" name="slidebtn" id="input_slidebtn3" />
+        <input type="radio" name="slidebtn" id="input_slidebtn4" />
+
+
+        <div class="imgslider_cont">
+
+            <!-- 슬라이드콘텐츠(긴 박스) -->
+            <ul class="cont_imgbox clearfloat">
+                <li><a href="#"></a></li>
+                <li><a href="#"></a></li>
+                <li><a href="#"></a></li>
+                <li><a href="#"></a></li>
+            </ul>
+
+            <!-- 버튼 왼 -->
+            <div class="cont_label_left">
+                <div class="cont_label_left_inner">
+                    <label for="input_slidebtn1"></label>
+                    <label for="input_slidebtn2"></label>
+                    <label for="input_slidebtn3"></label>
+                    <label for="input_slidebtn4"></label>
+                </div>
+            </div>
+
+            <!-- 버튼 른 -->
+            <div class="cont_label_right">              
+                <div class="cont_label_right_inner">
+                    <label for="input_slidebtn1"></label>
+                    <label for="input_slidebtn2"></label>
+                    <label for="input_slidebtn3"></label>
+                    <label for="input_slidebtn4"></label>
+                </div>
+            </div>            
+
+        </div>
+
+        <!-- 빨간버튼, 슬라이드 페이지 표시 -->
+        <div class="imgslider_labels clearfloat">
+            <label for="input_slidebtn1"></label>
+            <label for="input_slidebtn2"></label>
+            <label for="input_slidebtn3"></label>
+            <label for="input_slidebtn4"></label>
+        </div>
+
+    </div>
+
+
+
+</body>
+
+
+
+</html>
+
+
