@@ -1,0 +1,25 @@
+implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
+developmentOnly 'org.springframework.boot:spring-boot-devtools'
+
+// 컴파일된 소스들은 jvm(java, 런타임 환경)으로 가는데 이 때 컴파일러에서 구문오류(syntax error) 및 객체 타입의 오류(type check error)를 발견, 런타임 환경에선 연산에러 및 널 포인터 오류를 감지.
+// spring annotation(@) 은 런타임 환경에서 실행된다.
+
+/*
+	런타임과 컴파일 타임
+	개발자는 소스코드를 작성 후 컴파일이라는 과정을 통해 기계어(이진수)로 변환되어 실행가능한 프로그램이 되며, 이러한 과정을 컴파일타임(Compile Time)이라고 함.
+	컴파일 과정을 마친 후 동작되어지는 때를 런타임(Runtime)이라고 함.
+	
+	런타임, 컴파일타임 오류
+	런타임 오류: 사칙연산 오류, 널 참조 오류, 메모리 부족 오류
+	컴파일타임 오류: Syntax error, 타입체크 에러 
+	
+	컴파일 vs 인터프리터
+	컴파일 언어: 전체를 읽고 나서 해석 (예시 - JAVA)
+	인터프리터 언어: 한 줄 씩 읽을 때마다 해석 (예시 - JavaScript)
+
+	Spring 폴더 구조
+	src/main/java >> java 소스만 존재
+	resources >> html, css, js, 이미지, sql 파일
+*/
+
+// 실시간으로 화면 수정
