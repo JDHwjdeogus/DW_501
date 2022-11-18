@@ -10,4 +10,14 @@ public class PageController {
 		// return에 html파일의 이름을 작성
 		return "index";
 	}
+	
+	@GetMapping("/home")
+	public String callHomePage() {
+		return "home";
+	}
+	
+	@GetMapping("/idden")
+	public String callIddenPage() {
+		return "idden";
+	}
 }
