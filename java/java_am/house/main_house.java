@@ -62,8 +62,8 @@ public class main_house {
 		float f = 3.14f;
 		
 		// 클래스 구별 연산자
-		if( t3 instanceof aircon ) System.out.println("에어컨 객체 t3.");
-		if( t3 instanceof tv ) System.out.println("티비 객체 t3.");
+//		if( t3 instanceof aircon ) System.out.println("에어컨 객체 t3.");
+//		if( t3 instanceof tv ) System.out.println("티비 객체 t3.");
 		
 	}
 
