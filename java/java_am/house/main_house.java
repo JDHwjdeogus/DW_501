@@ -33,11 +33,38 @@ public class main_house {
 		// 자바 다형성 - 하나의 클래스로 여러 클래스를 표현할 수 있는 방식.
 		house_item[] t = new tv[] {new tv("삼성", 1230000, 50), new tv("엘지", 985000, 45), new tv("삼성", 530000, 30), new tv("엘지", 375000, 32), new tv("삼성", 730000, 42)};
 		house_item[] air = new aircon[] {new aircon("삼성", 1230000, 30), new aircon("엘지", 1985000, 55), new aircon("휘센", 1530000, 30), new aircon("하우젠", 1375000, 42), new aircon("위니아", 1730000, 22)};
+		
 		t[0].buy();
 		air[1].buy();
 		
+		tv t1 = new tv();
+		t1.brand = "";
+		t1.price = 12;
+		t1.inch = 20;
+		
+		// tv t4 = new house_item();
+		
+		
 		// System.out.println(t1.toString()); 
 		// 메소드는 반드시 실행하려는 메소드의 이름으로 실행된다.
+
+		
+		house_item t2 = new tv();
+		t2.brand = "";
+		t2.price = 22;
+		// t2.inch = 22;
+		
+		tv t3 = (tv)t2;
+		t3.inch = 22;
+		
+		
+		int a = (int)3.14;
+		float f = 3.14f;
+		
+		// 클래스 구별 연산자
+		if( t3 instanceof aircon ) System.out.println("에어컨 객체 t3.");
+		if( t3 instanceof tv ) System.out.println("티비 객체 t3.");
+		
 	}
 
 } // main_house 클래스 끝
