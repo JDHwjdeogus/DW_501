@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" type="text/css" href="/css/style.css">
+</head>
+<body>
+	<h2>여기는 Movie 화면 입니다.</h2>
+	<p id="data"></p>
+</body>
+<script src="https://code.jquery.com/jquery-3.6.1.js" integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI=" crossorigin="anonymous"></script>
+<script type="text/javascript">
+	callMyAPI();  // 함수 호출 
+	
+	function callMyAPI(){
+		// $.ajax: back-end front-end 통신 기능
+		// type: GET = Controller에 GetMapping
+		$.ajax({
+			url: '/api/v1/movies',
+			type: 'GET',
+			dataType: 'json',
+			success: function (response){
+				console.log(response);
+				$('#data').append(response[0].title);
+			}
+		});
+	}
+</script>
+</html>

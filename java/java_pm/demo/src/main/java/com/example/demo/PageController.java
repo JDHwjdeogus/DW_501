@@ -20,4 +20,9 @@ public class PageController {
 	public String callIddenPage() {
 		return "idden";
 	}
+	
+	@GetMapping("/movie")
+	public String callMoviePage() {
+		return "movie";
+	}
 }
