@@ -5,6 +5,7 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
 import movie.movieVo;
 
@@ -27,11 +28,73 @@ public class main_elec {
 	}
 	
 	public static void main(String[] args) { // static 함수(믈래스 함수)는 프로그램 로드와 동시에 실행
+		Scanner sc = new Scanner(System.in);
+		int userInput;
+		buyer b = new buyer();
+		
 		init();		
-		for( house_item item : list) {
-			if(item == null) break;
-			System.out.println( item.toString() );
-		}
+		/*
+			for( house_item item : list) {
+				if(item == null) break;
+				System.out.println( item.toString() );
+			}	
+		*/
+		while(true) {
+			System.out.println("조회할 제품군을 선택하세요. (1. tv || 2. 에어컨 || 3. 컴퓨터): ");
+			userInput = sc.nextInt();
+			
+			int i = 1;
+			for( house_item item : list) {
+				switch(userInput) {
+				case 1: 
+					if( item instanceof tv) System.out.println( i + ". " + item.toString() );
+					break;
+				case 2:
+					if( item instanceof aircon) System.out.println( i + ". " + item.toString() );
+					break;
+				case 3:
+					if( item instanceof computer) System.out.println( i + ". " + item.toString() );
+					break;
+				}
+				i++;
+			}
+			// 조회한 제품군과 구매 시 선택한 번호의 제품군이 안맞을 경우 다시 선택
+			boolean flag = false;
+			do {			
+				
+				System.out.println("구매할 제품을 선택하세요. (구매 X: 0): ");
+				int buyerInput = sc.nextInt();
+				
+				if(buyerInput == 0) continue; // 반복문의 처음으로 돌아감: 다음 순서의 반복을 진행
+				else {
+					switch(buyerInput) {
+					case 1:
+						if( !(list.get(buyerInput - 1) instanceof tv) )
+							flag = true;
+						break;
+					case 2:
+						if( !(list.get(buyerInput - 1) instanceof aircon) )
+							flag = true;
+						break;
+					case 3:
+						if( !(list.get(buyerInput - 1) instanceof computer) )
+							flag = true;
+						break;
+					}
+					b.buy( list.get(buyerInput - 1) );
+				}
+			
+			}while(flag);
+			
+			System.out.println("추가로 구매하시겠습니까?: ");
+			int end = sc.nextInt();
+			if(end == 0) break;
+			
+		} // 구매 사이클 알고리즘 끝
+		
+		b.buylist();
+		
+		
 	}
 	
 	
