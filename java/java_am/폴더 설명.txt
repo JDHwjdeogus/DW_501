@@ -1,0 +1,2 @@
+homework, java_am_sql: 프로젝트 폴더
+나머지: 패키지 폴더
