@@ -1,0 +1,22 @@
+기업에서 많이 쓰는 운영체제는 우분투
+오늘 한 거: SSH(port:22)를 이용해 가상 컴퓨타로 접속하기
+우리가 사이트 접속할 때: http(port:80)를 이용해 사이트로 접속
+
+우분투 명령어
+clear: 명령어 지우기
+pwd: 현재 내가 위치한 경로
+mkdir: make directory(폴더생성)
+ls: 현재 내 위치에 있는 파일, 폴더 모두 보여주기(list)
+cd (디렉토리명): change directory (디렉토리명)으로 이동
+
+apt 업데이트
+sudo apt update
+
+아파치 설치
+sudo install apache2
+
+sudo vim (파일명): 파일 열기
+rm -rf (파일명): 파일 제거
+mv (현 디렉토리 내 파일명) (파일을 옮길 디렉토리 경로: /var/www/html/(파일명))
+
+sudo (명령어): 강제 수행
