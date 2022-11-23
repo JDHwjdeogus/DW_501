@@ -68,6 +68,9 @@ public class cafe_main {
 			
 			if(select < 1 || select > 5) 
 				throw new InputMismatchException("잘못된 입력.");
+			
+			System.out.println();
+			
 		}catch(Exception e) {
 			System.out.println( e.getMessage() );
 			sc.nextLine();
