@@ -5,6 +5,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -18,11 +19,23 @@ import org.springframework.web.bind.annotation.RestController;
 	
 	RestController: 데이터(json) 전송
 	Controller: 페이지(html) 이동
+	
+	Controller는 사용자 요청(URL 요청)을 처리하는 class
+	Controller에서 로직을 구현하면 안됨 >> 로직 짜기 위한 클래스를 새로 만들어줘야 하ㅁ: ApiService
 */
 
 // Rest: 자원(데이터)
 @RestController
 public class ApiController {
+	
+	// ApiService apiservice = new ApiService(); // 클래스를 전역 변수로
+	// 스프링 객체생성: 개발자 대신에 Spring에서 객체를 관리해주겠다. >> 바로 윗줄과 같은 생성자 호출 필요 없음, 어노테이션@ 으로 관리권한 위임
+	// IoC(Inversion of Control, 제어 역전)
+	
+	@Autowired
+	ApiService apiservice;
+	
+	
 	@GetMapping("/api/v1/sample")
 	public List<String> callData(){
 		List<String> list = new ArrayList<String>();
@@ -49,26 +62,29 @@ public class ApiController {
 	// URL은 주소가 같으면 안된다. 중복 불가.	
 	@GetMapping("/api/v1/movies")
 	public List<Movie> callMovies() {
-		List<Movie> list = new ArrayList<Movie>();
+		/*
+			List<Movie> list = new ArrayList<Movie>();
+			
+			Movie movie = new Movie();
+			System.out.println(movie);
+			movie.setGenre("Animation, Comedy, Horror");
+			movie.setYear("2000–2016");
+			movie.setRuntime("21 min");
+			movie.setTitle("Happy Tree Friends");
+			
+			Movie movie2 = new Movie();
+			System.out.println(movie2);
+			movie2.setGenre("Animation, Adventure, Comedy");
+			movie2.setYear("2004–2009");
+			movie2.setRuntime("30 min");
+			movie2.setTitle("Foster's Home for Imaginary Friends");
+			
+			list.add(movie);
+			list.add(movie2);
+		*/
 		
-		Movie movie = new Movie();
-		System.out.println(movie);
-		movie.setGenre("Animation, Comedy, Horror");
-		movie.setYear("2000–2016");
-		movie.setRuntime("21 min");
-		movie.setTitle("Happy Tree Friends");
-		
-		Movie movie2 = new Movie();
-		System.out.println(movie2);
-		movie2.setGenre("Animation, Adventure, Comedy");
-		movie2.setYear("2004–2009");
-		movie2.setRuntime("30 min");
-		movie2.setTitle("Foster's Home for Imaginary Friends");
-		
-		list.add(movie);
-		list.add(movie2);
-		
-		return list;
+		// ApiService service = new ApiService();	// 클래스 호출
+		return apiservice.makeMovies();
 	}
 	
 	// https://n.news.naver.com/sports/qatar2022/article/241/0003241835
