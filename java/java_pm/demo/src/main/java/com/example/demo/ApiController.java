@@ -8,6 +8,8 @@ import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -121,4 +123,14 @@ public class ApiController {
 		return map;
 	}
 	// 결과: http://localhost:8080/api/v1/webtoon/list/titleId/687915/weekday/mon
+	
+	// Post: 데이터를 받아서 무언가를 생성할 때
+	@PostMapping("/api/v1/join")
+	public boolean callJoin(@RequestBody Login login) {
+		System.out.println("html에서 서버로 받아온 데이터입니다.");
+		System.out.println("아이디: " + login.getId());
+		System.out.println("비밀번호: " + login.getPw());
+		System.out.println("이메일: " + login.getEmail());
+		return true;
+	}
 }
