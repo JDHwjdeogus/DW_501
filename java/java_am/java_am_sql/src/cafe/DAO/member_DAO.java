@@ -7,6 +7,9 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
+import cafe.VO.member;
+import cafe.main.cafe_main;
+
 public class member_DAO {
 	
 	private Connection conn = null; 	 // db 연결 정보를 저장
@@ -14,14 +17,67 @@ public class member_DAO {
 	private PreparedStatement pt = null; // sql 질의문을 db에 전달 - Statement는 보안적으로 취약해서 정부에서는 PreparedStatement를 권장함
 	private ResultSet rs = null;		 // sql 질의문 조회 결과를 저장
 	
-	public member_DAO() {  // 기본 생성자 메소드
+	// 기본 생성자 메소드
+	public member_DAO() {  
 		DriverLoad();
 		connect();
 		table_check();
 	}
 	
+	
+	// 로그인
+	public boolean login(String id, String pw) {
+		// member 테이블에서 id와 tel이 일치하는지 확인
+		String sql = "select * from member where id=? and tel=? ";
+		
+		try {
+			pt = conn.prepareStatement(sql);
+			pt.setString(1, id);
+			pt.setString(2, pw);
+			rs = pt.executeQuery();
+			
+			if(rs.next()) { 
+				// 로그인 성공
+				cafe_main.user = new member( rs.getString(1), rs.getString(2), rs.getString(3), rs.getString(4) );
+				return false;
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		// 로그인 실패
+		return true;
+	}
+	
+	// 아이디 이메일 중복 확인
+	public boolean id_check(String id, String email) {
+		//  member 테이블에서 입력받은 id 또는 email 이 있는지 확인
+		String sql = "select * from member where id=? or email=?";
+		
+		try {
+			pt = conn.prepareStatement(sql);
+			pt.setString(1, id);
+			pt.setString(2, email);
+			rs = pt.executeQuery();
+			if(rs.next()) {	
+				// id 혹은 email이 있는 경우: rs.next()에 값이 있음. 중복이라는 의미.
+				return true;
+			}
+			System.out.println("id_check 문제 없음");
+			
+		} catch(SQLException e) {
+			e.printStackTrace(); 
+			System.out.println("id_check 문제 있음");
+		}
+		
+		// rs에 값이 없다면 id 혹은 email이 없는 경우
+		return false;
+	}
+	
+	
 	public boolean member_insert(String id, String name, String tel, String email) {
 		String sql = "insert into member(id,name,tel,email) values(?,?,?,?) ";
+		// member table에 입력받은 id 또는 email 이 있는지?
 		
 		try {
 			pt = conn.prepareStatement(sql);
@@ -33,15 +89,16 @@ public class member_DAO {
 			
 			// query: select. 조회하는 경우 사용 || update: 변경, 추가, 삭제
 			
-			System.out.println("insert 문제 없음");
+			System.out.println("member_insert 문제 없음");
 			return true;
 			
 		}catch(SQLException e) {
 			e.printStackTrace();
-			System.out.println("insert 문제 있음");
+			System.out.println("member_insert 문제 있음");
 		}
 		return false;
 	}
+	
 	
 	private void table_make() {
 		String sql = "create table member( member_seq int auto_increment primary key , id varchar(50) not null, name varchar(20) not null, tel varchar(20) not null, email varchar(255) not null)";
@@ -49,11 +106,13 @@ public class member_DAO {
 		try {
 			st = conn.createStatement();
 			int result = st.executeUpdate(sql);
-			System.out.println("member table 생성");
+			System.out.println("table_make 문제 없음");
 		}catch(SQLException e) {
 			e.printStackTrace();
+			System.out.println("table_make 문제 있음");
 		}
 	}
+	
 	
 	private void table_check() {
 		String sql = "select COUNT(*) as cnt from information_schema.tables where table_schema='dw_501' and table_name='member'"; 
@@ -102,6 +161,7 @@ public class member_DAO {
 		}
 	}
 	
+	
 	private void connect() {
 		// db 주소 -> jdbc:mysql://데이터베이스서버주소:mysql-port/DB명
 		String url = "jdbc:mysql://localhost:3306/dw_501";
@@ -116,6 +176,7 @@ public class member_DAO {
 		} 
 		
 	}
+	
 	
 	private void DriverLoad() {
 		try {
@@ -132,6 +193,8 @@ public class member_DAO {
 			-> 드라이버 로드라는 작업은 해당 db와 연결해주는 클래스를 컴퓨터 메모리에 로드(적재) 해주는 작업.
 		*/
 	}
+	
+	
 }
 
 /*

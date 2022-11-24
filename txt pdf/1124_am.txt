@@ -1,0 +1,14 @@
+MVC 패턴(Model View Control - 데이터 웹페이지 클라이언트요청): VO, BO, DAO, control을 사용하는 방식
+* 패턴: 프로그램이 흘러가는 방식을 유형화(패턴화)(이 단어가 맞나 시발)
+
+control: 클라이언트의 요청 전달 및 요청에 따라 보일 페이지를 결정
+BO: 데이터의 가공 및 검증
+DAO: 데이터 저장
+
+control	    BO	         DAO
+login	>  login	   >    login
+signin	>  service   >    DAO
+order		
+event
+
+VO: 인스턴스 변수 및 Getter, Setter, (필요에 따라) 생성자 등을 만들어줌

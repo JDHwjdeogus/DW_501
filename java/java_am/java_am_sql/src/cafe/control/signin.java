@@ -2,33 +2,38 @@ package cafe.control;
 
 import java.util.Scanner;
 
-import cafe.DAO.member_DAO;
+import cafe.BO.member_service;
 
 public class signin implements menu_able  {
 
 	@Override
 	public boolean menu_active() {
 		Scanner sc = new Scanner(System.in);
-		System.out.println("회원가입 양식");
 		
-		// =======================입력 항목========================= //
+		member_service ms = new member_service();
+		String id = null, name = null, tel = null, email = null;
 		
-		System.out.print("아이디: ");
-		String id = sc.nextLine();
+		do {
+			
+			System.out.println("회원가입 양식");
+			// =======================입력 항목========================= //
+			
+			System.out.print("아이디: ");
+			 id = sc.nextLine();
+			
+			System.out.print("이름: ");
+			 name = sc.nextLine();
+			
+			System.out.print("연락처: ");
+			 tel = sc.nextLine();
+			
+			System.out.print("이메일: ");
+			 email = sc.nextLine();
+			
+			// =======================입력 항목========================= //
+			
+		}while( !(ms.sign_member(id, name, tel, email)) );
 		
-		System.out.print("이름: ");
-		String name = sc.nextLine();
-		
-		System.out.print("연락처: ");
-		String tel = sc.nextLine();
-		
-		System.out.print("이메일: ");
-		String email = sc.nextLine();
-		
-		// =======================입력 항목========================= //
-		
-		member_DAO mdao = new member_DAO();
-		mdao.member_insert(id, name, tel, email);
 		
 		System.out.println();
 		return true;
