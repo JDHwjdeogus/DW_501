@@ -4,7 +4,6 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="style.css" />
     <title>상원쇼핑몰</title>
     <style>
     body {
@@ -118,44 +117,38 @@
   <body>
     <div class="container">
       <h1>Sign Up</h1>
-
       <div class="login-form">
         <div class="txt-field">
-          <input type="text" required id="id"/>
+          <input id="userId" type="text" required />
           <label>*아이디</label>
         </div>
-
         <div class="txt-field">
-          <input type="password" required id="pw"/>
+          <input id="userPassword" type="password" required />
           <label>*비밀번호</label>
         </div>
-
         <div class="txt-field">
-            <input type="password" required id="re_pw"/>
+            <input id="userRePassword" type="password" required />
             <label>*비밀번호 재입력</label>
         </div>
-
         <div class="txt-field">
-            <input type="email" required id="email"/>
+            <input id="userEmail" type="email" required />
             <label>*이메일</label>
         </div>
-
         <div class="txt-field">
-            <input type="email" required id="re_id"/>
+            <input id="friendId" type="email" required />
             <label>친구 초대 추천인 아이디</label>
         </div>
-
         <div class="pass">
           <label for="login-status">[필수] 개인정보 수집 및 이용 동의</label>
           <input type="checkbox" id="login-status" value="stay" />
         </div>
-
-        <input class="login-btn" type="button" value="가입하기" onclick="doJoin()"/>
-        <div class="signup-link">본인인증이 어려운 경우(만 14세 미만 포함), <a href="#" id="alinkalert">비회원으로 구매</a> 할 수 있습니다.</div>
+        <input class="login-btn" type="butten" value="가입하기" onclick="doJoin()"/>
+        <div class="signup-link">본인인증이 어려운 경우(만 14세 미만 포함), <a href="#" onclick="doClick();">비회원으로 구매</a> 할 수 있습니다.</div>
       </div>
-
     </div>
-    <script src="https://code.jquery.com/jquery-3.6.1.js" integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.6.1.js"
+    integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI="
+    crossorigin="anonymous"></script>
     <script>
         /*
         난이도 하 (문제 1 ~ 5번 조건 불일치 시 alert 출력)
@@ -173,86 +166,108 @@
 
         모든 조건 만족하면 "신규회원가입완료 500포인트 지급!" alert 출력
         */
-
-
-      function doJoin(){
-        var id = document.querySelector("#id").value;
-        var pw = document.querySelector("#pw").value;
-        var re_pw = document.querySelector("#re_pw").value;
-        var email = document.querySelector("#email").value;
-        var re_id = document.querySelector("#re_id").value;
-        // var agree = document.getElementById("login_status").checked;
-
-        var info = [id, pw, re_pw, email, re_id];
-        for(var i in info){
-          //console.log(info[i]);
-          if(i < 4){
-            if(info[i] == ""){
-              alert("아이디 부터 이메일까지는 필수입력란 입니다.");
-              break;
-              return false;
-            }
-          }
+      let doJoin = () => {
+        //제이쿼리로 값 가져오기
+        let userId = $('#userId').val();
+        //1번 아이디는 5글자 - 11자입니다. 
+        if(userId.length < 5 || userId.length > 11){
+          alert('아이디는 5글자 - 11자입니다.');
+          $('#userId').focus();
+          return false;
         }
-
-        var beforeId = info[0];
-        info[0] = info[0].toLowerCase();
-        alert("아이디의 대문자는 소문자로 치환됩니다: " + beforeId +" >> " + info[0]);
-
-
-        if(info[0].length < 5 || info[0].length > 11){
-            alert("아이디는 5글자 이상 11글자 이하입니다.");
-            return false;
-          }
-
-        if(info[1].length < 8){
-          alert("비밀번호는 최소 8글자 이상이어야 합니다.");
+        //문제2. 비밀번호는 최소 8자 입니다.
+        let userPassword = $('#userPassword').val();
+        let userRePassword = $('#userRePassword').val();
+        if(userPassword.length < 8){
+          alert('최소 8자 입니다.');
+          $('#userPassword').focus();
+          return false;
+        }
+        if(userRePassword.length < 8){
+          alert('최소 8자 입니다.');
+          $('#userRePassword').focus();
+          return false;
+        }
+        //문제3. 비밀번호와 비밀번호재입력은 일치해야 합니다.
+        if(userPassword !== userRePassword){
+          alert('비밀번호가 서로 달라용~ 😡');
+          return false;
+        }
+        //문제4. 아이디 부터 이메일까지는 필수입력란 입니다.
+        if(userId === ''){
+          alert('값을 입력하세요! 😢');
+          $('#userId').focus();
+          return false;
+        }
+        if(userPassword === ''){
+          alert('값을 입력하세요! 😢');
+          $('#userPassword').focus();
+          return false;
+        }
+        if(userRePassword === ''){
+          alert('값을 입력하세요! 😢');
+          $('#userRePassword').focus();
+          return false;
+        }
+        let userEmail = $('#userEmail').val();
+        if(userEmail === ''){
+          alert('값을 입력하세요! 😢');
+          $('#userEmail').focus();
+          return false;
+        }
+        //문제5. 개인정보 수집 및 이용동의는 체크해야 합니다. 
+        let loginStatus = $('#login-status').is(":checked");
+        if(!loginStatus){
+          alert('개인정보 수집 및 이용동의는 체크해야 합니다. ');
+          $('#login-status').focus();
           return false;
         }
 
-        if(info[1] != info[2]){
-          alert("비밀번호는 비밀번호 재입력과 일치해야 합니다.");
-          return false;
-        }
+        //문제1. 이메일은 gmail.com , naver.com , hanmail.net만 사용가능 합니다.
+        //다른 이메일을 입력하면 "사용할 수 없는 이메일입니다." alert 출력
+        const EMAIL = ['gmail.com', 'naver.com', 'hanmail.net'];
+        let inputEmail = userEmail.split("@");
+        let count = 0;
 
-        if( info[3].indexOf("gmail.com") == -1 || info[3].indexOf("hanmail.net") < -1 || info[3].indexOf("naver.com") < -1 ){
-          alert("사용할 수 없는 이메일입니다.");
-          return false;
-        }
-
-        /*
-        if(!agree){
-            alert('개인정보 수집 및 이용동의는 체크해야 합니다. ');
-            return false;
+        for(let i=0; i<EMAIL.length; i++){
+          if(inputEmail[1] === EMAIL[i]){
+            ++count;
           }
-        */
-        
-        document.getElementById("alinkalert").onclick = function(){
-          alert("서비스 점검 중 입니다.");
         }
-        
+
+        if(count <= 0 ){
+          alert('사용할 수 없는 이메일입니다.');
+          return false;
+        }
+        // 문제2. 아이디의 모든 대문자를 대응되는 소문자로 치환합니다. ex) HYUNSANGWON -> hyunsangwon
+        console.log(userId.toLowerCase());
         alert('회원가입 완료 🎉🎊🎈');
-        
+		
         var jsonData = {
-        		"id" : id,
-        		"pw" : pw,
-        		"email" : email,
+        	"userId" : userId,
+        	"userPassword" : userPassword,
+        	"userEmail" : userEmail
         };
         
-        // AJAX 호출
+        //AJAX 호출!
         $.ajax({
         	url: '/api/v1/join',
-        	type:'POST',
-        	contentType: 'application/json',
-        	data: JSON.stringify(jsonData),
+        	type: 'POST',
+        	contentType: 'application/json', //서버에 json 타입으로 보낼 예정(요청)
+        	data : JSON.stringify(jsonData),
         	dataType: 'json',
-        	success: function(response){
-        		console.log(response)
-        	}
-        	
+ 	        success: function (response) {
+ 	        	console.log(response);
+ 	        }
         });
-
+        
+        
       }
-    </script>
+
+      let doClick = () => {
+        alert('서비스 점검 중 입니다.');
+      }
+
+   </script>
   </body>
 </html>
