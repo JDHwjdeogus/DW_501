@@ -10,17 +10,16 @@ import java.sql.Statement;
 import cafe.VO.member;
 import cafe.main.cafe_main;
 
-public class member_DAO {
-	
-	private Connection conn = null; 	 // db 연결 정보를 저장
-	private Statement st = null; 		 // sql 질의문을 db에 전달
-	private PreparedStatement pt = null; // sql 질의문을 db에 전달 - Statement는 보안적으로 취약해서 정부에서는 PreparedStatement를 권장함
-	private ResultSet rs = null;		 // sql 질의문 조회 결과를 저장
+public class member_DAO extends base_DAO {
+	/*
+		private Connection conn = null; 	 // db 연결 정보를 저장
+		private Statement st = null; 		 // sql 질의문을 db에 전달
+		private PreparedStatement pt = null; // sql 질의문을 db에 전달 - Statement는 보안적으로 취약해서 정부에서는 PreparedStatement를 권장함
+		private ResultSet rs = null;		 // sql 질의문 조회 결과를 저장
+	*/
 	
 	// 기본 생성자 메소드
 	public member_DAO() {  
-		DriverLoad();
-		connect();
 		table_check();
 	}
 	
@@ -38,7 +37,7 @@ public class member_DAO {
 			
 			if(rs.next()) { 
 				// 로그인 성공
-				cafe_main.user = new member( rs.getString(1), rs.getString(2), rs.getString(3), rs.getString(4) );
+				cafe_main.user = new member( rs.getString(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getInt(5) );
 				return false;
 			}
 		} catch (SQLException e) {
@@ -117,7 +116,7 @@ public class member_DAO {
 	private void table_check() {
 		String sql = "select COUNT(*) as cnt from information_schema.tables where table_schema='dw_501' and table_name='member'"; 
 		// mysql 기준 sql문. 만들어준 table명: informatiom_schema. 
-		// member라는 table에 dw_501이 있느냐
+		// member라는 table이 dw_501에 있느냐
 		
 		try {
 			st = conn.createStatement(); // 접속 정보로 질의문을 저장할 수 있는 객체 생성
@@ -159,40 +158,11 @@ public class member_DAO {
 		} catch(SQLException e) {
 			e.printStackTrace(); 	// 오류에 대한 정보 출력
 		}
-	}
-	
-	
-	private void connect() {
-		// db 주소 -> jdbc:mysql://데이터베이스서버주소:mysql-port/DB명
-		String url = "jdbc:mysql://localhost:3306/dw_501";
-		String user = "root";	// mysql 유저명
-		String pass = "1234";	// mysql 비밀번호
-		
-		try {
-			conn = DriverManager.getConnection(url, user, pass);
-		} catch (Exception e) {
-			e.printStackTrace();
-			System.out.println("접속 실패");
-		} 
 		
 	}
 	
 	
-	private void DriverLoad() {
-		try {
-			// 자바엔 이름이 Class인 클래스가 존재
-			// com.mysql.cj.jdbc.Driver 가 안될 경우: com.mysql.jdbc.Driver 로 주소를 변경
-			Class.forName("com.mysql.cj.jdbc.Driver"); // 문자열을 클래스화
-		} catch (ClassNotFoundException e) {
-			e.printStackTrace();
-			System.out.println("드라이버 로드 실패.");
-		} 
-		
-		/*
-			예시:  Class.forName("cafe.control.order");
-			-> 드라이버 로드라는 작업은 해당 db와 연결해주는 클래스를 컴퓨터 메모리에 로드(적재) 해주는 작업.
-		*/
-	}
+	
 	
 	
 }
