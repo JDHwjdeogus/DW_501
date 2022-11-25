@@ -156,6 +156,7 @@ public class ApiController {
 		
 		String ip = request.getRemoteAddr();
 		System.out.println("요청받은 IP: " + ip);
+		
 		System.out.println("html에서 서버로 받아온 데이터입니다.");
 		System.out.println("회사이름: " + login2.getCompanyName());
 		System.out.println("가입자명: " + login2.getUserName());
