@@ -1,0 +1,11 @@
+Java를 이용해 DB랑 연동하려면 JDBC.jar 드라이버 설치 필요
+문제점: 
+1. JDBC.jar이 없으면 DB연동 불가능.
+- JDBC.jar 구글링 필요
+- 버전이 다를 경우에도 드라이버 작동이 안될 수가 있어 버전 체크가 필요.
+2. sql문 작성을 변수(String)로 함
+- String sql = "select * from emp";
+- sql 재활용 불가능
+
+>> Spring으로 해결
+1. 버전찾기: build.gradle > dependencies

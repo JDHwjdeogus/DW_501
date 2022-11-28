@@ -15,7 +15,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.example.demo.mapper.EmpMapper;
 import com.example.demo.service.ApiService;
+import com.example.demo.vo.EmpVO;
 import com.example.demo.vo.Login;
 import com.example.demo.vo.Login2;
 import com.example.demo.vo.Movie;
@@ -38,12 +40,14 @@ import com.example.demo.vo.Movie;
 public class ApiController {
 	
 	// ApiService apiservice = new ApiService(); // 클래스를 전역 변수로
-	// 스프링 객체생성: 개발자 대신에 Spring에서 객체를 관리해주겠다. >> 바로 윗줄과 같은 생성자 호출 필요 없음, 어노테이션@ 으로 관리권한 위임
+	// 스프링 객체생성(@Autowired): 개발자 대신에 Spring에서 객체를 관리해주겠다. >> 바로 윗줄과 같은 생성자 호출 필요 없음, 어노테이션@ 으로 관리권한 위임
 	// IoC(Inversion of Control, 제어 역전)
 	
 	@Autowired
 	ApiService apiservice;
 	
+	@Autowired
+	EmpMapper empMapper;	// 원래 인터페이스는 객체화가 안되는데 이게 객체화가 되는 건 mybatis에서 상속받고 있으므로 객체생성이 가능
 	
 	@GetMapping("/api/v1/sample")
 	public List<String> callData(){
@@ -65,7 +69,6 @@ public class ApiController {
 		movie.setTitle("Happy Tree Friends");
 		// movie 객체 전달
 		return movie;
-		
 	}
 	
 	// URL은 주소가 같으면 안된다. 중복 불가.	
@@ -163,5 +166,10 @@ public class ApiController {
 		System.out.println("연락처: " + login2.getPhone());
 		
 		return true;
+	}
+	
+	@GetMapping("/api/v1/emp")
+	public List<EmpVO> callEmp(){
+		return empMapper.selectEmp();
 	}
 }

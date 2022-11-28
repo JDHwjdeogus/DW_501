@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" type="text/css" href="/css/style.css">
+<style type="text/css">
+    table {border-collapse: collapse;}
+    th, td {width: 66px; height: 66px; color: #f3e66e; border: 1px solid #f3e66e; text-align: center; background: #887b0899;}
+</style>
+</head>
+<body>
+	<h2>안녕하세요 여기는 EMP 화면 입니다.</h2>
+	<div id="result"></div>
+</body>
+<script src="https://code.jquery.com/jquery-3.6.1.js" integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI=" crossorigin="anonymous"></script>
+<script type="text/javascript">
+	window.onload = function(){
+		var result = document.getElementById("result");
+        var j = 0;
+        var out_table = "";
+        out_table += "<table>";
+        
+        // 가로5 세로14 
+        out_table += "<tr> <th>사원번호</th> <th>사원명</th> <th>직책</th> <th>급여</th> <th>고용일</th> </tr>";
+        while(j < 14) {
+            out_table += "<tr class='empTR-" + j + "'>";
+            var k = 0;
+            while(k < 5){
+                out_table += "<td class='empTD-" + k + "'></td>";
+                ++k;
+            }
+            out_table += "</tr>";
+            ++j;
+        }
+        
+        out_table += "</table>";
+        result.innerHTML = out_table;
+        
+        
+
+        $.ajax({
+            url: '/api/v1/emp',
+            type: 'GET',
+            dataType: 'json',
+            success: function (response) {
+            	
+                for (var j = 0; j < response.length; j++) {
+                	for(var k = 0; k < 5; k++)
+                    $('.empTD-0').append(response[j].empno);
+                    $('.empTD-1').append(response[j].ename);
+                    $('.empTD-2').append(response[j].job);
+                    $('.empTD-3').append(response[j].sal);
+                    $('.empTD-4').append(response[j].hiredate);
+                }
+            },
+        });
+        
+        
+	}
+</script>
+</html>
