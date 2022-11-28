@@ -6,7 +6,7 @@ public class member_service {
 	private member_DAO mdao = new member_DAO();
 	
 	
-	public boolean sign_member(String id, String name, String tel, String email) {
+	public boolean sign_member(String id, String name, String tel, String email, String allergy) {
 		boolean check = mdao.id_check(id, email);
 		
 		// 중복일 경우
@@ -15,7 +15,7 @@ public class member_service {
 			return false; 
 		}
 		else {
-			mdao.member_insert(id, name, tel, email);
+			mdao.member_insert(id, name, tel, email, allergy);
 		}
 		
 		System.out.println("회원가입이 완료되었습니다. \n");

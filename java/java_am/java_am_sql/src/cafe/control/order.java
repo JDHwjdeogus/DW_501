@@ -28,6 +28,7 @@ public class order implements menu_able {
 		int i = 1;
 		for(String m : mlist){
 			System.out.println(i + ". " + m);
+			i++;
 		}
 		System.out.print("선택: ");
 		return new Scanner(System.in).nextInt();

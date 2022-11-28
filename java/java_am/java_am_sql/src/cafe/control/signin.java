@@ -11,7 +11,7 @@ public class signin implements menu_able  {
 		Scanner sc = new Scanner(System.in);
 		
 		member_service ms = new member_service();
-		String id = null, name = null, tel = null, email = null;
+		String id = null, name = null, tel = null, email = null, allergy = null;
 		
 		do {
 			
@@ -30,9 +30,12 @@ public class signin implements menu_able  {
 			System.out.print("이메일: ");
 			 email = sc.nextLine();
 			
+			System.out.print("알러지(없을 시 x): ");
+			 allergy = sc.nextLine();
+			 
 			// =======================입력 항목========================= //
 			
-		}while( !(ms.sign_member(id, name, tel, email)) );
+		}while( !(ms.sign_member(id, name, tel, email, allergy)) );
 		
 		
 		System.out.println();
