@@ -10,14 +10,14 @@
 </style>
 </head>
 <body>
-	<h2>안녕하세요 여기는 EMP 화면 입니다.</h2>
+	<h2>안녕하세요 여기는 DEPT 화면 입니다.</h2>
 	<div id="result"></div>
 </body>
 <script src="https://code.jquery.com/jquery-3.6.1.js" integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI=" crossorigin="anonymous"></script>
 <script type="text/javascript">
 	window.onload = function(){
         $.ajax({
-            url: '/api/v1/emp',
+            url: '/api/v1/dept',
             type: 'GET',
             dataType: 'json',
             success: function (response) {
@@ -26,21 +26,19 @@
             	
             	var out_table = "";
                 out_table += "<table>";
-            	out_table += "<tr> <th>사원번호</th> <th>사원명</th> <th>직책</th> <th>급여</th> <th>고용일</th> </tr>";
+            	out_table += "<tr> <th>부서번호</th> <th>부서명</th> <th>위치</th> </tr>";
             	
                 for (var j = 0; j < response.length; j++) {
                 	out_table += "<tr>"
-                				+ "<td>" + response[j].empno + "</td>"
-                				+ "<td>" + response[j].ename + "</td>"
-                				+ "<td>" + response[j].job + "</td>"
-                				+ "<td>" + response[j].sal + "</td>"
-                				+ "<td>" + response[j].hiredate + "</td>"
+                				+ "<td>" + response[j].deptno + "</td>"
+                				+ "<td>" + response[j].dname + "</td>"
+                				+ "<td>" + response[j].loc + "</td>"
                 				+"</tr>";
                 }
                 out_table += "</table>";
                 $("#result").append(out_table);
             },
-        });  
+        });
 	}
 </script>
 </html>

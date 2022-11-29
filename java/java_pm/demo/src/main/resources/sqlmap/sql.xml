@@ -6,4 +6,10 @@
 		SELECT * FROM emp
 	</select>
 	
+	
+	<select id="selectDept" resultType="com.example.demo.vo.DeptVO">
+		<!-- 테이블명 소문자 쿼리는 대문자 | * 아스테리스크 -->
+		SELECT * FROM dept 
+	</select>
+	
 </mapper>
