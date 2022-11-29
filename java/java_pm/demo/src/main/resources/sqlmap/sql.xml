@@ -6,10 +6,29 @@
 		SELECT * FROM emp
 	</select>
 	
-	
 	<select id="selectDept" resultType="com.example.demo.vo.DeptVO">
-		<!-- 테이블명 소문자 쿼리는 대문자 | * 아스테리스크 -->
+		<!-- 테이블명 소문자 쿼리는 대문자 | * 아스테리크스 -->
 		SELECT * FROM dept 
 	</select>
+	
+	<!-- insert updste delete는 returnType이 int: sql상에서 DML은 실행 시 해당 명령어들의 실행횟수가 리턴됨 -->
+	<!-- VALUES (#{empno}) 에서 empno는 EmpVO의 private 변수명인 empno -->
+	<insert id="insertEmp">
+		INSERT INTO emp
+		(
+			empno,
+			ename,
+			job,
+			sal
+		)
+		VALUES
+		(
+			#{empno},
+			#{ename},
+			#{job},
+			#{sal}
+		)
+	</insert>
+	
 	
 </mapper>

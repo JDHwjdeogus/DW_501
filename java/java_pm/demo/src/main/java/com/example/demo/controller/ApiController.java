@@ -178,4 +178,9 @@ public class ApiController {
 	public List<DeptVO> callDept(){
 		return empMapper.selectDept();
 	}
+	
+	@PostMapping("/api/v1/emp/join")
+	public int callEmpjoin(@RequestBody EmpVO emp) {
+		return empMapper.insertEmp(emp);
+	}
 }

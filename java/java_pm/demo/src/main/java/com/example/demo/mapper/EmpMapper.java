@@ -34,4 +34,6 @@ public interface EmpMapper {
 	 */
 	List<DeptVO> selectDept();
 	
+	int insertEmp(EmpVO vo);
+	
 }
