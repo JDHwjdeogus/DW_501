@@ -14,10 +14,10 @@ public class order implements menu_able {
 		
 		// 로그인하지 않은 경우 주문을 하는 것도 메뉴를 보는 것도 할 수 없다. 로그인 시 실행
 		if(cafe_main.user == null) {
-			// cafe_main.user가 로그인된 상태라면 id email tel name을 가진 객체였을 것
+			// cafe_main.user가 로그인된 상태라면 id email tel name을 가진 객체였을 것 >> 비 로그인 상태 시 user는 null
 			System.out.println("로그인 시 이용 가능한 서비스입니다.");
 		} else {
-			food.order_food( menu() );
+			food.order_food( menu() );	// 주문 처리 하는 곳
 		}
 		return true;
 	}

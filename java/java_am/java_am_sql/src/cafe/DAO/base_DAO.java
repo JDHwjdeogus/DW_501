@@ -28,7 +28,8 @@ public class base_DAO {
 			conn = DriverManager.getConnection(url, user, pass);
 		} catch (Exception e) {
 			e.printStackTrace();
-			System.out.println("접속 실패");
+			System.out.println();
+			System.out.println("접속 실패 \n");
 		} 
 		
 	}
@@ -41,7 +42,8 @@ public class base_DAO {
 			Class.forName("com.mysql.cj.jdbc.Driver"); // 문자열을 클래스화
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
-			System.out.println("드라이버 로드 실패.");
+			System.out.println();
+			System.out.println("드라이버 로드 실패. \n");
 		} 
 		
 		/*

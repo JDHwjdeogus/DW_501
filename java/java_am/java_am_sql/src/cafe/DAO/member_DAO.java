@@ -62,11 +62,12 @@ public class member_DAO extends base_DAO {
 				// id 혹은 email이 있는 경우: rs.next()에 값이 있음. 중복이라는 의미.
 				return true;
 			}
-			System.out.println("id_check 문제 없음");
+			System.out.println();
+			System.out.println("id_check 문제 없음 \n");
 			
 		} catch(SQLException e) {
 			e.printStackTrace(); 
-			System.out.println("id_check 문제 있음");
+			System.out.println("id_check 문제 있음 \n");
 		}
 		
 		// rs에 값이 없다면 id 혹은 email이 없는 경우
@@ -89,12 +90,14 @@ public class member_DAO extends base_DAO {
 			
 			// query: select. 조회하는 경우 사용 || update: 변경, 추가, 삭제
 			
-			System.out.println("member_insert 문제 없음");
+			System.out.println();
+			System.out.println("member_insert 문제 없음 \n");
 			return true;
 			
 		}catch(SQLException e) {
 			e.printStackTrace();
-			System.out.println("member_insert 문제 있음");
+			System.out.println();
+			System.out.println("member_insert 문제 있음 \n");
 		}
 		return false;
 	}
@@ -106,10 +109,12 @@ public class member_DAO extends base_DAO {
 		try {
 			st = conn.createStatement();
 			int result = st.executeUpdate(sql);
-			System.out.println("table_make 문제 없음");
+			System.out.println();
+			System.out.println("table_make 문제 없음 \n");
 		}catch(SQLException e) {
 			e.printStackTrace();
-			System.out.println("table_make 문제 있음");
+			System.out.println();
+			System.out.println("table_make 문제 있음 \n");
 		}
 	}
 	

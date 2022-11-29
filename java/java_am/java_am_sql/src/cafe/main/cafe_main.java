@@ -8,6 +8,7 @@ import cafe.control.event;
 import cafe.control.exit;
 import cafe.control.login;
 import cafe.control.menu_able;
+import cafe.control.myinfo;
 import cafe.control.order;
 import cafe.control.signin;
 
@@ -23,7 +24,7 @@ public class cafe_main {
 			event e = new event(); // 패키지가 다르므로 임포트 해준다.
 		*/
 		
-		menu_able[] menu = {new order(), new login(), new event(), new signin(), new exit()};
+		menu_able[] menu = {new order(), new myinfo(), new event(), new login(), new signin(), new exit()};
 		
 		while(menu[main_menu() -1 ].menu_active());
 		/*
@@ -57,12 +58,12 @@ public class cafe_main {
 	public static int main_menu() { // 클래스 메서드( main_menu() ): 클래스 메서드에서만 사용
 		int select = 0;
 		
-		String[] menu = {"주문", "로그인", "이벤트", "회원가입", "종료"};
+		String[] menu = {"주문", "내정보", "이벤트", "로그인", "회원가입", "종료"};
 		
 		try {
 
 			for(int i = 1; i <= menu.length; i++) {
-				if( user != null && (i == 2 || i == 4) ) continue;
+				if( user != null && (i == 4 || i == 5) ) continue;
 				System.out.println(i + ". " + menu[i - 1]);
 			}
 			System.out.print("선택: ");
