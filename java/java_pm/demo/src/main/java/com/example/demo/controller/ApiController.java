@@ -8,6 +8,7 @@ import java.util.Map;
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -169,6 +170,7 @@ public class ApiController {
 		return true;
 	}
 	
+	// select
 	@GetMapping("/api/v1/emp")
 	public List<EmpVO> callEmp(){
 		return empMapper.selectEmp();
@@ -179,8 +181,16 @@ public class ApiController {
 		return empMapper.selectDept();
 	}
 	
+	// insert
 	@PostMapping("/api/v1/emp/join")
 	public int callEmpjoin(@RequestBody EmpVO emp) {
 		return empMapper.insertEmp(emp);
 	}
+	
+	// delete: 매핑이 다른 경우 url이 중복되어도 괜찮다.
+	@DeleteMapping("/api/v1/emp/{empno}")
+	public int callEmpDelete(@PathVariable int empno) {
+		return empMapper.deleteEmp(empno);
+	}
+	
 }

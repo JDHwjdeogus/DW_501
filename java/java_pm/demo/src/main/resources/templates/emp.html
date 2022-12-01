@@ -18,6 +18,9 @@
 	<input id= "sal" type="text" placeholder="급여를 입력하세요. " />
 	<button type="button" onclick="join()"> 사원 추가 </button>
 	
+	<h3>사원정보 삭제하기</h3>
+	<input id="d_empno" type="text" placeholder="사원번호를 입력하세요." />
+	<button type="button" onclick="doDelete()">사원정보 삭제</button>
 	
 	<div id="result"></div>
 </body>
@@ -74,6 +77,36 @@
         	success: function(response){
         		console.log(response);
         		alert("사원 추가 완료...!");
+        		location.reload();	// 새로고침
+        	}
+        });
+	}
+	
+	function doDelete(){
+		// jQuery: $("#d_empno").val("");
+		// 바닐라 스크립트(js): document.getElementById("d_empno").value
+		var empno = $("#d_empno").val();
+		if(empno == "") {
+			alert("사원번호를 입력해주세요.");
+			$("#d_empno").focus();
+			return false;
+		}
+		
+		if(empno > 9999) {
+			alert("잘못된 사원번호입니다. (1 ~ 9999)");
+			$("#d_empno").focus();
+			$("#d_empno").val("");
+			return false;
+		}
+		
+		// 사원정보 삭제 ajax 연결
+		$.ajax({
+        	url: '/api/v1/emp/'+empno,
+        	type:'DELETE',
+        	dataType: 'json',
+        	success: function(response){
+        		console.log(response);
+        		alert("사원정보 제거 완료...!");
         		location.reload();
         	}
         });

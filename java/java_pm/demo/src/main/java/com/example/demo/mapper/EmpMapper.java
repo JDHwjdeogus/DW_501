@@ -34,6 +34,21 @@ public interface EmpMapper {
 	 */
 	List<DeptVO> selectDept();
 	
+	// 이름은 sql.xml과 똑같이
+	/**
+	 * @Since : 2022. 12. 1.
+	 * @Author : Jeong_Dahyeon
+	 * @Return : int
+	 * @Comment : EMP 테이블 데이터 insert
+	 */
 	int insertEmp(EmpVO vo);
+	
+	/**
+	 * @Since : 2022. 12. 1.
+	 * @Author : Jeong_Dahyeon
+	 * @Return : int
+	 * @Comment : EMP 테이블 데이터 delete
+	 */
+	int deleteEmp(int empno);
 	
 }
