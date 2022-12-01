@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -181,16 +182,37 @@ public class ApiController {
 		return empMapper.selectDept();
 	}
 	
+	
 	// insert
 	@PostMapping("/api/v1/emp/join")
 	public int callEmpjoin(@RequestBody EmpVO emp) {
 		return empMapper.insertEmp(emp);
 	}
 	
+	@PostMapping("/api/v1/dept/resist")
+	public int callDeptResist(@RequestBody DeptVO dept) {
+		return empMapper.insertDept(dept);
+	}
+	
+	
 	// delete: 매핑이 다른 경우 url이 중복되어도 괜찮다.
 	@DeleteMapping("/api/v1/emp/{empno}")
 	public int callEmpDelete(@PathVariable int empno) {
 		return empMapper.deleteEmp(empno);
 	}
+	
+	@DeleteMapping("/api/v1/dept/{deptno}")
+	public int callDeptDelete(@PathVariable int deptno) {
+		return empMapper.deleteDept(deptno);
+	}
+	
+	
+	// update
+	/* @RequestBody: html 문서의 body로 데이터를 보냄 || @PathVariable: html 문서의 헤더로 데이터를 보냄 */
+	@PatchMapping("/api/v1/emp")
+	public int callEmpUpdate(@RequestBody EmpVO emp) {
+		return empMapper.updateEmp(emp);
+	}
+	
 	
 }

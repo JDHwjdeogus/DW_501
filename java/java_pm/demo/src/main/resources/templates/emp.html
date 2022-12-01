@@ -22,6 +22,12 @@
 	<input id="d_empno" type="text" placeholder="사원번호를 입력하세요." />
 	<button type="button" onclick="doDelete()">사원정보 삭제</button>
 	
+	<h3>사원정보 수정하기</h3>
+	<input id= "u_empno" type="text" placeholder="사원번호를 입력하세요. " />
+	<input id= "u_job" type="text" placeholder="직책을 입력하세요. " />
+	<input id= "u_sal" type="text" placeholder="급여를 입력하세요. " />
+	<button type="button" onclick="doUpdate()"> 데이터 수정 </button>
+	
 	<div id="result"></div>
 </body>
 <script src="https://code.jquery.com/jquery-3.6.1.js" integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI=" crossorigin="anonymous"></script>
@@ -51,7 +57,8 @@
                 out_table += "</table>";
                 $("#result").append(out_table);
             },
-        });  
+        }); 
+        
 	}
 	
 	function join(){
@@ -80,12 +87,16 @@
         		location.reload();	// 새로고침
         	}
         });
+		
 	}
+	
 	
 	function doDelete(){
 		// jQuery: $("#d_empno").val("");
 		// 바닐라 스크립트(js): document.getElementById("d_empno").value
+		
 		var empno = $("#d_empno").val();
+		
 		if(empno == "") {
 			alert("사원번호를 입력해주세요.");
 			$("#d_empno").focus();
@@ -110,6 +121,36 @@
         		location.reload();
         	}
         });
+		
 	}
+	
+	// update는 insert와 유사하다.
+	function doUpdate(){
+		var empno = $("#u_empno").val();
+		var sal = $("#u_sal").val();
+		var job = $("#u_job").val();
+		
+		var jsonData = {
+				"empno" : empno,
+				"job" : job,
+				"sal" : sal
+		}
+			
+		// AJAX 호출
+	    $.ajax({
+	        url: '/api/v1/emp',
+	        type:'PATCH',
+	        contentType: 'application/json',
+	        data: JSON.stringify(jsonData),
+	        dataType: 'json',
+	        success: function(response){
+	        	console.log(response);
+	        	alert("사원 수정 완료...!");
+	        	location.reload();	// 새로고침
+	        }
+	    });
+		
+	}
+	
 </script>
 </html>

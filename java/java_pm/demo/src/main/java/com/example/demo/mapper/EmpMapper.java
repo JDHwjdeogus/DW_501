@@ -51,4 +51,29 @@ public interface EmpMapper {
 	 */
 	int deleteEmp(int empno);
 	
+	
+	/**
+	 * @Since : 2022. 12. 1.
+	 * @Author : Jeong_Dahyeon
+	 * @Return : int
+	 * @Comment : DEPT 테이블 데이터 insert
+	 */
+	int insertDept(DeptVO dvo);
+	
+	/**
+	 * @Since : 2022. 12. 1.
+	 * @Author : Jeong_Dahyeon
+	 * @Return : int
+	 * @Comment : DEPT 테이블 데이터 delete
+	 */
+	int deleteDept(int deptno);
+	
+	/**
+	 * @Since : 2022. 12. 1.
+	 * @Author : Jeong_Dahyeon
+	 * @Return : int
+	 * @Comment : EMP 테이블 데이터 수정
+	 */
+	int updateEmp(EmpVO vo);
+	
 }

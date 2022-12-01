@@ -11,6 +11,16 @@
 </head>
 <body>
 	<h2>안녕하세요 여기는 DEPT 화면 입니다.</h2>
+	
+	<input id= "deptno" type="text" placeholder="부서번호를 입력하세요. " />
+	<input id= "dname" type="text" placeholder="부서명을 입력하세요. " />
+	<input id= "loc" type="text" placeholder="위치를 입력하세요. " />
+	<button type="button" onclick="resist()"> 부서 추가 </button>
+	
+	<h3>부서정보 삭제하기</h3>
+	<input id="d_deptno" type="text" placeholder=" 부서번호를 입력하세요." />
+	<button type="button" onclick="doDeleteDept()">부서정보 삭제</button>
+	
 	<div id="result"></div>
 </body>
 <script src="https://code.jquery.com/jquery-3.6.1.js" integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI=" crossorigin="anonymous"></script>
@@ -38,6 +48,58 @@
                 out_table += "</table>";
                 $("#result").append(out_table);
             },
+        });
+	}
+	
+
+	function resist(){
+		var deptno = $('#deptno').val();
+		var dname = $('#dname').val();
+		var loc = $('#loc').val();
+		
+		var jsonData = {
+			"deptno" : deptno,
+			"dname" : dname,
+			"loc" : loc,
+		}
+		
+		// AJAX 호출
+        $.ajax({
+        	url: '/api/v1/dept/resist',
+        	type:'POST',
+        	contentType: 'application/json',
+        	data: JSON.stringify(jsonData),
+        	dataType: 'json',
+        	success: function(response){
+        		console.log(response);
+        		alert("부서 추가 완료...!");
+        		location.reload();	// 새로고침
+        	}
+        });
+	}
+	
+	
+	function doDeleteDept(){
+		
+		var d_deptno = $("#d_deptno").val();
+		
+		if(d_deptno == "") {
+			alert("부서번호를 입력해주세요.");
+			$("#d_deptno").focus();
+			$("#d_deptno").val("");
+			return false;
+		}
+		
+		// 사원정보 삭제 ajax 연결
+		$.ajax({
+        	url: '/api/v1/dept/'+d_deptno,
+        	type:'DELETE',
+        	dataType: 'json',
+        	success: function(response){
+        		console.log(response);
+        		alert("사원정보 제거 완료...!");
+        		location.reload();
+        	}
         });
 	}
 </script>
