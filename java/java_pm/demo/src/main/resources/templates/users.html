@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" type="text/css" href="/css/style.css">
+<style type="text/css">
+    table {border-collapse: collapse; margin: 100px auto;}
+    th, td {width: 166px; height: 66px; color: #f3e66e; border: 1px solid #f3e66e; text-align: center; background: #887b0899;}
+</style>
+</head>
+<body>
+	<h3>USER PAGE 입니다.</h3>
+	<div id="result"></div>
+</body>
+<script src="https://code.jquery.com/jquery-3.6.1.js" integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI=" crossorigin="anonymous"></script>
+<script type="text/javascript">
+window.onload = function(){
+    $.ajax({
+        url: '/api/v1/userLogin',
+        type: 'GET',
+        dataType: 'json',
+        success: function (response) {
+        	
+        	console.log(response);
+        	
+        	var out_table = "";
+            out_table += "<table>";
+        	out_table += "<tr> <th>ID</th> <th>닉네임</th> <th>비밀번호</th> </tr>";
+        	
+            for (var j = 0; j < response.length; j++) {
+            	out_table += "<tr>"
+            				+ "<td>" + response[j].id + "</td>"
+            				+ "<td>" + response[j].name + "</td>"
+            				+ "<td>" + response[j].pw + "</td>"
+            				+"</tr>";
+            }
+            out_table += "</table>";
+            $("#result").append(out_table);
+        }
+    }); 
+    
+}
+</script>
+</html>

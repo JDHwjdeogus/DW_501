@@ -24,6 +24,7 @@ import com.example.demo.vo.EmpVO;
 import com.example.demo.vo.Login;
 import com.example.demo.vo.Login2;
 import com.example.demo.vo.Movie;
+import com.example.demo.vo.UsersVO;
 
 /*
 	클래스 이름: 맨 앞이 대문자
@@ -208,11 +209,30 @@ public class ApiController {
 	
 	
 	// update
-	/* @RequestBody: html 문서의 body로 데이터를 보냄 || @PathVariable: html 문서의 헤더로 데이터를 보냄 */
+	/* @RequestBody: html 문서의 body에 데이터를 보냄 || @PathVariable: html 문서의 헤더로 데이터를 보냄 */
 	@PatchMapping("/api/v1/emp")
 	public int callEmpUpdate(@RequestBody EmpVO emp) {
 		return empMapper.updateEmp(emp);
 	}
 	
 	
+	// 회원가입
+	@PostMapping("/api/v1/dwjoin")
+	public int callDWJoin(@RequestBody UsersVO user) {
+		return empMapper.insertUsers(user);
+	}
+	
+	// 로그인: login은 데이터 노출 방지를 위해 POST방식 사용
+	@PostMapping("/api/v1/dwLogin")
+	public int callDWLogin(@RequestBody UsersVO user) {
+		return empMapper.selectUsersFindById(user);
+	}
+	
+	
+	
+	
+	@GetMapping("/api/v1/userLogin")
+	public List<UsersVO> calluserLogin(){
+		return empMapper.selectUser();
+	}
 }

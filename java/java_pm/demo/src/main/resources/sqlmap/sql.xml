@@ -70,4 +70,34 @@
 	</update>
 	
 	
+	<insert id="insertUsers">
+		INSERT INTO users
+		(
+			id,
+			pw,
+			name
+		)
+		VALUES
+		(
+			#{id},
+			#{pw},
+			#{name}
+		)
+	</insert>
+	
+	<!-- count는 int형으로 리턴 -->
+	<select id="selectUsersFindById" resultType="integer">
+		SELECT 
+			count(*) 
+		FROM users 
+		WHERE id = #{id} AND pw = #{pw}
+	</select>
+	
+	
+	
+	<select id="selectUser" resultType="com.example.demo.vo.UsersVO">
+		<!-- 테이블명 소문자 쿼리는 대문자 | * 아스테리크스 -->
+		SELECT * FROM users 
+	</select>
+	
 </mapper>

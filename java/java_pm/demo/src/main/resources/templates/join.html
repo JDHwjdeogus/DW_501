@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" type="text/css" href="/css/style.css">
+</head>
+<body>
+	<h3>DW 회원가입</h3>
+	<input id="userId" type="text" placeholder=" 아이디를 입력해주세요."/>
+	<input id="userName" type="text" placeholder=" 이름을 입력해주세요."/>
+	<input id="userPw" type="password" placeholder="비밀번호를 입력해주세요."/>
+	<button type="button" onclick="doJoin()">회원가입</button>
+	
+	<h3>DW 로그인</h3>
+	<input id="i_userId" type="text" placeholder=" 아이디를 입력해주세요."/>
+	<input id="i_userPw" type="password" placeholder="비밀번호를 입력해주세요."/>
+	<button type="button" onclick="doLogin()">로그인</button>
+	
+</body>
+<script src="https://code.jquery.com/jquery-3.6.1.js" integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI=" crossorigin="anonymous"></script>
+<script type="text/javascript">
+	function doJoin(){
+		var userId = $("#userId").val();
+		var userName = $("#userName").val();
+		var userPw = $("#userPw").val();
+		
+		if(userId == ""){
+			alert("아이디를 입력해주세요");
+			$("#userId").focus();
+			return false;
+		}
+		
+		if(userName == ""){
+			alert("이름을 입력해주세요");
+			$("#userName").focus();
+			return false;
+		}
+		
+		if(userPw == ""){
+			alert("비밀번호를 입력해주세요");
+			$("#userPw").focus();
+			return false;
+		}
+		
+		
+		
+		var jsonData = {
+			"id" : userId,
+			"name" : userName,
+			"pw" : userPw
+		}
+			
+		
+		// AJAX 호출
+        $.ajax({
+        	url: '/api/v1/dwjoin',
+        	type:'POST',
+        	contentType: 'application/json',
+        	data: JSON.stringify(jsonData),
+        	dataType: 'json',
+        	success: function(response){
+        		console.log(response);
+        		alert("회원가입 완료...!");
+        		location.reload();	// 새로고침
+        	}
+        });
+		
+	}
+	
+	
+	
+	function doLogin(){
+		var id = $("#i_userId").val();
+		var pw = $("#i_userPw").val();
+		
+		var jsonData = {
+				"id" : id,
+				"pw" : pw
+			}
+				
+			
+			// AJAX 호출
+	        $.ajax({
+	        	url: '/api/v1/dwLogin',
+	        	type:'POST',
+	        	contentType: 'application/json',
+	        	data: JSON.stringify(jsonData),
+	        	dataType: 'json',
+	        	success: function(response){
+	        		console.log(response);
+	        		if(response == 1){
+	        			alert("환영합니다.");
+	        			location.href = '/users';
+	        		}
+	        		else{
+	        			alert("아이디 혹은 비밀번호가 틀렸습니다.");
+	        		}
+	        	}
+	        });
+		
+	}
+</script>
+</html>

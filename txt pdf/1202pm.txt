@@ -1,0 +1,3 @@
+에러코드
+4xx: 프론트(html) 에러(높은 확률로 오타)
+5xx: java 에러(이클립스 확인, sql(xml 파일) 혹은 controller 등등의 에러)

@@ -51,4 +51,14 @@ public class PageController {
 	public String callDeptPage() {
 		return "dept";
 	}
+	
+	@GetMapping("/join")
+	public String callJoinPage() {
+		return "join";
+	}
+	
+	@GetMapping("/users")
+	public String callUsersPage() {
+		return "users";
+	}
 }
