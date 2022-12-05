@@ -47,13 +47,15 @@ public class ApiController {
 	// 스프링 객체생성(@Autowired): 개발자 대신에 Spring에서 객체를 관리해주겠다. >> 바로 윗줄과 같은 생성자 호출 필요 없음, 어노테이션@ 으로 관리권한 위임
 	// IoC(Inversion of Control, 제어 역전)
 	
+	final String ROOT_URL = "api/v1";	// 탐색기 내에서 검색이 힘들어진다는 단점이 있음
+	
 	@Autowired
-	ApiService apiservice;
+	ApiService apiservice;	// 클래스를 전역변수로
 	
 	@Autowired
 	EmpMapper empMapper;	// 원래 인터페이스는 객체화가 안되는데 이게 객체화가 되는 건 mybatis에서 상속받고 있으므로 객체생성이 가능
 	
-	@GetMapping("/api/v1/sample")
+	@GetMapping(ROOT_URL+"/sample")
 	public List<String> callData(){
 		List<String> list = new ArrayList<String>();
 		list.add("고양이");
@@ -229,10 +231,17 @@ public class ApiController {
 	}
 	
 	
-	
-	
 	@GetMapping("/api/v1/userLogin")
 	public List<UsersVO> calluserLogin(){
 		return empMapper.selectUser();
 	}
+	
+	
+	// /api/v1/ >> 전역변수처럼 쓰일 수 있음.
+	// 단점: 검색 시 안나옴
+	@GetMapping("/api/v1/users/{id}")
+	public boolean callUser(@PathVariable String id) {
+		return apiservice.checkUser(id);
+	}
+	
 }

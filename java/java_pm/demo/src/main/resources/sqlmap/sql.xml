@@ -86,18 +86,26 @@
 	</insert>
 	
 	<!-- count는 int형으로 리턴 -->
+	<!-- mybatis -->
 	<select id="selectUsersFindById" resultType="integer">
 		SELECT 
-			count(*) 
+			COUNT(*) 
 		FROM users 
-		WHERE id = #{id} AND pw = #{pw}
+		WHERE id = #{id}
+		<!-- pw == null이면 실행 안되는 코드 -->
+		<if test="pw != null">
+			AND pw = #{pw}
+		</if>
 	</select>
-	
 	
 	
 	<select id="selectUser" resultType="com.example.demo.vo.UsersVO">
 		<!-- 테이블명 소문자 쿼리는 대문자 | * 아스테리크스 -->
 		SELECT * FROM users 
 	</select>
+	
+	
+	
+	
 	
 </mapper>
