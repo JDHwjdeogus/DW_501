@@ -6,8 +6,10 @@ import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PatchMapping;
@@ -54,6 +56,9 @@ public class ApiController {
 	
 	@Autowired
 	EmpMapper empMapper;	// 원래 인터페이스는 객체화가 안되는데 이게 객체화가 되는 건 mybatis에서 상속받고 있으므로 객체생성이 가능
+	
+	@Autowired
+	PasswordEncoder passwordEncoder;
 	
 	@GetMapping(ROOT_URL+"/sample")
 	public List<String> callData(){
@@ -221,21 +226,52 @@ public class ApiController {
 	// 회원가입
 	@PostMapping("/api/v1/dwjoin")
 	public int callDWJoin(@RequestBody UsersVO user) {
+		String password = user.getPw();				// html에서 입력받은 비밀번호를 가져옴
+		password = passwordEncoder.encode(password);// 비밀번호 암호화(SHA-1)
+		
+		user.setPw(password);	// 암호화된 비밀번호 set
+		
 		return empMapper.insertUsers(user);
 	}
 	
-	// 로그인: login은 데이터 노출 방지를 위해 POST방식 사용
-	@PostMapping("/api/v1/dwLogin")
-	public int callDWLogin(@RequestBody UsersVO user) {
-		return empMapper.selectUsersFindById(user);
-	}
 	
+	// 로그인: login은 데이터 노출 방지를 위해 POST방식 사용
+	// 세션: 서버(자바 서블릿 컨테이너)에 임시로 데이터를 저장하는 것.
+	@PostMapping("/api/v1/dwLogin")
+	public UsersVO callDWLogin(@RequestBody UsersVO user, HttpServletRequest req) {
+		
+		String password = user.getPw(); 	// HTML에서 가져온 비밀번호
+		
+		user = empMapper.selectUsersPassword(user);
+		if(user == null) {
+			user = new UsersVO();
+			user.setUser(false);
+		}
+		
+		String DBpassword = user.getPw();	// DB에 저장된 비밀번호 불러오기
+		boolean isUser = passwordEncoder.matches(password, DBpassword);
+		
+		if(!isUser) {
+			user.setUser(false);
+			return user;
+		}
+		// 고객정보 세션에 넣기
+		HttpSession session = req.getSession();	 		// session 불러오기
+		session.setAttribute("name", user.getName());	// session에 사용자 이름 저장
+		// 세션은 key와 value로 구성: HashMap과 동일 
+		// 세션은 서버가 종료될 때 까지 데이터가 유지됨: 기본(default) 시간은 30분.
+		
+		System.out.println("비밀번호 체크 >> " + isUser);
+		
+		user.setUser(true);
+		return user;
+		
+	}
 	
 	@GetMapping("/api/v1/userLogin")
 	public List<UsersVO> calluserLogin(){
 		return empMapper.selectUser();
 	}
-	
 	
 	// /api/v1/ >> 전역변수처럼 쓰일 수 있음.
 	// 단점: 검색 시 안나옴

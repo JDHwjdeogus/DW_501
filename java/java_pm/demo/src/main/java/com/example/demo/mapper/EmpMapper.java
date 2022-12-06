@@ -101,4 +101,13 @@ public interface EmpMapper {
 	 * @Comment : 회원리스트 조회(users.html)
 	 */
 	List<UsersVO> selectUser();
+	
+	
+	/**
+	 * @Since : 2022. 12. 6.
+	 * @Author : Jeong_Dahyeon
+	 * @Return : UsersVO
+	 * @Comment : user login: (암호화된 비밀번호로) 회원인지 아닌지 체크
+	 */
+	UsersVO selectUsersPassword(UsersVO vo);
 }

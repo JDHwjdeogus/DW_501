@@ -105,6 +105,17 @@
 	</select>
 	
 	
+	<select id="selectUsersPassword" resultType="com.example.demo.vo.UsersVO">
+		SELECT
+			id,
+			pw,
+			name
+		FROM users
+		WHERE id = #{id}
+	</select>
+	
+	
+	
 	
 	
 	

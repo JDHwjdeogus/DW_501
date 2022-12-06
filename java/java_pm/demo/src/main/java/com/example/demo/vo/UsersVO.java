@@ -7,5 +7,6 @@ public class UsersVO {
 	private String id;
 	private String name;
 	private String pw;
+	private boolean isUser;
 	
 }
