@@ -25,7 +25,7 @@ temp2 = result.split(" ", 1)
 print(temp1)
 print(temp2)
 print(" {0}".format(",".join(temp1)))
-# join은 문자열 배열을 합치기.                                              # 주석 1
+# join은 문자열 배열을 합치기.                                             # 주석 1
 """ "%".join(배열)을 하면 각 배열의 요소 사이에 %가 붙은 상태로 합쳐진다. """ # 주석 2
 
 # num = input("숫자를 입력하세요: ")        # input은 입력함수로, 결과는 문자열만을 반환한다.
