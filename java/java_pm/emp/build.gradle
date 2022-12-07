@@ -4,7 +4,7 @@ plugins {
 	id 'io.spring.dependency-management' version '1.0.15.RELEASE'
 }
 
-group = 'com.example'
+group = 'com.dw'
 version = '0.0.1-SNAPSHOT'
 sourceCompatibility = '11'
 
@@ -15,10 +15,10 @@ repositories {
 dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-web'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	// 실시간으로 화면 수정: devtools
+	developmentOnly 'org.springframework.boot:spring-boot-devtools'
 	// thymeleaf
 	implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
-	//실시간으로 화면 수정
-	developmentOnly 'org.springframework.boot:spring-boot-devtools'
 	// 롬복
 	annotationProcessor 'org.projectlombok:lombok'
 	compileOnly 'org.projectlombok:lombok'
@@ -26,9 +26,6 @@ dependencies {
 	runtimeOnly 'mysql:mysql-connector-java'
 	// mybatis(혹은 JPA. (이런 프로그램을 ORM이라고 부른다.)): sql 쿼리를 java가 이해할 수 있도록 도와주는(sql 결과를 java로 전환) 프로그램
 	implementation 'org.mybatis.spring.boot:mybatis-spring-boot-starter:2.2.2'
-	// Spring security
-	implementation "org.springframework.security:spring-security-web"
-	implementation "org.springframework.security:spring-security-config" 
 }
 
 tasks.named('test') {

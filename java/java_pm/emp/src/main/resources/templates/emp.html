@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>사원 목록 페이지</title>
+<style type="text/css">
+	body {margin: 0; padding: 0; box-sizing: border-box; color: olive; background-color: black;}
+    table {border-collapse: collapse; margin: 100px auto;}
+    th, td {width: 166px; height: 66px; color: #f3e66e; border: 1px solid #f3e66e; text-align: center; background: #887b0899;}
+</style>
+</head>
+<body>
+	<h3>사원 목록</h3>
+	<div id=result></div>
+</body>
+<script src="https://code.jquery.com/jquery-3.6.1.js" integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI=" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.6.1.js" integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI=" crossorigin="anonymous"></script>
+<script type="text/javascript">
+	window.onload = function(){
+        $.ajax({
+            url: '/api/v1/emp',
+            type: 'GET',
+            dataType: 'json',
+            success: function (response) {
+            	
+            	console.log(response);
+            	
+            	var out_table = "";
+                out_table += "<table>";
+            	out_table += "<tr> <th>사원번호</th> <th>사원명</th> <th>직책</th> <th>급여</th> <th>고용일</th> </tr>";
+            	
+                for (var j = 0; j < response.length; j++) {
+                	out_table += "<tr>"
+                				+ "<td>" + response[j].empno + "</td>"
+                				+ "<td>" + response[j].ename + "</td>"
+                				+ "<td>" + response[j].job + "</td>"
+                				+ "<td>" + response[j].sal + "</td>"
+                				+ "<td>" + response[j].hiredate + "</td>"
+                				+"</tr>";
+                }
+                out_table += "</table>";
+                $("#result").append(out_table);
+            }
+        }); 
+        
+	}
+	
+</script>
+</html>
