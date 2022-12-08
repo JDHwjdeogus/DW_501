@@ -1,7 +1,42 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.dw.emp.mapper.EmpMapper">
+	
 	<select id="selectEmp" resultType="com.dw.emp.vo.EmpVO">
-		SELECT * FROM emp
+		SELECT empno, ename, job, sal, comm, hiredate, dname, loc
+		FROM emp
+		LEFT JOIN dept ON emp.deptno = dept.deptno
 	</select>
+	
+	<select id="selectEmpfindByEmpno" resultType="com.dw.emp.vo.EmpVO">
+		SELECT 
+			ename, 
+			ifnull(sal, 100) AS sal, 
+			ifnull(comm, 0) AS comm 
+		FROM emp 
+		WHERE empno = #{empno}
+	</select>
+	
+	
+	<insert id="insertEmp">
+		INSERT INTO emp
+			(empno, ename, job, sal)
+		VALUES
+			(#{empno}, #{ename}, #{job}, #{sal})
+	</insert>
+	
+	<delete id="deleteEmp">
+		DELETE FROM emp	
+		WHERE empno = #{empno}
+	</delete>
+	
+	<update id="updateEmp">
+		UPDATE emp
+		SET
+			ename = #{ename}, job = #{job} , sal = #{sal}, comm = #{comm}
+		WHERE 
+			empno = #{empno}
+	</update>
+	
+	
 </mapper>

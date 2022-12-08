@@ -9,7 +9,9 @@ public class EmpVO{
 	private String job; 	 // 직책
 	private String hiredate; // 입사날짜
 	private int sal;		 // 급여
+	private int comm;		 // 보너스
 	private String dname;	 // 부서명
+	private String loc;		 // 부서위치
 	
 	
 	public int getEmpno() {
@@ -42,6 +44,12 @@ public class EmpVO{
 	public void setSal(int sal) {
 		this.sal = sal;
 	}
+	public int getComm() {
+		return comm;
+	}
+	public void setComm(int comm) {
+		this.comm = comm;
+	}
 	public String getDname() {
 		return dname;
 	}
@@ -54,5 +62,4 @@ public class EmpVO{
 	public void setLoc(String loc) {
 		this.loc = loc;
 	}
-	private String loc;		 // 부서위치
 }
