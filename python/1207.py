@@ -141,3 +141,102 @@ num = int(input("보고 싶은 구구단의 단을 입력: "))
 for i in range(1, 10) :
     print("{0} * {1} = {2}".format(num, i, num * i))
 '''
+
+'''
+for i in range(1,100) : 
+    if i % 3 == 0 :
+        if i % 5 == 0 :
+            print("★ ★ ★ ♥ ♥ ♥    ", end="")
+            # end="" : 줄바꿈을 "" 으로 대체
+        else :
+            print("♥ ♥ ♥   ")
+    elif i % 5 == 0 :
+        print("★ ★ ★   ")
+    else :
+        print(i)
+'''
+'''
+# 파이썬 데이터 타입: 리스트, 튜플, 딕셔너리, 셋, 배열 #
+
+# list 선언 방법 1
+name = ["a", "b", "c"]
+print(name)
+
+data1 = ["aaa", 666, 3.14, True]
+print(data1)
+
+# list 선언 방법 2
+data2 = list(("심연", "애옹", 9999, 1010))
+print(data2)
+
+print(data2[0])
+print(data2[-1])    # 뒤에서 첫번째 데이터를 출력
+print(data2[1:3])   # 1번 인덱스에서부터 3번 인덱스 전까지를 출력
+print(data2[:3])    # 처음부터 3번 인덱스 전까지
+print(data2[2:])    # 2번 인덱스부터 끝까지
+data2.append("이 마음은 아무도 모를거다.")
+data2.append("인생은 공수래공수거라고 했다")
+print(data2)
+data2.remove("심연")
+print(data2)
+data2.pop()         # 마지막 데이터 제거
+print(data2)
+del data2[1]        # 인덱스를 통한 제거
+print(data2)
+data2.clear()       # 리스트 내부의 데이터 전부 제거
+print(data2)
+'''
+'''
+memo = ["당신이", "심연을", "바라보면", "심연도 당신을 애옹"]
+for me in memo:
+    print(me, end=" ")
+memo[1:4] = ["쥑쥑스를", "바라보면", "오, 쥐..."]
+print()
+for me in memo:
+    print(me, end=" ")
+print("\n======================")
+memo.insert(3,"나는 가끔 쥑쥑스와 함께 춤을 춰")
+print(memo)
+'''
+'''
+memo1 = ["idden", "osman", "lad"]
+memo2 = ["피그말리온", "갈라테이아", "그리스"]
+memo1.extend(memo2)
+print(memo1)
+print( len(memo1) )
+'''
+
+'''
+리스트 생성
+1. memo = ["a", "b", "c"]
+2. memo = list(("idden", "osman", "lad"))
+데이터 추가: memo.append("not blood")
+데이터 삽입: memo.insert(2, "D")
+# 데이터 삭제
+삭제 데이터 지정: memo.remove("D")
+마지막 데이터 삭제 memo.pop()
+인덱스로 삭제 del memo[3]
+리스트 합치기 memo.extend(리스트명)
+리스트 크기 len()
+갯수 구하기 memo.count("n"): n 이라는 데이터가 몇 개나 들어가있나
+인덱스 찾기 memo.index("i"): i 라는 데이터는 몇 번 인덱스인가
+정렬 memo.sort(): 오름차순, memo.sort(reverse=True): 내림차순
+반전 memo.reverse()
+'''
+
+info = ["오늘 아침을 굶었다", "충동구매한 쿠키를 먹었다", "오늘 귀가하는 길에 하나 더 사야겠다고 생각했다", "내일은 약속이 있다", "외박을 할 예정이다", "같이 외박할 친구가 없어 혼자 자게 생겼다"]
+search = input("검색할 단어를 입력: ")
+
+for i in range(len(info)):
+    if search in info[i] :
+        print(info[i])
+    if "오늘" in info[i] :
+        print("** 자동검색 키워드 '오늘': "+info[i])
+
+# for ii in info:
+#     if search in ii:
+#         print(ii)
+# #===========================#
+# for iii in info:
+#     if "오늘" in iii:
+#         print(iii)
