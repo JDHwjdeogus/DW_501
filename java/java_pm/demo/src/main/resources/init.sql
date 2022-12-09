@@ -1,4 +1,4 @@
--- 사용자 테이블
+-- 사용자 테이블: DDL
 CREATE TABLE users (
   id varchar(50) DEFAULT NULL COMMENT '유저 아이디',
   pw varchar(200) DEFAULT NULL COMMENT '유저 비밀번호',

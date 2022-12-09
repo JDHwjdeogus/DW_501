@@ -49,4 +49,5 @@ public interface EmpMapper {
 	 * @Comment : 사원번호 기준으로 해당 사원의 전체 정보를 삭제
 	 */
 	public int deleteEmp(int empno);
+
 }

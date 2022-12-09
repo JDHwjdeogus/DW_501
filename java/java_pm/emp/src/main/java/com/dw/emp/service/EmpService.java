@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.dw.emp.mapper.EmpMapper;
+import com.dw.emp.vo.BoardVO;
 import com.dw.emp.vo.EmpVO;
 
 public class EmpService{
@@ -32,4 +33,5 @@ public class EmpService{
 	public int deleteEmp(int empno) {
 		return empMapper.deleteEmp(empno);
 	}
+	
 }

@@ -5,10 +5,10 @@ import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
 public class EmpController {
+	
 	@GetMapping("/emp")
 	public String callEmpPage() {
 		return "emp";
 	}
-	
 	
 }
