@@ -14,13 +14,12 @@
     th {background: #827b0666;}
     td:nth-child(2) {width: 400px;}
     tr:nth-child(even) {background-color: #f3e66e99; color: #887baa;}
-    td:hover {cursor:pointer;}
 </style>
 </head>
 <body>
 	<div class="wrap">
 		<h2>DW 게시판</h2>
-		<button type="button">게시물 작성</button>
+		<button type="button" onclick="goWrite()">게시물 작성</button>
 		<table id="result">
 		</table>
 	</div>
@@ -35,15 +34,13 @@
 	        dataType: 'json',
 	        success: function (response) {
 	        	
-	        	console.log(response);
-	        	
 	        	var out_table = "";
 	        	out_table += "<tr> <th>번호</th> <th>제목</th> <th>작성자</th> <th>작성날짜</th> <th>조회수</th> </tr>";
 	        	
 	            for (var j = 0; j < response.length; j++) {
 	            	out_table += "<tr>"
 	            				+ "<td>" + response[j].board_no + "</td>"
-	            				+ "<td>" + response[j].title + "</td>"
+	            				+ "<td onclick='detailBoard(" + response[j].board_no + ")'><a href="+"#"+">" + response[j].title + "</a></td>"
 	            				+ "<td>" + response[j].writer + "</td>"
 	            				+ "<td>" + response[j].create_at + "</td>"
 	            				+ "<td>" + response[j].board_count + "</td>"
@@ -53,6 +50,17 @@
 	        }
 	    }); 
 	    
+	}
+	
+	
+	function goWrite(){					// 게시물 작성 버튼
+		location.href = '/write';
+	}
+	
+	
+	function detailBoard(boardNo){		// 게시물 상세화면으로 이동
+		console.log(boardNo);
+		location.href = '/dwboard/'+boardNo;	// 게시판 PK URL(Controller)에 전달
 	}
 </script>
 </html>

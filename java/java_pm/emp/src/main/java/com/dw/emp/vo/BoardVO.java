@@ -1,18 +1,26 @@
 package com.dw.emp.vo;
 
 public class BoardVO {
-	private int board_no;
+	private int boardNo;
 	private String title;
 	private String writer;
 	private String create_at;
 	private int board_count;
+	private String contents;
 	
+	
+	public String getContents() {
+		return contents;
+	}
+	public void setContents(String contents) {
+		this.contents = contents;
+	}
 	
 	public int getBoard_no() {
-		return board_no;
+		return boardNo;
 	}
 	public void setBoard_no(int board_no) {
-		this.board_no = board_no;
+		this.boardNo = board_no;
 	}
 	public String getTitle() {
 		return title;
