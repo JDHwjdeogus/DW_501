@@ -1,3 +1,5 @@
+import random
+
 '''
 # set
     - 리스트와 달리 순서없이, 중복없이 사용
@@ -51,6 +53,8 @@
     set4.clear                                  # set을 비움
     del set4                                    # set을 아예 지움
 '''
+
+'''
 # 집합
 abcde = {"a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "v"}
 zyxwu = {"z", "y", "x", "w", "v", "u", "t", "s", "r", "q", "p", "o", "n", "m", "l", "e"}
@@ -62,3 +66,63 @@ gyo = zyxwu & abcde # 교집합
 print(gyo)
 hab_gyo = zyxwu ^ abcde   # 합집합에서 교집합 빼기
 print(hab_gyo)
+
+cha = abcde.difference(zyxwu)
+# abcde.difference_update(zyxwu)        차집합: abcde의 데이터가 변경됨
+gyo = abcde.intersection(zyxwu)
+# abcde.intersection_update(zyxwu)      교집합: abcde의 데이터가 변경됨
+hab = abcde.symmetric_difference(zyxwu)
+# abcde.symmetric_difference(zyxwu)     합집합: abcde의 데이터가 변경됨
+'''
+
+'''
+이정수팀장 = {"김기원", "최윤도", "장영주", "이종빈", "김민서", "aaa", "zzz", "idden"}
+이지현팀장 = {"김지연", "윤재영", "윤종찬", "변수정", "aaa", "zzz", "a12"}
+
+스파이 = 이정수팀장.intersection(이지현팀장)
+print("스파이: {0}".format(스파이))
+이정수_해바라기 = 이정수팀장 - 이지현팀장
+print("이정수팀장 해바라기: {0}".format(이정수_해바라기))
+전계림추종자 = {"장영주", "윤재영", "김지연", "이종빈"}
+이지현_해바라기 = 이지현팀장 - 이정수팀장
+이지현_해바라기 = 이지현_해바라기 - 전계림추종자
+print("이지현_해바라기: {0}, 총 {1}명".format(이지현_해바라기, len(이지현_해바라기)))
+'''
+setNum = {random.randint(1, 50)}
+while len(setNum) != 10:
+    setNum.add(random.randint(1, 50))
+print(setNum)
+
+member = [
+    ["김춘추", "01012345678", "남"],
+    ["김지연", "01033847263", "여"],
+    ["이순신", "01083942745", "남"],
+    ["하지원", "01093846531", "여"],
+    ["전계림", "01032220205", "남"],
+    ["전지현", "01098376443", "여"],
+    ["윤재영", "01011228875", "남"],
+    ["이지현", "01099884455", "여"],
+    ["장영실", "01023498741", "남"]
+]
+
+name = []
+for i in member:
+    name.append(i[0])
+setMem = set(name)
+
+print("========= 회원가입 =========")
+i_name = input("이름: ")
+setName = {i_name}
+
+while setName.issubset(setMem) :    # issubset() : 지정한 set 안에 값이 포함되어있나
+    print("이름이 중복됩니다.")
+    i_name = input("이름: ")
+
+# issuperset() : a.issuperset(b) : b가 a에 모두 있나
+# a가 b에 포함되어있나 : b.issuperset(a) || a.issubset(b)
+
+tel = input("전화: ")
+gender = input("성별: ")
+
+member.append([i_name, tel, gender])
+print(member)
