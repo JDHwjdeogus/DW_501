@@ -1,0 +1,6 @@
+SQL<== MyBatis ==> Java
+MyBatis같은 프로그램을 ORM(Object Relational Mapping) 프로그램이라고 한다.
+
+마크업 언어의 단점: 오타가 나도 코딩용 프로그램으로 잡을 수 없음, 디버깅 테이스팅 안됨 
+>> 이 단점을 보완한 언어 JPA
+
