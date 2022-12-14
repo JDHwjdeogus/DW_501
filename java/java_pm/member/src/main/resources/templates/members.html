@@ -2,23 +2,50 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>사원 목록 페이지</title>
+<title>멤버 목록 페이지</title>
 <style type="text/css">
 	body {margin: 0; padding: 0; box-sizing: border-box; color: olive; background-color: black;}
     table {border-collapse: collapse; margin: 50px auto;}
     th, td {width: 166px; height: 66px; color: #f3e66e; border: 1px solid #f3e66e; text-align: center; background: #887b0899;}
     th {background: #827b0666;}
     tr:nth-child(even) {background-color: #f3e66e99;}
+    tr:hover {cursor: pointer;}
 </style>
 </head>
 <body>
+	<!-- 멤버 상세 정보 조회 -->
+	<h3>멤버 상세 정보</h3>
+	<input id="id" type="text" disabled="disabled" placeholder="번호">
+	<input id="name" type="text" disabled="disabled" placeholder="이름">
+	<input id="age" type="text" disabled="disabled" placeholder="나이">
+	
+	<h3>멤버 정보 추가하기</h3>
+	<input id= "i_id" type="text" placeholder="번호를 입력하세요. " />
+	<input id= "i_name" type="text" placeholder="이름을 입력하세요. " />
+	<input id= "i_age" type="text" placeholder="나이를 입력하세요. " />
+	<button type="button" onclick="doInsert()"> 멤버 추가 </button>
+	
+	<h3>멤버 정보 수정하기</h3>
+	<input id= "u_id" type="text" placeholder="번호를 입력하세요. " />
+	<input id= "u_name" type="text" placeholder="이름을 입력하세요. " />
+	<input id= "u_age" type="text" placeholder="나이를 입력하세요. " />
+	<button type="button" onclick="doUpdate()"> 데이터 수정 </button>
+	
+	<h3>멤버 정보 삭제하기</h3>
+	<input id="d_id" type="text" placeholder="번호를 입력하세요." />
+	<button type="button" onclick="doDelete()">사원정보 삭제</button>
+	
+	<br>
 	<!-- 멤버 조회 -->
 	<h3>멤버 목록</h3>
 	<div id=result></div>
 </body>
 <script src="https://code.jquery.com/jquery-3.6.1.js" integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI=" crossorigin="anonymous"></script>
 <script type="text/javascript">
+
+	// 전체 조회 (리스트)
 	window.onload = function(){
+		// AJAX
         $.ajax({
             url: '/member',
             type: 'GET',
@@ -32,7 +59,7 @@
             	out_table += "<tr> <th>id</th> <th>name</th> <th>age</th> </tr>";
             	
                 for (var j = 0; j < response.length; j++) {
-                	out_table += "<tr onclick='getEmp(" + response[j].empno + ")'>"
+                	out_table += "<tr onclick='getMem(" + response[j].id + ")'>"
                 				+ "<td>" + response[j].id + "</td>"
                 				+ "<td>" + response[j].name + "</td>"
                 				+ "<td>" + response[j].age + "</td>"
@@ -44,6 +71,101 @@
         }); 
         
 	}
-
+	
+	
+	// 상세 정보 조회
+	function getMem(id){
+		// AJAX
+		$.ajax({
+            url: '/member/'+id,
+            type: 'GET',
+            dataType: 'json',
+            success: function (response) {
+            	$("#id").val(response.id);
+            	$("#name").val(response.name);
+            	$("#age").val(response.age);
+            }
+        }); 
+	}
+	
+	
+	// 추가
+	function doInsert(){
+		var id = $('#i_id').val();
+		var name = $('#i_name').val();
+		var age = $('#i_age').val();
+		
+		var jsonData = {
+			"id" : id,
+			"name" : name,
+			"age" : age
+		}
+		
+		// AJAX
+        $.ajax({
+        	url: '/member',
+        	type:'POST',
+        	contentType: 'application/json',
+        	data: JSON.stringify(jsonData),
+        	dataType: 'json',
+        	success: function(response){
+        		alert("멤버 추가 완료...!");
+        		location.reload();
+        	}
+        });
+		
+	}
+	
+	
+	// 수정
+	function doUpdate(){
+		var id = $("#u_id").val();
+		var name = $("#u_name").val();
+		var age = $("#u_age").val();
+		
+		var jsonData = {
+				"id" : id,
+				"name" : name,
+				"age" : age
+		}
+			
+		// AJAX
+	    $.ajax({
+	        url: '/member',
+	        type:'PATCH',
+	        contentType: 'application/json',
+	        data: JSON.stringify(jsonData),
+	        dataType: 'json',
+	        success: function(response){
+	        	alert("멤버 정보 수정 완료...!");
+	        	location.reload();
+	        }
+	    });
+		
+	}
+	
+	
+	// 삭제
+	function doDelete(){
+		var id = $("#d_id").val();
+		
+		if(id == "") {
+			alert("번호를 입력해주세요.");
+			$("#d_id").focus();
+			return false;
+		}
+		
+		// AJAX
+		$.ajax({
+        	url: '/member/'+id,
+        	type:'DELETE',
+        	dataType: 'json',
+        	success: function(response){
+        		alert("멤버 정보 제거 완료...!");
+        		location.reload();
+        	}
+        });
+		
+	}
 </script>
 </html>
