@@ -18,17 +18,20 @@
 	<input id="id" type="text" disabled="disabled" placeholder="번호">
 	<input id="name" type="text" disabled="disabled" placeholder="이름">
 	<input id="age" type="text" disabled="disabled" placeholder="나이">
+	<input id="dname" type="text" disabled="disabled" placeholder="부서">
 	
 	<h3>멤버 정보 추가하기</h3>
 	<input id= "i_id" type="text" placeholder="번호를 입력하세요. " />
 	<input id= "i_name" type="text" placeholder="이름을 입력하세요. " />
 	<input id= "i_age" type="text" placeholder="나이를 입력하세요. " />
+	<input id= "i_dept_id" type="text" placeholder="부서번호를 입력하세요. " />
 	<button type="button" onclick="doInsert()"> 멤버 추가 </button>
 	
 	<h3>멤버 정보 수정하기</h3>
 	<input id= "u_id" type="text" placeholder="번호를 입력하세요. " />
 	<input id= "u_name" type="text" placeholder="이름을 입력하세요. " />
 	<input id= "u_age" type="text" placeholder="나이를 입력하세요. " />
+	<input id= "u_dept_id" type="text" placeholder="부서번호를 입력하세요. " />
 	<button type="button" onclick="doUpdate()"> 데이터 수정 </button>
 	
 	<h3>멤버 정보 삭제하기</h3>
@@ -56,13 +59,15 @@
             	
             	var out_table = "";
                 out_table += "<table>";
-            	out_table += "<tr> <th>id</th> <th>name</th> <th>age</th> </tr>";
+            	out_table += "<tr> <th>id</th> <th>name</th> <th>age</th> <th>dept_id</th> <th>dname</th> </tr>";
             	
                 for (var j = 0; j < response.length; j++) {
                 	out_table += "<tr onclick='getMem(" + response[j].id + ")'>"
                 				+ "<td>" + response[j].id + "</td>"
                 				+ "<td>" + response[j].name + "</td>"
                 				+ "<td>" + response[j].age + "</td>"
+                				+ "<td>" + response[j].dept.id + "</td>"
+                				+ "<td>" + response[j].dept.dname + "</td>"
                 				+"</tr>";
                 }
                 out_table += "</table>";
@@ -84,6 +89,7 @@
             	$("#id").val(response.id);
             	$("#name").val(response.name);
             	$("#age").val(response.age);
+            	$("#dname").val(response.dept.dname);
             }
         }); 
 	}
@@ -94,11 +100,13 @@
 		var id = $('#i_id').val();
 		var name = $('#i_name').val();
 		var age = $('#i_age').val();
+		var dept_id = $('#i_dept_id').val();
 		
 		var jsonData = {
 			"id" : id,
 			"name" : name,
-			"age" : age
+			"age" : age,
+			"dept_id" : dept_id
 		}
 		
 		// AJAX
@@ -122,11 +130,13 @@
 		var id = $("#u_id").val();
 		var name = $("#u_name").val();
 		var age = $("#u_age").val();
+		var dept_id = $('#u_dept_id').val();
 		
 		var jsonData = {
 				"id" : id,
 				"name" : name,
-				"age" : age
+				"age" : age,
+				"dept_id" : dept_id
 		}
 			
 		// AJAX
