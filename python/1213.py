@@ -159,6 +159,7 @@ print(qus)
 
 for num in qus:
     print( "{0}. {1} {2}".format( num, qus[num]["문의제목"], qus[num]["작성일"] ) )
+
 번호 = int(input("문의 번호: "))
 print("작성자: {0}".format(qus[번호]['작성자']))
 print("문의제목: {0}".format(qus[번호]['문의제목']))
