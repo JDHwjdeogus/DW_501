@@ -9,5 +9,12 @@ import com.dw.member.model.Member;
 public interface MemberRepo extends JpaRepository<Member, Long>{
 	// JpaRepository 안에 sql이 있어 이 클래스를 상속받으므로 별도의 sql 작성이 필요치 않은 것이다.
 	
+	Member findByuserId(String userId);
+	// SELECT * FROM dw_member WHERE user_id = 'dw'
 	
+	Member findByname(String name);
+	// SELECT * FROM dw_member WHERE name = 'dw'
+
+	Member findByuserIdAndUserPassword(String userId, String userPassword);
+	// SELECT * FROM dw_member WHERE user_id = 'dw' AND user_Password = '123'
 }
