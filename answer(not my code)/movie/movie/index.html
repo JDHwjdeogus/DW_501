@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+    </head>
+    <body style="background: #9ec4a6">
+        <input type="text" placeholder="이름" id="input" value="ㅎㅋ" />
+        <button onclick="out()">콘솔출력</button>
+        <h3>해외 영화 검색하기</h3>
+        <input type="text" id="search" placeholder="검색어를 입력" />
+        <select id="type">
+            <option value="movie">movie</option>
+            <option value="series">series</option>
+            <option value="episode">episode</option>
+        </select>
+        <button onclick="doSearch()">영화검색</button>
+
+        <h3 id="movieTitle"></h3>
+        <p>개봉년도: <span id="year"></span></p>
+        <p>영화 고유번호(PK): <span id="movieId"></span></p>
+        <p>영화포스터: <span id="Poster"></span></p>
+    </body>
+    <!-- jQuery CDN download -->
+    <!-- 유의: 인터넷이 안되는 환경에선 할 수 없음 -->
+    <script src="https://code.jquery.com/jquery-3.6.1.js" integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI=" crossorigin="anonymous"></script>
+    <script>
+        //  바닐라 스크립트
+        function out() {
+            //   console.log(document.getElementById('input').value);
+        }
+        // jQuery
+        // var name = $('#input').val();
+        // console.log('제이쿼리로 가져온 input값: ' + name);
+
+        // 영화 사이트 조회
+        const API_KEY = '26885c04';
+        function doSearch() {
+            var search = $('#search').val();
+            var type = $('#type').val();
+            $.ajax({
+                url: 'http://www.omdbapi.com/?apiKey=' + API_KEY + '&s=' + search + '&type=' + type + '',
+                type: 'GET',
+                dataType: 'json',
+                success: function (response) {
+                    console.log(response);
+                    console.log(response.Search[0].Title);
+                    console.log(response.Search[0].imdbID);
+
+                    // 영화제목
+                    var movieTitle = response.Search[0].Title;
+                    $('#movieTitle').append(movieTitle);
+                    // 개봉년도
+                    $('#year').append(response.Search[0].Year);
+                    // 영화 고유번호
+                    $('#movieId').append(response.Search[0].imdbID);
+                    // 영화포스터
+
+                    var html = '<img src=' + response.Search[0].Poster + ' />';
+                    $('#Poster').append(html);
+                },
+            });
+        }
+        // 상수값은 변수 이름을 대문자로, 카멜 표기법이 아닌 언더바로 표기.
+        // ajax: 백엔드와 통신하기 위한 제이쿼리 메소드.
+        // GET: 조회 시 사용하는 Type중 하나.
+        // dataType: 서버와 json으로 주고 받겠다.
+    </script>
+</html>

@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body style="background-color: olivedrab"></body>
+  <script>
+    // json(Java Script Object Notation) 배워보기
+    var json = {
+      이름: 'Nadia',
+      나이: 30,
+    };
+    console.log(json.이름);
+    console.log(json.나이);
+    /*
+        json은 key와 value로 구성
+        key: 이름, 나이
+        value: 나디아, 30
+        key는 database의 pk처럼 중복될 수 없다.
+        value는 중복 가능하다.
+    */
+    console.log('');
+
+    var data = {
+      name: 'Mayday',
+      money: 400,
+      bank: '카카오뱅크',
+    };
+    console.log(data.bank);
+    console.log(data.money);
+    /*
+        int, double, string, boolean, array, json
+        json도 데이터 타입이다.
+    */
+    console.log('');
+
+    var data2 = {
+      이름: 'Zuke',
+      나이: 24,
+      취미: ['앨리 돌보기', '드럼', '게임', '미술관 관람'],
+      결혼여부: false,
+      키: 180.4,
+      가족: {
+        친형이름: 'DK West',
+        현동거인: 'Mayday',
+      },
+    };
+    console.log(data2.이름 + '의 결혼여부: ' + data2.결혼여부);
+    console.log(data2.이름 + '의 키: ' + data2.키);
+    console.log(data2.이름 + '의 취미들: ');
+    for (var i = 0; i < data2.취미.length; i++) {
+      console.log(i + 1 + '. ' + data2.취미[i]);
+    }
+    console.log(
+      data2.이름 +
+        '의 가족: ' +
+        data2.가족.친형이름 +
+        ', ' +
+        data2.가족.현동거인,
+    );
+    console.log('');
+
+    var data3 = {
+      name: 'Tatiana',
+      output: [10, 50, 80, 90],
+    };
+    var sum = 0;
+    for (var j = 0; j < data3.output.length; j++) {
+      sum += data3.output[j];
+    }
+    console.log(data3.name + '의 누적 전력량: ' + sum);
+
+    const movies = [
+      {
+        name: '명량',
+        rank: 1,
+        createdAt: '2014-07-30',
+        salesRevenue: 135748398910,
+        attendance: 17613682,
+      },
+      {
+        name: '극한직업',
+        rank: 2,
+        createdAt: '2019-01-23',
+        salesRevenue: 139647979516,
+        attendance: 16264944,
+      },
+      {
+        name: '신과함께-죄와 벌',
+        rank: 3,
+        createdAt: '2014-07-30',
+        salesRevenue: 135748398910,
+        attendance: 17613682,
+      },
+      {
+        name: '국제시장',
+        rank: 4,
+        createdAt: '2014-07-30',
+        salesRevenue: 110913469630,
+        attendance: 14257115,
+      },
+      {
+        name: '어벤져스: 엔드게임',
+        rank: 5,
+        createdAt: '2019-04-24',
+        salesRevenue: 122182694160,
+        attendance: 13934592,
+      },
+    ];
+
+    console.log('');
+    console.log('* 1번 문제');
+    for (var k = 0; k < movies.length; k++) {
+      //   console.log(movies[k]);
+      console.log('영화 제목: ' + movies[k].name);
+      console.log('영화 개봉날짜: ' + movies[k].createdAt);
+      console.log('영화 순위: ' + movies[k].rank);
+      console.log('');
+    }
+
+    console.log('* 2번 문제');
+    console.log(
+      '명량 + 어벤져스 판매액 합산: ' +
+        (movies[0].salesRevenue + movies[4].salesRevenue),
+    );
+
+    console.log('');
+    console.log('* 3번 문제');
+    var movieSum = 0;
+    for (var m = 0; m < movies.length; m++) {
+      movieSum += movies[m].salesRevenue;
+    }
+    console.log(
+      'top 5 영화 판매액 평균: ' + parseInt(movieSum / movies.length),
+    );
+  </script>
+</html>

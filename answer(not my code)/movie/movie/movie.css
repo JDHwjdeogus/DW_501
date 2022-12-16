@@ -1,0 +1,120 @@
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    transition: 0.3s;
+    font-family: 'Open Sans', 'sans-serif';
+}
+.container {
+    width: 2000px;
+    background: #8b8c96;
+    margin: 50px auto;
+    padding: 20px;
+
+    height: auto;
+    position: relative;
+}
+.movie-list {
+    padding: 20px;
+    height: auto;
+}
+.title {
+    text-align: center;
+    font-size: 42px;
+}
+.movie-row {
+    display: flex;
+    justify-content: space-between;
+    margin: 0 0 50px 30px;
+}
+.series-row {
+    display: flex;
+    justify-content: space-between;
+    margin: 0 0 50px 30px;
+}
+.item {
+    flex-basis: 17%;
+    cursor: pointer;
+}
+.poster {
+    width: 100px;
+    height: auto;
+}
+.title {
+    margin: 20px 0 0;
+    font-size: 22px;
+}
+.year {
+    text-align: center;
+    font-size: 20px;
+}
+
+/* 영화 상세정보 css */
+.movie-section {
+    top: 100;
+    left: 100;
+    position: absolute;
+    z-index: 1;
+    visibility: hidden;
+
+    display: flex;
+    width: 1700px;
+    margin: 100px auto;
+    justify-content: space-evenly;
+    padding: 40px 0;
+    color: #444444;
+    font-weight: 400;
+    border: 1px solid #e3e6f0;
+    border-radius: 0.35rem;
+    box-shadow: 0 0.15rem 1.75rem 0 rgba(58, 59, 69, 0.15);
+    background: #afaac4;
+}
+
+.back a {
+    text-decoration: none;
+    color: #e7693b;
+    font-size: 22px;
+    font-weight: 600;
+}
+
+.movie-title {
+    font-size: 40px;
+    color: #dddddd;
+}
+.movie-rating {
+    padding: 0 0 0 5px;
+    margin: 20px 0 0;
+    color: #136993;
+    display: flex;
+}
+.movie-rating span {
+    margin: 0 20px 0 0;
+}
+.movie-plot {
+    margin: 20px 0 0;
+    line-height: 2rem;
+}
+
+.movie-info > div span:first-child {
+    padding: 10px 0;
+    color: #0e5649;
+    font-weight: 600;
+    width: 100px;
+    display: inline-block;
+}
+.movie-info > div span {
+    color: #136993;
+}
+
+.fa-star {
+    color: #e7693b;
+}
+.fa-thumbs-up {
+    color: #484cbf;
+}
+.fa-film {
+    color: #373730;
+}
+.fa-calendar {
+    color: #c7cd9e;
+}
