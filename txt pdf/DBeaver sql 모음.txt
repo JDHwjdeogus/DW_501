@@ -1,0 +1,410 @@
+CREATE TABLE DEPT (
+    DEPTNO DECIMAL(2),
+    DNAME VARCHAR(14),
+    LOC VARCHAR(13),
+    CONSTRAINT PK_DEPT PRIMARY KEY (DEPTNO) 
+);
+
+CREATE TABLE EMP (
+    EMPNO DECIMAL(4),
+    ENAME VARCHAR(10),
+    JOB VARCHAR(9),
+    MGR DECIMAL(4),
+    HIREDATE DATE,
+    SAL DECIMAL(7,2),
+    COMM DECIMAL(7,2),
+    DEPTNO DECIMAL(2),
+    CONSTRAINT PK_EMP PRIMARY KEY (EMPNO),
+    CONSTRAINT FK_DEPTNO FOREIGN KEY (DEPTNO) REFERENCES DEPT(DEPTNO)
+);
+
+CREATE TABLE SALGRADE ( 
+    GRADE TINYINT,
+    LOSAL SMALLINT,
+    HISAL SMALLINT 
+);
+
+INSERT INTO DEPT VALUES (10,'ACCOUNTING','NEW YORK');
+INSERT INTO DEPT VALUES (20,'RESEARCH','DALLAS');
+INSERT INTO DEPT VALUES (30,'SALES','CHICAGO');
+INSERT INTO DEPT VALUES (40,'OPERATIONS','BOSTON');
+INSERT INTO EMP VALUES (7369,'SMITH','CLERK',7902,STR_TO_DATE('17-12-1980','%d-%m-%Y'),800,NULL,20);
+INSERT INTO EMP VALUES (7499,'ALLEN','SALESMAN',7698,STR_TO_DATE('20-2-1981','%d-%m-%Y'),1600,300,30);
+INSERT INTO EMP VALUES (7521,'WARD','SALESMAN',7698,STR_TO_DATE('22-2-1981','%d-%m-%Y'),1250,500,30);
+INSERT INTO EMP VALUES (7566,'JONES','MANAGER',7839,STR_TO_DATE('2-4-1981','%d-%m-%Y'),2975,NULL,20);
+INSERT INTO EMP VALUES (7654,'MARTIN','SALESMAN',7698,STR_TO_DATE('28-9-1981','%d-%m-%Y'),1250,1400,30);
+INSERT INTO EMP VALUES (7698,'BLAKE','MANAGER',7839,STR_TO_DATE('1-5-1981','%d-%m-%Y'),2850,NULL,30);
+INSERT INTO EMP VALUES (7782,'CLARK','MANAGER',7839,STR_TO_DATE('9-6-1981','%d-%m-%Y'),2450,NULL,10);
+INSERT INTO EMP VALUES (7788,'SCOTT','ANALYST',7566,STR_TO_DATE('13-7-1987','%d-%m-%Y')-85,3000,NULL,20);
+INSERT INTO EMP VALUES (7839,'KING','PRESIDENT',NULL,STR_TO_DATE('17-11-1981','%d-%m-%Y'),5000,NULL,10);
+INSERT INTO EMP VALUES (7844,'TURNER','SALESMAN',7698,STR_TO_DATE('8-9-1981','%d-%m-%Y'),1500,0,30);
+INSERT INTO EMP VALUES (7876,'ADAMS','CLERK',7788,STR_TO_DATE('13-7-1987', '%d-%m-%Y'),1100,NULL,20);
+INSERT INTO EMP VALUES (7900,'JAMES','CLERK',7698,STR_TO_DATE('3-12-1981','%d-%m-%Y'),950,NULL,30);
+INSERT INTO EMP VALUES (7902,'FORD','ANALYST',7566,STR_TO_DATE('3-12-1981','%d-%m-%Y'),3000,NULL,20);
+INSERT INTO EMP VALUES (7934,'MILLER','CLERK',7782,STR_TO_DATE('23-1-1982','%d-%m-%Y'),1300,NULL,10);
+INSERT INTO SALGRADE VALUES (1,700,1200);
+INSERT INTO SALGRADE VALUES (2,1201,1400);
+INSERT INTO SALGRADE VALUES (3,1401,2000);
+INSERT INTO SALGRADE VALUES (4,2001,3000);
+INSERT INTO SALGRADE VALUES (5,3001,9999);
+
+COMMIT;
+
+-- ==========================================================================================================
+
+-- 사원 이름 조회. 주석임.
+-- 조회 : SELECT || 테이블(조회 대상) 선택: FROM 
+SELECT ename FROM emp;
+SELECT empno, ename, hiredate FROM emp;
+SELECT empno, mgr, ename, sal FROM emp;
+
+-- 출력할 컬럼 이름 지정
+SELECT empno AS "사원번호" FROM emp;
+SELECT empno AS "사원번호", ename AS "사원이름" FROM emp;
+
+-- 필터링: WHERE 
+SELECT empno, ename, job FROM emp WHERE job = 'salesman';
+SELECT empno, ename, job FROM emp WHERE empno = 7782;
+
+-- sql 실행 순서: 1. FROM || 2. WHERE || 3. SELECT 
+SELECT ename, sal FROM emp WHERE sal <= 1000;
+SELECT ename, job, sal FROM emp WHERE sal >= 2000;
+
+-- AND: 지정된 모든 조건을 만족
+SELECT ename, sal, job FROM emp WHERE job = "manager" AND  sal >= 2000;
+SELECT ename, hiredate, job FROM emp WHERE hiredate >= "1981-12-03";
+
+-- 총합, 평균, 최댓값, 최솟값 구하기: sum, avg, max, min
+SELECT sum(sal) FROM emp WHERE job = "manager";
+SELECT avg(sal) FROM emp WHERE deptno = 20;
+
+SELECT date_format(hiredate, "%Y") AS "입사년도" FROM emp;
+SELECT date_format(hiredate, "%y") AS "입사년도(끝부분 두자리)" FROM emp;
+SELECT date_format(hiredate, "%m") AS "입사 월(숫자)" FROM emp;
+SELECT date_format(hiredate, "%M") AS "입사 월(영어)" FROM emp;
+
+SELECT ename, empno, hiredate FROM emp WHERE date_format(hiredate, "%m") = 09;
+SELECT ename, empno, hiredate FROM emp WHERE date_format(hiredate, "%Y") = 1982;
+SELECT * FROM emp;
+
+
+-- 1005 --
+
+-- 정렬: ORDER BY || DESC: 내림차순 || ASC: 오름차순(생략 가능. 디폴트 정렬)
+SELECT ename, sal FROM emp ORDER BY 2;
+-- 2: 컬럼순서('SELECT ename, sal' 중 두번째 컬럼은 sal 이므로, sal의 데이터 기준 오름차 순으로 정렬된다.)
+-- 그러나 보통 컬럼 순서보단 컬럼 이름을 사용한다
+SELECT ename, hiredate FROM emp ORDER BY hiredate DESC;
+-- 이름검색: LIKE. 이름에 A가 들어가는 사원 이름 검색
+SELECT ename FROM emp WHERE ename LIKE "%A%";
+-- 이름의 맨 첫번째 알파벳이 A인 사원 검색6
+SELECT ename FROM emp WHERE ename LIKE "A%"
+-- 데이터가 null(NOT 0)인 컬럼 조회 
+SELECT comm FROM emp WHERE comm IS  NULL;
+SELECT comm FROM emp WHERE comm IS  NOT NULL;
+-- ifnull: null인 컬럼을 임시로 다른 데이터로 채워줌(다른 데이터로 완전히 바뀐 게 아님)
+SELECT ifnull(comm, 0) FROM emp;
+-- 직원으로 GROUP BY 
+SELECT job, count(*) FROM emp GROUP BY job;
+-- 부서번호 별 그룹핑 조회. 가장 높은 급여를 포함
+SELECT deptno, max(sal) FROM emp GROUP BY deptno ORDER BY sal DESC;
+-- 부서번호로 그룹핑, 부서 별 평균 급여 조회
+SELECT avg(sal), deptno FROM emp GROUP BY deptno ORDER BY avg(sal);
+-- GROUP BY 필터링
+SELECT job, sum(sal) FROM emp GROUP BY job HAVING sum(sal) >= 5000;
+-- SELECT job, sum(sal) FROM emp GROUP BY job WHERE sum(sal) >= 5000;
+-- WHERE 절은 데이터에 대한 비교문을 조건으로 달 수 없으므로 HAVING을 사용
+-- HAVING 은 GROUP BY 뒤에 온다
+
+SELECT job, avg(sal) FROM emp WHERE job = "manager" GROUP BY job HAVING avg(sal) >= 2000 ORDER BY avg(sal) DESC
+
+-- sql 실행 순서(최종): 1. FROM || 2. WHERE || 3. GROUP BY || 4. HAVING || 5. SELECT || 6. ORDER BY
+SELECT empno FROM emp GROUP BY empno
+-- 사원 번호는 개인마다 다르므로 그룹핑되지 않음
+
+SELECT deptno AS "부서 번호", max(sal) AS "부서 번호 별 급여(최대)" FROM emp GROUP BY deptno ORDER BY deptno
+SELECT deptno AS "부서 번호", sal AS "부서 번호 별 급여(최대)" FROM emp ORDER BY deptno
+
+
+-- 1006 --
+
+-- 데이터 추가
+INSERT INTO emp(empno, ename) VALUES (300, "홍길동")
+INSERT INTO emp(empno, ename, job, hiredate) VALUES (666, "satan", "king", "666-06-06")
+INSERT INTO emp(empno, ename, job, hiredate) VALUES (9999, "idden", "void", now())
+INSERT INTO emp(empno, ename, hiredate, sal, comm) VALUES (4444, "tanatos", "4444-04-01", 4444, 44)
+-- 데이터 수정
+UPDATE emp SET sal = 3000 WHERE empno = 300
+UPDATE emp SET comm = 100 WHERE deptno = 20
+-- 복수의 컬럼에 대한 업데이트
+UPDATE emp SET hiredate = now() WHERE empno = 300
+UPDATE emp SET job = "개발자", deptno = 30 WHERE empno = 300
+-- 데이터 삭제
+-- DELETE 실행 시 WHERE을 사용하지 않으면 테이블 전체의 데이터가 제거된다.
+DELETE FROM emp WHERE empno = 300
+DELETE FROM emp WHERE empno = 4444
+
+DELETE FROM emp WHERE empno = 5000 OR empno = 5001
+
+
+-- 1011 --
+
+SELECT deptno, loc FROM dept WHERE dname = "operations"
+SELECT deptno, dname FROM dept WHERE loc IN("dallas", "boston")
+
+SELECT deptno FROM dept
+SELECT deptno FROM emp GROUP BY DEPTNO 
+-- 두 테이블 간 공통 데이터 존재 시 조인(join) 가능: 2개 이상의 테이블 조회 시 사용
+SELECT * FROM emp AS e INNER JOIN dept AS d ON e.deptno = d.deptno
+
+SELECT emp.ename, emp.hiredate, dept.dname FROM emp INNER JOIN dept ON emp.deptno = dept.deptno WHERE emp.deptno = 10
+SELECT e.empno, e.ename, e.job, d.loc FROM emp AS e INNER JOIN dept AS d ON e.deptno = d.deptno WHERE e.job = "manager"
+SELECT e.empno AS "직원번호", e.ename AS "직원명", e.deptno AS "부서번호", d.dname AS "부서이름" FROM emp AS e INNER JOIN dept AS d ON e.deptno = d.deptno WHERE e.sal >= 2000
+SELECT count(*) AS "사원수", d.dname AS "부서이름", d.loc AS "근무지", d.deptno AS "부서번호" FROM emp AS e INNER JOIN dept AS d ON e.deptno = d.deptno GROUP BY e.deptno 
+-- self join
+SELECT sawon.ename AS "부사수 이름", sawon.empno AS "부사수 번호", sawon.mgr AS "사수 번호", boss.ename AS "사수 이름", boss.empno AS "사수 번호" FROM emp AS sawon INNER JOIN emp AS boss ON sawon.mgr = boss.empno
+SELECT bCoworker.empno AS "사원 번호", bCoworker.ename AS "사원 이름", tCoworker.ename AS "사수 이름", bCoworker.deptno AS "부서 번호" FROM emp AS bCoworker INNER JOIN emp AS tCoworker ON bCoworker.mgr = tCoworker.empno WHERE bCoworker.deptno = 20
+SELECT menti.ename AS "사원이름", mento.ename AS "사수이름" FROM emp AS menti INNER JOIN emp AS mento ON menti.mgr =  mento.empno WHERE menti.comm IS NOT NULL 
+-- emp dept 조인, 사수 번호 및 이름 조회
+SELECT sawon.ename AS "사원이름", sawon.deptno AS "사원 부서번호", d.dname AS "사원 부서이름", boss.ename AS "사수이름" FROM emp AS sawon INNER JOIN dept AS d ON sawon.deptno = d.deptno INNER JOIN emp AS boss ON sawon.mgr = boss.empno
+
+
+-- 1012 --
+
+SELECT * FROM emp AS e RIGHT JOIN dept AS d ON e.deptno = d.deptno
+SELECT * FROM dept AS d LEFT JOIN emp AS e ON e.deptno = d.deptno
+
+SELECT * FROM dept AS d LEFT JOIN emp AS e ON e.deptno = d.deptno WHERE d.deptno = 40 
+SELECT * FROM dept AS d LEFT JOIN emp AS e ON e.deptno = d.deptno WHERE e.deptno IS NULL
+SELECT e.empno AS "사원 번호", e.ename AS "사원 이름" FROM emp AS e LEFT JOIN dept AS d ON e.deptno = d.deptno WHERE e.mgr IS NULL
+SELECT e.empno AS "사원 번호", e.ename AS "사원 이름" FROM emp AS e LEFT JOIN emp AS eb ON e.mgr = eb.empno WHERE eb.empno IS NULL
+
+-- DELETE FROM emp: 데이터 제거 || truncate TABLE emp: 테이블 자체 제거
+
+SELECT menti.ename AS "사원명", menti.hiredate AS "입사일(사원)", mento.ename AS "사수이름", mento.hiredate AS "입사일(사수)" FROM emp AS menti LEFT JOIN emp AS mento ON menti.mgr = mento.empno WHERE mento.hiredate > menti.hiredate
+SELECT menti.empno AS "사원번호" , menti.ename AS "사원명", menti.sal AS "급여", menti.job AS "직업", company.dname AS "부서명" FROM emp AS menti INNER JOIN dept AS company ON menti.deptno = company.deptno WHERE date_format(hiredate, "%Y") = 1982 AND (menti.job = "MANAGER" OR menti.job = "CLERK")
+
+SELECT menti.ename AS "사원명", mento.ename AS "사수명", company.deptno AS "사원 부서번호", company.dname AS "사원 부서명", company.loc AS "사원 근무지" FROM emp AS menti 
+LEFT JOIN emp AS mento ON menti.mgr = mento.empno
+RIGHT JOIN dept AS company ON menti.deptno = company.deptno GROUP BY company.deptno
+
+
+-- 1013 --
+
+SELECT count(*) AS "매니저수" FROM emp WHERE job = "manager"
+-- 서브 쿼리(보조 쿼리)
+SELECT count(*) AS "전 사원 수", (SELECT count(*) FROM emp WHERE job = "manager") AS "매니저수" FROM emp
+-- 위의 쿼리에서 괄호 밖에 있는 쿼리를 메인, 괄호 안에 있는 쿼리를 서브 쿼리라고 함
+
+SELECT count(*) AS "clerk 수", (SELECT count(*) FROM emp WHERE mgr IS NOT null)AS "사수 있는 사원 수"
+FROM emp WHERE job = "clerk"
+
+-- FROM절에 오는 서브쿼리를 인라인 뷰(가상 테이블) 이라 부른다.
+-- FROM절에 오는 서브 쿼리는 WHERE절 처럼 필터링 시 사용
+SELECT * FROM emp WHERE deptno != 10
+SELECT * FROM emp WHERE deptno = 20 OR deptno = 30
+-- 서브쿼리 실행 후 메인쿼리가 실행된다.
+SELECT e.deptno FROM (SELECT deptno FROM emp GROUP BY deptno HAVING count(*) > 4) AS sub
+INNER JOIN emp AS e ON sub.deptno = e.deptno
+-- 해당 쿼리에 where절이 없음에도 서브쿼리와 조인함으로서 필터링 역할을 한다.
+
+-- WHERE 절에 오는 서브쿼리를 중첩쿼리라고 하는데, 서브 쿼리 중 사용률이 제일 낮다.
+SELECT * FROM emp WHERE empno in (SELECT empno FROM emp WHERE mgr IS NULL)
+
+INSERT INTO emp(empno, ename) values(1, "홍길동");
+-- INSERT INTO emp(ename) values("김씨");
+-- properties 상의 not null에 체크되어있는 컬럼은 널값일 수 없어 데이터를 입력해주지 않으면 오류
+-- primary key(PK)는 중복될 수 없음, 데이터가 비어있어도 안됨(default값 NOT NULL)
+
+-- sql 실행 순서(최종): 1. FROM || 2. WHERE || 3. GROUP BY || 4. HAVING || 5. SELECT || 6. ORDER BY
+
+DELETE FROM emp WHERE empno = 2;
+UPDATE emp SET sal = 2400 WHERE empno = 9999;
+
+
+
+-- 1017 --
+
+-- 상품 테이블 만들기 --
+CREATE TABLE products(
+	product_id int(4) AUTO_INCREMENT PRIMARY KEY, -- AUTO_INCREMENT: 자동 증가 --
+	product_price int(4) comment '물품가', -- productPrice: 카멜케이스 표기법. sql은 대소문자 구분이 없으므로 언더바를 사용해야 한다 --
+	create_at datetime comment '입고 날짜', 
+	shipment_price int(4) comment '출하가',
+	a_brand_name varchar(30) comment 'A 브랜드명',
+	b_brand_name varchar(30) comment 'B 브랜드명',
+	c_brand_name varchar(30) comment 'C 브랜드명'
+);
+
+-- 상품 테이블에 데이터 넣기 --
+INSERT INTO products (product_price, create_at, shipment_price, a_brand_name, b_brand_name, c_brand_name) VALUES(3000, now(), 5000, '나이키', '아디다스', '코닥');
+
+-- 테이블 삭제 --
+DROP TABLE products 
+
+
+
+
+CREATE TABLE brand(
+	brand_id int(4) AUTO_INCREMENT PRIMARY KEY,
+	brand_name varchar(30) comment '브랜드명'
+);
+
+CREATE TABLE products(
+	product_id int(4) AUTO_INCREMENT PRIMARY KEY,
+	product_price int(4) comment '물품가',
+	create_at datetime comment '입고 날짜', 
+	shipment_price int(4) comment '출하가',
+	brand_id int(4) comment '브랜드 번호',
+	FOREIGN KEY (brand_id) REFERENCES brand(brand_id) ON DELETE CASCADE
+);
+
+INSERT into brand (brand_name) values("나이키")
+INSERT into brand (brand_name) values("아디다스")
+INSERT into brand (brand_name) values("코닥")
+INSERT into brand (brand_name) values("톰브라운")
+INSERT into brand (brand_name) values("버버리")
+
+INSERT INTO products (product_price, create_at, shipment_price, brand_id) VALUES(5000, now(), 3000, 1);
+INSERT INTO products (product_price, create_at, shipment_price, brand_id) VALUES(6000, now(), 4000, 2);
+INSERT INTO products (product_price, create_at, shipment_price, brand_id) VALUES(7000, now(), 5000, 3);
+INSERT INTO products (product_price, create_at, shipment_price, brand_id) VALUES(8000, now(), 6000, 4);
+INSERT INTO products (product_price, create_at, shipment_price, brand_id) VALUES(9000, now(), 7000, 5);
+
+SELECT product_price AS "물품가", shipment_price AS "출하가", create_at AS "입고날짜", brand_name AS "브랜드명" FROM products AS p INNER JOIN brand AS b ON p.brand_id = b.brand_id ORDER BY create_at DESC 
+
+
+
+-- 1018 --
+
+-- 부모 테이블에서 자식 테이블이 부모값을 포함한 경우, 부모값(외래키 값)이 포함된 행은 지울 수 없음
+DELETE FROM dept WHERE deptno = 60
+INSERT INTO dept(deptno, dname, loc) values(60, "디자인팀", "계룡")
+
+-- 이미 관계가 있는 요소들을 지우기 위한 방법들
+-- 1. ON DELETE CASCADE: 부모 테이블의 데이터를 지우면 자식 테이블에 있는 데이터 삭제
+-- 2. ON DELETE SET NULL: 부모 테이블의 데이터를 지우면 자식 테이블에 있는 데이터 NULL
+-- 3. ON DELETE NO ACTION: 부모 테이블의 데이터를 지우면 자식 테이블에 있는 데이터 생존
+-- 4. ON DELETE SET DEFAULT: 부모 테이블의 데이터를 지우면 자식 테이블에 있는 데이터 DEFAULT로 변경
+-- 5. ON DELETE RESTRICT(기본값): 부모 테이블의 데이터를 자식 테이블이 사용중이면 부모 테이블 데이터 삭제 불가
+-- * CASCADE: 자식테이블에 설정. > ex. FOREIGN KEY (brand_id) REFERENCES brand(brand_id) ON DELETE CASCADE
+
+DELETE FROM brand WHERE brand_id = 3
+
+
+
+
+
+
+-- ================================================================================================ --
+CREATE TABLE wallet (
+	wallet_seq int AUTO_INCREMENT PRIMARY KEY, 
+	member_seq int NOT NULL, 
+	now_money int NOT NULL, 
+	used int NOT NULL, 
+	mypoint int NOT NULL, 
+	detail varchar(255) NOT NULL
+);
+
+alter TABLE MEMBER ADD COLUMN money int DEFAULT 0;
+alter TABLE MEMBER ADD COLUMN allergy varchar(255);
+alter TABLE MEMBER DROP COLUMN money;
+
+CREATE TABLE food (
+	food_seq int AUTO_INCREMENT PRIMARY KEY, 
+	food_name varchar(50) NOT NULL,
+	cost int NOT NULL, 
+	cook_time int NOT NULL, 
+	cal int NOT NULL, 
+	allergy varchar(255) NOT NULL,
+	order_quantity int NOT NULL
+);
+
+alter TABLE MEMBER ADD COLUMN money int DEFAULT 0;
+alter TABLE MEMBER DROP COLUMN money;
+
+INSERT INTO food(food_name, cost, cook_time, cal, allergy, order_quantity) values('거절', 100, 0, 0, '없음', 0)
+INSERT INTO food(food_name, cost, cook_time, cal, allergy, order_quantity) values('닭볶음탕', 12000, 100, 1000, '닭고기', 0)
+INSERT INTO food(food_name, cost, cook_time, cal, allergy, order_quantity) values('코코볼', 2500, 5, 250, '우유,초콜릿,계란,밀', 0)
+INSERT INTO food(food_name, cost, cook_time, cal, allergy, order_quantity) values('보쌈', 20000, 120, 800, '돼지고기', 0)
+INSERT INTO food(food_name, cost, cook_time, cal, allergy, order_quantity) values('조개찜', 15000, 60, 900, '어패류', 0)
+
+INSERT INTO food(food_name, cost, cook_time, cal, allergy, order_quantity) values('불고기', 8000, 20, 800, '쇠고기,밀,대두', 0)
+INSERT INTO food(food_name, cost, cook_time, cal, allergy, order_quantity) values('건빵후레이크', 1000, 10, 300, '우유,밀,대두', 0)
+INSERT INTO food(food_name, cost, cook_time, cal, allergy, order_quantity) values('김치국', 3200, 30, 540, '없음', 0)
+INSERT INTO food(food_name, cost, cook_time, cal, allergy, order_quantity) values('연어초밥', 5000, 15, 600, '생선', 0)
+INSERT INTO food(food_name, cost, cook_time, cal, allergy, order_quantity) values('열라면', 30000, 5, 600, '밀,대두,돼지고기', 0)
+
+INSERT INTO food(food_name, cost, cook_time, cal, allergy, order_quantity) values('순두부찌개', 5000, 40, 800, '밀,대두', 0)
+INSERT INTO food(food_name, cost, cook_time, cal, allergy, order_quantity) values('불족발', 23000, 140, 1000, '밀,대두,돼지고기', 0)
+INSERT INTO food(food_name, cost, cook_time, cal, allergy, order_quantity) values('당당치킨', 6000, 30, 900, '잣,밀,닭고기', 0)
+INSERT INTO food(food_name, cost, cook_time, cal, allergy, order_quantity) values('낙곱새', 8000, 60, 800, '어패류, 생선, 돼지고기, 밀, 대두, 우유', 0 )
+INSERT INTO food(food_name, cost, cook_time, cal, allergy, order_quantity) values('까르보나라', 6000, 20, 700, '밀,대두,우유,유제품', 0)
+
+INSERT INTO food(food_name, cost, cook_time, cal, allergy, order_quantity) values('마라탕', 8000, 30, 1200, '밀,대두,우유,유제품,쇠고기,돼지고기,어패류,생선,새우', 0)
+INSERT INTO food(food_name, cost, cook_time, cal, allergy, order_quantity) values('부대찌개', 6000, 40, 900, '밀,대두,우유,유제품,돼지고기,생선', 0)
+
+
+CREATE TABLE order_list(
+	order_seq int AUTO_INCREMENT PRIMARY KEY,
+	food_name varchar(255) NOT NULL,
+	an_order varchar(50) NOT NULL,
+	order_price int comment "주문금액",
+	delivery_complete int(1) DEFAULT 0,
+	memo varchar(255) comment '특이사항'
+);
+
+CREATE TABLE venture(
+	num int AUTO_INCREMENT PRIMARY KEY,
+	company varchar(255) comment '업체명',
+	addr varchar(255) comment '주소',
+	category varchar(255) comment '업종분류',
+	business_name varchar(255) comment '업종명',
+	product varchar(255) comment '주생산품'
+);
+
+DROP TABLE users 
+
+SELECT * FROM venture INNER JOIN  WHERE category = '도소매업            ' OR category = '정보처리, S/W' 
+
+SELECT emp.ename, emp.hiredate, dept.dname FROM emp INNER JOIN dept ON emp.deptno = dept.deptno WHERE emp.deptno = 10
+
+
+CREATE TABLE users(
+	id varchar(50) comment '유저 아이디',
+	pw varchar(200) comment '유저 비밀번호',
+	name varchar(30) comment '유저 이름'
+);
+
+SELECT count(*)  FROM users WHERE id='idden' AND pw='idden4632'
+
+SELECT pw FROM users
+
+
+
+-- 테이블 만들기(이클립스에서: 실행하지 말 것)  >>  이거 안되서 그냥 sql로 테이블 만들었음 	
+CREATE TABLE board(
+	board_no int(5) AUTO_INCREMENT PRIMARY KEY comment '게시판 번호',
+	title varchar(50) comment '게시판 제목',
+	contents varchar(300) comment '게시판 내용',
+	writer varchar(30) comment '작성자',
+	create_at datetime DEFAULT CURRENT_TIMESTAMP comment '작성날짜',
+	board_count int(5) DEFAULT 0 comment '조회 수'
+)
+
+
+
+INSERT INTO dw_member (id, age, name) VALUES(7, 150, "andy")
+UPDATE dw_member SET name  = "박쌤", age = 33 WHERE id = 12;
+DELETE FROM dw_member WHERE id=10
+
+DROP TABLE dw_dept
+DROP TABLE dw_member  
+
+INSERT INTO dw_dept(dept_id, dname) VALUES(2, '행정부')
+INSERT INTO dw_member(id, age, name, dept_id) VALUES(1, 20, '전쌤', 1)
+INSERT INTO dw_member(id, age, name, dept_id) VALUES(2, 20, '현쌤', 1)
+
+
+SELECT * FROM dw_member 
+DROP TABLE adopter 
