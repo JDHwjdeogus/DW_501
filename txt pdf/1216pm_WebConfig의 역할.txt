@@ -1,0 +1,12 @@
+		RestController
+	     (요청)> /login
+	||
+	|| __(요청)> /api/v1/emp
+	|| |
+AJAX >>	|| |__(요청)>/api/v1/dept
+	|| |
+	|| |__(요청)>/api/v1/emp/{empno}
+	||
+	interciptor
+interciptor 역할: AJAX의 데이터 요청을 가로채서 기존의 페이지로 돌려보내거나 요청 수리하기
+다만, /login 페이지는 인터셉트 대상에서 제외하는데, 이런 페이지들을 결정하는 것이 WebConfig의 역할이다.

@@ -19,32 +19,25 @@
         var pw = $("#userPw").val();
             
             var jsonData = {
-                    "userId" : id,
-                    "userPassword" : pw
-                }
+                "userId" : id,
+                "userPassword" : pw
+            }
                     
                 
                 // AJAX 호출
-                $.ajax({
-                    url: '/api/v1/login',
-                    type:'POST',
-                    contentType: 'application/json',
-                    data: JSON.stringify(jsonData),
-                    dataType: 'json',
-                    success: function(response){
-                        
-                        console.log("^^... " + response);
-                        
-                        if(response.user){
-                            alert(response.name + "님, 환영합니다.");
-                            location.href = '/mpage';
-                        }
-                        else{
-                            alert("아이디 혹은 비밀번호가 틀렸습니다.");
-                        }
-                        
+            $.ajax({
+                url: '/api/v1/login',
+                type:'POST',
+                contentType: 'application/json',
+                data: JSON.stringify(jsonData),
+                datType: 'json',
+                success: function(response){
+                    if(response){
+                        location.href = '/mpage';
                     }
-                });
+                    
+                }
+            });
 
     }
 </script>
