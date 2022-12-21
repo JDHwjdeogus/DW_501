@@ -6,7 +6,7 @@ import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 // Config: 설정 || Web Config: 웹 설정
-@Configuration
+// @Configuration
 public class WebConfig implements WebMvcConfigurer{
     @Autowired
     Interceptor interceptor;    // 만들어둔 Interceptor 파일 불러오기

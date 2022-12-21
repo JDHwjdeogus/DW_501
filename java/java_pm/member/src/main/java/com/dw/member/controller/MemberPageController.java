@@ -12,8 +12,19 @@ public class MemberPageController {
 		return "members";
 	}
 
+	@GetMapping("/login_test")
+	public String loadLoginTestPage(){
+		return "login_test";
+	}
+
+
 	@GetMapping("/login")
 	public String loadLoginPage(){
 		return "login";
+	}
+
+	@GetMapping(value = {"/", "/home"})
+	public String loadHomePage() {
+		return "members";
 	}
 }
