@@ -68,6 +68,8 @@ public class MemberController {
 
 
 
+
+
 	// json으로 보낼 때 @RequestBody로 받는다
 	@PostMapping("/api/v1/login-test")
 	public boolean callLogin(@RequestBody Member member, HttpServletRequest request){
