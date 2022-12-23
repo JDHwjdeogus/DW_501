@@ -1,0 +1,5 @@
+java spring boot gradle == react npm
+java spring boot maven == react yarn
+현재 npm이 제일 많이 쓰임.
+yarn은 버전 충돌이 자주 일어남.
+자바는 npm yarn 다 가능한데 react가 안됨 
