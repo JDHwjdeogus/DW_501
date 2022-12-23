@@ -13,9 +13,11 @@
 from urllib.request import urlopen
 import bs4
 
-# url = "https://www.naver.com"
-# html = urlopen(url)
-# print(html.read())
+'''
+url = "https://www.naver.com"
+html = urlopen(url)
+print(html.read())
+'''
 
 '''
 test_html = "<html><head></head><body><div>아아아아아아아아</div><p>안아줘요</p></body></html>"
@@ -70,13 +72,36 @@ print(ul)
 print(ul['class'])
 '''
 
-url = "https://www.naver.com"
+url = "https://comic.naver.com/webtoon/weekday"
+
 html = urlopen(url)
 html = html.read()
 bsp = bs4.BeautifulSoup(html, "html.parser")
+
+'''
 temp = bsp.findAll("strong", {"class", "current"})
 print(temp[0].text)
 for t in temp:
     if "현재기온" in t:
         print(t.text)
 # print(html)
+
+menu = bsp.findAll("a", {"class":"nav"})
+for i in menu:
+    print(i.text)
+'''
+'''
+news_ul = bsp.find("ul", {"class", "type02"})
+news_li = news_ul.findAll("li")
+for li in news_li:
+    strong = li.find("strong")
+    print(strong.text)
+'''
+'''
+webtoon = bsp.findAll("div", {"class", "col_inner"})
+webtoonThu = webtoon[3].find("ul")
+li = webtoonThu.findAll("li")
+for i in li:
+    title = i.find("a", {"class", "title"})
+    print(title.text)
+'''
