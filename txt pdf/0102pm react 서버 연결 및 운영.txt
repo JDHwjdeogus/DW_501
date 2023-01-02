@@ -1,0 +1,7 @@
+react 설치 (주: 터미널에 입력하시오)
+npm i --save-dev axios
+>> 
+"devDependencies": {
+	"axios": "^1.2.2"
+}
+가 package.json에 생성된다.
