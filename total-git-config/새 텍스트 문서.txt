@@ -1,0 +1,2 @@
+git config --global pull.rebase true
+로컬 저장소에 변경 내용이 있다면 커밋 부터 하고 pull받을 수 있게 설정하는 명령어
