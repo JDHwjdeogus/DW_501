@@ -1,5 +1,21 @@
+application:
+  version: v0.0.1
+  title: Spring JPA
+
+spring:
+  profiles:
+    active: dev
+
+aws:
+  s3:
+    access-id: YOUR_ID ## new_user_credentials.csv 파일을 확인하여 수정
+    access-pw: YOUR_PW ## new_user_credentials.csv 파일을 확인하여 수정
+    bucket: idden.io
+---
+## 개발모드
 ## \ub370\uc774\ud130\ubca0\uc774\uc2a4 \uc124\uc815
 spring:
+  profiles: dev
   datasource:
      driver-class-name: com.mysql.cj.jdbc.Driver
      url: jdbc:mysql://localhost:3306/dw_501
@@ -14,4 +30,20 @@ spring:
      properties:
        hibernate:
           format_sql: true
+
+---
+## 운영모드
+spring:
+  profiles: env
+  datasource:
+     driver-class-name: com.mysql.cj.jdbc.Driver
+     url: jdbc:mysql://localhost:3306/dw_501
+     username: root
+     password: 1234
+  jpa:
+     database: mysql
+     generate-ddl: true
+     hibernate:
+       ddl-auto: none
+     show-sql: false
 

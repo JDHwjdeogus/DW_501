@@ -27,4 +27,9 @@ public class MemberPageController {
 	public String loadHomePage() {
 		return "members";
 	}
+
+	@GetMapping("/upload")
+	public String loadUploadPage() {
+		return "upload";
+	}
 }
